@@ -1,2 +1,2 @@
-# ret2eax.github.io
-Copyright © ret2eax 
+# https://ret2eax.github.io (GitHub Pages)
+© ret2eax 
