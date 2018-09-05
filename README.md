@@ -1,4 +1,4 @@
-# GitHub Pages - Ret2eax's Zine (Blog)\n
+# GitHub Pages - Ret2eax's Zine (Blog)
 
 https://ret2eax.github.io/
 
