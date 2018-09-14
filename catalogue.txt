@@ -12,7 +12,7 @@
     \_ 0x02d: <a href="#">Bounty Tale: Hacking a Global Mobile Telecommunications Company</a> [SOON]
     \_ 0x02e: <a href="#">Bounty Tale: Hacking a Bank for Fun &amp; Profit, The Legal Way</a> [SOON]
     \_ 0x02f: <a href="posts/swf.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a><br>
-0x03: SECURITY RESEARCH &amp; 0DAY EXPLOIT ADVISORIES
+0x03: SECURITY RESEARCH &amp; EXPLOIT ADVISORIES
     \_ 0x03a: <a href="#" target="_blank">CVE-2017-12439 Security Advisory</a>
     \_ 0x03b: <a href="#" target="_blank">CVE-2018-16995 Security Advisory</a>
     \_ 0x03c: <a href="#" target="_blank">CVE-2018-16996 Security Advisory</a>
@@ -20,6 +20,6 @@
     \_ 0x03e: <a href="#" target="_blank">CVE-2018-16998 Security Advisory</a>
     \_ 0x03f: <a href="#" target="_blank">Socusoft Local Buffer Overflow Exploit Advisory</a>
     \_ 0x03g: <a href="#"> MS & EMV Chip Credit Card Exploitation (Cloning & MS PIN Bypass)</a> [SOON]<br> 
-0x04: HACK CHALLENGE INDEX: TEST YOUR SKILLS
+0x04: HACK CHALLENGES INDEX: TEST YOUR SKILLS
     \_  NULL: <a href="#">[COMING SOON]</a><br>
 <center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax" target="_blank">h1</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
