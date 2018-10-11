@@ -4,7 +4,7 @@
 <span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> cat catalogue.txt<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
-    \_ 0x01a: <a href="posts/ecdh.html" target="_blank"> CRYPTO 101 - The Elliptic Curve Diffie Hellman Protocol and Its Mathematical DLP </a><br>
+    \_ 0x01a: <a href="posts/ecdh.html" target="_blank"> CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP </a><br>
 0x02: WEB SECURITY: POST REMEDIATION
     \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed (AU Dept. of Defense)</a>
     \_ 0x02b: <a href="#">Abusing a Flaw within Facebook's Domain</a> [SOON]
