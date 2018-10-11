@@ -4,7 +4,7 @@
 <span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> cat catalogue.txt<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
-    \_ 0x01a: <a href="posts/ecdh.html" target="_blank">CRYPTO 101 - Understanding the Elliptic Curve Diffie Hellman Protocol</a><br>
+    \_ 0x01a: <a href="posts/ecdh.html" target="_blank"> CRYPTO 101 - Understanding the Elliptic Curve Diffie Hellman Cryptographic Protocol and It's Mathematical Discrete Logarithm Problem</a><br>
 0x02: WEB SECURITY: POST REMEDIATION
     \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed (AU Dept. of Defense)</a>
     \_ 0x02b: <a href="#">Abusing a Flaw within Facebook's Domain</a> [SOON]
@@ -19,9 +19,9 @@
     \_ 0x03d: <a href="#">CVE-2018-16997 Security Advisory</a> [SOON]
     \_ 0x03e: <a href="#">CVE-2018-16998 Security Advisory</a> [SOON]
     \_ 0x03f: <a href="#" target="_blank">Socusoft Local Buffer Overflow Exploit Advisory</a>
-    \_ 0x03g: <a href="#"> MS & EMV Chip Credit Card Exploitation (Cloning & MS PIN Bypass)</a> [SOON]<br>
-    \_ 0x03h: <a href="#"> RF Rolling Code Algorithims and Keyless Ignition FOBs </a> [SOON]<br>
-    \_ 0x03i: <a href="#"> Information Security pertaining to GSM and CDMA networks</a> [SOON]<br>
+    \_ 0x03g: <a href="#"> MS & EMV Chip Credit Card Exploitation (Cloning & MS PIN Bypass)</a> [SOON]
+    \_ 0x03h: <a href="#"> RF Rolling Code Algorithims and Keyless Ignition FOBs </a> [SOON]
+    \_ 0x03i: <a href="#"> Information Security pertaining to GSM and CDMA networks</a> [SOON]
     \_ 0x03j: <a href="#"> Open-Source BTS GSM 2G Network Spoofing and Interception</a> [SOON]<br>
 0x04: HACK CHALLENGES INDEX: TEST YOUR SKILLS
     \_  NULL: <a href="#">[COMING SOON]</a><br>
