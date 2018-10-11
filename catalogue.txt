@@ -19,7 +19,10 @@
     \_ 0x03d: <a href="#">CVE-2018-16997 Security Advisory</a> [SOON]
     \_ 0x03e: <a href="#">CVE-2018-16998 Security Advisory</a> [SOON]
     \_ 0x03f: <a href="#" target="_blank">Socusoft Local Buffer Overflow Exploit Advisory</a>
-    \_ 0x03g: <a href="#"> MS & EMV Chip Credit Card Exploitation (Cloning & MS PIN Bypass)</a> [SOON]<br> 
+    \_ 0x03g: <a href="#"> MS & EMV Chip Credit Card Exploitation (Cloning & MS PIN Bypass)</a> [SOON]<br>
+    \_ 0x03h: <a href="#"> RF Rolling Code Algorithims and Keyless Ignition FOBs </a> [SOON]<br>
+    \_ 0x03i: <a href="#"> Information Security pertaining to GSM and CDMA networks</a> [SOON]<br>
+    \_ 0x03j: <a href="#"> Open-Source BTS GSM 2G Network Spoofing and Interception</a> [SOON]<br>
 0x04: HACK CHALLENGES INDEX: TEST YOUR SKILLS
     \_  NULL: <a href="#">[COMING SOON]</a><br>
-<center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax" target="_blank">h1</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
+<center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax" target="_blank">h1</a> || <a href="https://www.bugcrowd.com/ret2eax" target="_blank">bugcrowd</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
