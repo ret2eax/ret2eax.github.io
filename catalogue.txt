@@ -17,7 +17,7 @@
     \_ 0x03a: <a href="/posts/cve-2017-12439.html" target="_blank">CVE-2017-12439 Security Advisory</a>
     \_ 0x03b: <a href="#">CVE Block (CVE-2018-16995 to CVE-2018-16998) Security Advisory</a> [SOON]
     \_ 0x03c: <a href="posts/socusoft-bof.html" target="_blank">Socusoft Local Buffer Overflow Exploit Advisory</a>
-    \_ 0x03d: <a href="#"> MS & EMV Chip Credit Card Exploitation (Cloning & MS/EMV Chip PIN Bypass)</a> [SOON]
+    \_ 0x03d: <a href="#"> MS & EMV Chip Credit Card Exploitation (Cloning & PIN Bypass)</a> [SOON]
     \_ 0x03e: <a href="#"> RF Rolling Code Algorithims and Keyless Ignition FOBs </a> [SOON]
     \_ 0x03f: <a href="#"> Information Security pertaining to GSM and CDMA networks</a> [SOON]
     \_ 0x03g: <a href="#"> Open-Source BTS GSM 2G Network Spoofing and Interception</a> [SOON]
