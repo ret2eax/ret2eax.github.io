@@ -2,7 +2,7 @@
 <center>((((&lambda;f.(&lambda;x.(fx)))(&lambda;y.y))(&lambda;z.z)))</center>
 <center><img src="https://i.imgur.com/kbGNyfD.png height="100" width="100"></img></center>
 <span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> cat ~/e-zine.txt<br/>
-<span id="a">|-[ SELECT A POINTER ]----------------------------------------------------------------|
+|-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
     \_ 0x01a: <a href="posts/ecdh.html" target="_blank">CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</a>
     \_ 0x01b: <a href="#"> Reversing low entropy P/RNG algorithms (financial services)</a> [SOON]<br>
@@ -25,4 +25,4 @@
     \_ 0x03h: <a href="#"> Extracting secrets from public datasets using regular expression</a> [SOON]<br>
 0x04: HACK CHALLENGES INDEX: TEST YOUR SKILLS
     \_  NULL: <a href="#">[COMING SOON]</a><br>
-<center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax/thanks" target="_blank">h1</a> || <a href="https://www.bugcrowd.com/ret2eax" target="_blank">bugcrowd</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer></span><br>
+<center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax/thanks" target="_blank">h1</a> || <a href="https://www.bugcrowd.com/ret2eax" target="_blank">bugcrowd</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
