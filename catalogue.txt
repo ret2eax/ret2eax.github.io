@@ -2,14 +2,14 @@
 <center>((((&lambda;f.(&lambda;x.(fx)))(&lambda;y.y))(&lambda;z.z)))</center>
 <center><img src="https://i.imgur.com/kbGNyfD.png height="100" width="100"></img></center>
 <span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> cat ~/e-zine.txt<br/>
-|-[ SELECT A POINTER ]----------------------------------------------------------------|
+<span id="a">|-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
-    \_ 0x01a: <a href="posts/ecdh.html" target="_blank"><span id="a">CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</a></span>
+    \_ 0x01a: <a href="posts/ecdh.html" target="_blank">CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</a>
     \_ 0x01b: <a href="#"> Reversing low entropy P/RNG algorithms (financial services)</a> [SOON]<br>
 0x02: WEB SECURITY: POST REMEDIATION
-    <span id="a">\_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed (AU Dept. of Defense)</a></span>
-    \_ 0x02b: <span id="a"><a href="#">Abusing a Flaw within Facebook's Domain</a></span> [SOON]
-    \_ 0x02c: <span id="b"><a href="#">Bounty Tale: How I Bypassed Uber's Rate Limit (Authentication Scheme)</a></span> [SOON]
+    \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed (AU Dept. of Defense)</a>
+    \_ 0x02b: <a href="#">Abusing a Flaw within Facebook's Domain</a>[SOON]
+    \_ 0x02c: <a href="#">Bounty Tale: How I Bypassed Uber's Rate Limit (Authentication Scheme)</a> [SOON]
     \_ 0x02d: <a href="#">Bounty Tale: Hacking a Global Mobile Telecommunications Company</a> [SOON]
     \_ 0x02e: <a href="#">Bounty Tale: Hacking a Bank for Fun &amp; Profit, The Legal Way</a> [SOON]
     \_ 0x02f: <a href="posts/swf.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a><br>
@@ -25,4 +25,4 @@
     \_ 0x03h: <a href="#"> Extracting secrets from public datasets using regular expression</a> [SOON]<br>
 0x04: HACK CHALLENGES INDEX: TEST YOUR SKILLS
     \_  NULL: <a href="#">[COMING SOON]</a><br>
-<center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax/thanks" target="_blank">h1</a> || <a href="https://www.bugcrowd.com/ret2eax" target="_blank">bugcrowd</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer><br>
+<center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax/thanks" target="_blank">h1</a> || <a href="https://www.bugcrowd.com/ret2eax" target="_blank">bugcrowd</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer></span><br>
