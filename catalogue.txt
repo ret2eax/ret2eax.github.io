@@ -5,7 +5,7 @@
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
     \_ 0x01a: <a href="posts/ecdh.html" target="_blank"> CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP </a><br>
-    \_ 0x01b: <a href="#"> Reversing low entropy deterministic P/RNG algorithms (financial services)</a> [SOON]<br>
+    \_ 0x01b: <a href="#"> Reversing low entropy P/RNG algorithms (financial services)</a> [SOON]<br>
 0x02: WEB SECURITY: POST REMEDIATION
     \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed (AU Dept. of Defense)</a>
     \_ 0x02b: <span id="a"><a href="#">Abusing a Flaw within Facebook's Domain</a></span> [SOON]
@@ -20,9 +20,9 @@
     \_ 0x03d: <a href="#"> MS & EMV Chip Credit Card Exploitation (Cloning & MS/EMV Chip PIN Bypass)</a> [SOON]
     \_ 0x03e: <a href="#"> RF Rolling Code Algorithims and Keyless Ignition FOBs </a> [SOON]
     \_ 0x03f: <a href="#"> Information Security pertaining to GSM and CDMA networks</a> [SOON]
-    \_ 0x03g: <a href="#"> Open-Source BTS GSM 2G Network Spoofing and Interception</a> [SOON]<br>
-    \_ 0x03h: <a href="#"> ITP1 Gateways and SDR Signalling System No. 7 (SS7) Access</a> [SOON]<br>
+    \_ 0x03g: <a href="#"> Open-Source BTS GSM 2G Network Spoofing and Interception</a> [SOON]
+    \_ 0x03h: <a href="#"> ITP1 Gateways and SDR Signalling System No. 7 (SS7) Access</a> [SOON]
     \_ 0x03h: <a href="#"> Extracting secrets from public datasets using regular expression</a> [SOON]<br>
 0x04: HACK CHALLENGES INDEX: TEST YOUR SKILLS
     \_  NULL: <a href="#">[COMING SOON]</a><br>
-<center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax/thanks" target="_blank">h1</a> || <a href="https://www.bugcrowd.com/ret2eax" target="_blank">bugcrowd</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
+<center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax/thanks" target="_blank">h1</a> || <a href="https://www.bugcrowd.com/ret2eax" target="_blank">bugcrowd</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer><br>
