@@ -22,6 +22,7 @@
     \_ 0x03f: <a href="#"> Information Security pertaining to GSM and CDMA networks</a> [SOON]
     \_ 0x03g: <a href="#"> Open-Source BTS GSM 2G Network Spoofing and Interception</a> [SOON]<br>
     \_ 0x03h: <a href="#"> Gateway Access to Software Defined Radio (SDR) Signalling System No. 7 (SS7)</a> [SOON]<br>
+    \_ 0x03h: <a href="#"> Extracting secrets from public datasets using regular expression</a> [SOON]<br>
 0x04: HACK CHALLENGES INDEX: TEST YOUR SKILLS
     \_  NULL: <a href="#">[COMING SOON]</a><br>
 <center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax/thanks" target="_blank">h1</a> || <a href="https://www.bugcrowd.com/ret2eax" target="_blank">bugcrowd</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
