@@ -7,7 +7,7 @@
     \_ 0x01a: <a href="posts/ecdh.html" target="_blank"><span id="a">CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</span></a><br>
     \_ 0x01b: <a href="#"> Reversing low entropy P/RNG algorithms (financial services)</a> [SOON]<br>
 0x02: WEB SECURITY: POST REMEDIATION
-    \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed (AU Dept. of Defense)</a>
+    <span id="a">\_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed (AU Dept. of Defense)</a></span>
     \_ 0x02b: <span id="a"><a href="#">Abusing a Flaw within Facebook's Domain</a></span> [SOON]
     \_ 0x02c: <span id="b"><a href="#">Bounty Tale: How I Bypassed Uber's Rate Limit (Authentication Scheme)</a></span> [SOON]
     \_ 0x02d: <a href="#">Bounty Tale: Hacking a Global Mobile Telecommunications Company</a> [SOON]
