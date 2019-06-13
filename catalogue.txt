@@ -1,7 +1,7 @@
 <center>ret2eax</center>
 <center>((((&lambda;f.(&lambda;x.(fx)))(&lambda;y.y))(&lambda;z.z)))</center>
 <center><img src="https://i.imgur.com/kbGNyfD.png height="100" width="100"></img></center>
-<span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> cat ~/e-zine.txt<br/>
+<span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> cat .././e-zine.sh<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
     \_ 0x01a: <a href="posts/ecdh.html" target="_blank">CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</a>
@@ -18,7 +18,7 @@
     \_ 0x03b: <a href="#">CVE Block (CVE-2018-16995 to CVE-2018-16998) Security Advisory</a> [SOON]
     \_ 0x03c: <a href="posts/socusoft-bof.html" target="_blank">Socusoft Local Buffer Overflow Exploit Advisory</a>
     \_ 0x03d: <a href="#"> MS & EMV Chip Credit Card Exploitation (Cloning & PIN Bypass)</a> [SOON]
-    \_ 0x03e: <a href="#"> RF Rolling Code Algorithims and Keyless Ignition FOBs </a> [SOON]
+    \_ 0x03e: <a href="#"> RF Rolling Code Algorithms and Keyless Ignition FOBs </a> [SOON]
     \_ 0x03f: <a href="#"> Information Security pertaining to GSM and CDMA networks</a> [SOON]
     \_ 0x03g: <a href="#"> Open-Source BTS GSM 2G Network Spoofing and Interception</a> [SOON]
     \_ 0x03h: <a href="#"> ITP1 Gateways and SDR Signalling System No. 7 (SS7)</a> [SOON]
