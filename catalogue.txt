@@ -1,7 +1,7 @@
 <center>ret2eax</center>
 <center>((((&lambda;f.(&lambda;x.(fx)))(&lambda;y.y))(&lambda;z.z)))</center>
 <center><img src="https://i.imgur.com/kbGNyfD.png height="100" width="100"></img></center>
-<span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> cat .././e-zine.sh<br/>
+<span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> .././e-zine.sh<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
     \_ 0x01a: <a href="posts/ecdh.html" target="_blank">CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</a>
