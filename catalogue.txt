@@ -1,6 +1,6 @@
 <center>ret2eax</center>
 <center>((((&lambda;f.(&lambda;x.(fx)))(&lambda;y.y))(&lambda;z.z)))</center>
-<center><img src="https://i.imgur.com/kbGNyfD.png height="100" width="100"></img></center>
+<center><img src="https://i.imgur.com/kbGNyfD.png height="50" width="50"></img></center>
 <span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> .././e-zine.sh<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
@@ -17,7 +17,7 @@
     \_ 0x03c: <a href="#"> Extracting Secrets from Public Datasets using Regular Expression</a> [SOON]
     \_ 0x03d: <a href="#"> Basic Information Security pertaining to GSM/CDMA Networks</a> [SOON]
     \_ 0x03e: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]
-    \_ 0x03f: <a href="#"> RF Rolling Code Algorithms and Keyless Ignition FOBs </a> [SOON]
+    \_ 0x03f: <a href="#"> RF Rolling Code Algorithms and Keyless Ignition FOBs </a> [SOON]<br>
 0x04: CHALLENGES:
     \_  NULL: <a href="#">[COMING SOON]</a><br>
 <center><footer><< <a href="https://twitter.com/ret2eax" target="_blank">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">obb</a> || <a href="https://www.hackerone.com/ret2eax/thanks" target="_blank">h1</a> || <a href="https://www.bugcrowd.com/ret2eax" target="_blank">bugcrowd</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
