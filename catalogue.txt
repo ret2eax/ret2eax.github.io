@@ -1,6 +1,6 @@
 <center>ret2eax</center>
 <center>((((&lambda;f.(&lambda;x.(fx)))(&lambda;y.y))(&lambda;z.z)))</center>
-<center><img src="https://i.imgur.com/kbGNyfD.png height="50" width="50"></img></center>
+<center><img src="https://i.imgur.com/kbGNyfD.png height="75" width="75"></img></center>
 <span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> .././e-zine.sh<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
