@@ -4,7 +4,7 @@
 <span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> .././e-zine.sh<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
-    \_ 0x01a: <a href="posts/ecdh.html" target="_blank">CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</a>
+    \_ 0x01a: <a href="posts/ecdh.html" target="_blank">CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</a><br>
 0x02: WEB SECURITY: POST REMEDIATION
     \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed (AU Dept. of Defense)</a>
     \_ 0x02b: <a href="#">Abusing a Flaw within Facebook's Domain</a> [SOON]
@@ -14,7 +14,7 @@
 0x03: SECURITY RESEARCH &amp; EXPLOIT ADVISORIES
     \_ 0x03a: <a href="/posts/cve-2017-12439.html" target="_blank">CVE-2017-12439 Security Advisory</a>
     \_ 0x03b: <a href="#">CVE Block (CVE-2018-16995 to CVE-2018-16998) Security Advisory</a> [SOON]
-    \_ 0x03c: <a href="#"> Extracting Secrets from Public Datasets using Regular Expression</a> [SOON]<br>
+    \_ 0x03c: <a href="#"> Extracting Secrets from Public Datasets using Regular Expression</a> [SOON]
     \_ 0x03d: <a href="#"> Basic Information Security pertaining to GSM/CDMA Networks</a> [SOON]
     \_ 0x03e: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]
     \_ 0x03f: <a href="#"> RF Rolling Code Algorithms and Keyless Ignition FOBs </a> [SOON]
