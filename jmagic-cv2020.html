@@ -1,0 +1,1500 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<title>Jason Magic</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+		<style>
+			/********************************************
+* 	reset from
+* 	http://meyerweb.com/eric/tools/css/reset/
+*******************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/****************
+*	COMMONS
+****************/
+body, html {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 13px;
+    color: #40484f;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.46153846;
+    text-align: left;
+    webkit-text-size-adjust: 100%;
+}
+
+p {
+    display: block;
+    margin-bottom: 1.3em;
+}
+
+a {
+    color: #0095ff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0c65a5;
+    text-decoration: underline;
+}
+
+ul {
+    margin-top: 1rem;
+}
+
+li {
+    list-style-type: square;
+    list-style-position: outside;
+    margin-left: 1.3em;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.67rem;
+}
+
+h3 {
+    font-size: 1.27rem;
+}
+
+em {
+    color: #757575;
+}
+
+blockquote {
+    margin-bottom: 1em;
+}
+
+strong {
+    font-weight: 700;
+}
+
+/* main container */
+#resume {
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* every section wrapper */
+.section {
+    margin-bottom: 1rem;
+}
+
+section .location {
+    margin-right: .5em;
+    color: #606d76;
+    font-weight: 700;
+}
+
+#contact {
+    margin-top: .5rem;
+}
+
+#profiles .item {
+    padding: 0;
+}
+
+#header > #profiles,
+#header > #contact,
+#skills,
+#languages,
+#interests {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+#header > div {
+    line-height: 1.5;
+}
+
+#header > div > div {
+    margin-right: 1.2em;
+}
+
+#header h1.name {
+    font-size: 2.8rem;
+    font-weight: 100;
+    line-height: 100%;
+}
+
+#header h2.label {
+    color: #202931;
+    font-size: 1.47rem;
+    font-weight: 300;
+}
+
+#header .picture {
+    width: 11em;
+    float: right;
+    border-radius: 4px;
+}
+
+.main-summary {
+    background: #f1f8ff;
+    padding: 1.2em 1em;
+    margin-top: 1rem;
+}
+
+.main-summary p {
+    margin: .15em 0 0;
+}
+
+h2.section-title {
+    display: inline-block;
+    background: #fff;
+    padding: 0 1em 0.3em 0;
+    color: #ff6d1f;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    font-size: .9rem;
+}
+
+.section > header {
+    position: relative;
+}
+
+.fa {
+    margin-right: 0.25em;
+}
+
+.section > header::after {
+    position: absolute;
+    left: 0;
+    top: .7em;
+    height: 1px;
+    background: #ccc;
+    content: "";
+    width: 100%;
+    z-index: -100;
+    display: block;
+}
+
+.section.main-summary > section {
+    margin: 0;
+}
+
+.section > section > header {
+    font-size: 1.38rem;
+    position: relative;
+    margin-top: .7em;
+}
+
+.section > section > header:first-of-type {
+    margin: 0;
+}
+
+.section > section > header .space-left {
+    position: absolute;
+    left: -1.56rem;
+    top: 5px;
+    color: #aaa;
+    line-height: 1;
+    opacity: 0;
+}
+
+.position,
+.company,
+.organization,
+.institution,
+.date,
+.area,
+.studyType,
+.title,
+.awarder {
+    display: inline-block;
+}
+
+.position,
+.studyType,
+.area,
+.title,
+.language,
+.name {
+    font-weight: 600;
+}
+
+.company::before,
+.institution::before,
+.organization::before,
+.awarder::before {
+    content: "at "
+}
+
+.company,
+.institution,
+.organization,
+.awarder {
+    color: #606d76;
+    font-weight: 400;
+}
+
+.section header .date {
+    font-size: 1rem;
+    display: block;
+    padding: .1em 0;
+    font-weight: 600;
+}
+
+ul.keywords,
+ul.courses {
+    margin-top: .5em;
+}
+
+ul.keywords li,
+ul.courses li {
+    display: inline-block;
+    margin: 2px 2px 2px 0;
+    padding: 4px 5px 5px;
+    font-size: .9rem;
+    line-height: 1;
+    text-transform: lowercase;
+    color: #3e6d8e;
+    background-color: #dfeaf1;
+    border: 0 solid #dfeaf1;
+    white-space: nowrap;
+}
+
+ul.keywords li:hover,
+ul.courses li:hover {
+    background: #dfeaf0;
+}
+
+.item {
+    padding: .5em 0;
+}
+
+.gpa {
+    padding-bottom: .5em;
+}
+
+.fa.social {
+    font-size: 1.1em;
+}
+
+/* Social Media Brand Colors */
+.google-plus {
+    color: #dd4b39;
+}
+
+.tumblr {
+    color: #32506d;
+}
+
+.foursquare {
+    color: #0072b1;
+}
+
+.facebook {
+    color: #3b5998;
+}
+
+.linkedin {
+    color: #007bb6;
+}
+
+.pinterest {
+    color: #cb2027;
+}
+
+.dribbble {
+    color: #ea4c89;
+}
+
+.instagram {
+    color: #517fa4;
+}
+
+.twitter {
+    color: #00aced;
+}
+
+.soundcloud {
+    color: #ff3a00;
+}
+
+.wordpress {
+    color: #21759b;
+}
+
+.youtube {
+    color: #bb0000;
+}
+
+.github {
+    color: #171515;
+}
+
+.stack-overflow {
+    color: #828386;
+    position: relative;
+}
+
+.flickr {
+    color: #ff0084;
+}
+
+.stack-overflow::after {
+    position: absolute;
+    left: 0;
+    content: '\f16c';
+    color: #f68a1f;
+    overflow: hidden;
+    height: 40%;
+}
+
+#languages .item,
+#skills .item,
+#interests .item {
+    width: 15em;
+    padding: 0 .5em .5em 0;
+    border-bottom: none;
+}
+
+#skills .item {
+    width: 16em;
+}
+
+#skills .item .keywords {
+    width: 15em;
+}
+
+/* Skill chart */
+.level {
+    margin-bottom: .5em;
+}
+
+.level .bar {
+    border: 1px solid #ddd;
+    display: block;
+    width: 10em;
+    height: 5px;
+    position: relative;
+}
+
+.level .bar::after {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    background: black;
+    height: 5px;
+}
+
+.level.beginner .bar::after {
+    background: #EB5F51;
+    width: 2.5em;
+}
+
+.level.intermediate .bar::after {
+    background: #ffdf1f;
+    width: 5em;
+}
+
+.level.advanced .bar::after,
+.level.fluent .bar::after {
+    background: #5CB85C;
+    width: 7.5em;
+}
+
+.level.master .bar::after,
+.level.native.speaker .bar::after {
+    background: #59C596;
+    width: 10em;
+}
+
+#references .item {
+    padding-left: .5em;
+    border-left: 5px solid #ff6d1f;
+}
+
+/******************
+*	HELPER CLASSES
+******************/
+
+.clear::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.display {
+    display: block;
+    opacity: 1 !important;
+}
+
+.margin1 {
+    margin-bottom: .5rem;
+}
+
+/****************
+*		TABLET
+****************/
+@media screen and (min-width: 602px) {
+    #resume {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/****************
+*		LAPTOP
+****************/
+@media screen and (min-width: 1025px) {
+    li {
+        margin-left: 1.5em;
+    }
+
+    #resume {
+        width: 820px;
+        margin: 2rem auto;
+        opacity: 0;
+        -webkit-transition: opacity .5s ease-in-out;
+        transition: opacity .5s ease-in-out;
+    }
+
+    .section > section > header .space-left {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .section > section {
+        margin-left: 1.67rem;
+    }
+
+    .company::before,
+    .institution::before,
+    .organization::before,
+    .awarder::before {
+        content: "| ";
+    }
+
+    .header-left {
+        float: left;
+        width: 70%;
+        word-break: normal;
+    }
+
+    .section header .date {
+        float: right;
+        padding: .2em;
+    }
+
+    .display {
+        display: none;
+    }
+
+    .display:not(.none) {
+        display: block;
+    }
+
+}
+
+@media print {
+
+    #resume {
+        margin: 0;
+        padding: 0;
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        line-height: 1.3;
+        /*font-family: Arial, Georgia, "Lucida Grande", sans-serif;*/
+    }
+
+    @page {
+        margin: 1cm 1.4cm;
+    }
+
+    .item-count {
+        display: none;
+    }
+
+    .company::before,
+    .institution::before,
+    .organization::before,
+    .awarder::before {
+        content: "at ";
+    }
+
+    .main-summary {
+        padding: 2rem 0;
+    }
+
+    .section {
+        margin: .8rem 0;
+        padding: 0;
+    }
+
+    .section header {
+        padding-bottom: .15rem;
+    }
+
+    .section .location {
+        padding-bottom: .15rem;
+    }
+    .stack-overflow::after {
+        content: "";
+    }
+
+    .fa.social {
+        color: #828386;
+    }
+
+    ul {
+        margin-top: .4em;
+    }
+
+    ul, li {
+        padding: 0;
+    }
+
+    ul.keywords li,
+    ul.courses li {
+        margin: 0;
+        padding: 0;
+        font-size: .8rem;
+        text-transform: lowercase;
+    }
+
+    ul.keywords li::after,
+    ul.courses li::after {
+        padding: 0 0 0 .1rem;
+        content: " |";
+    }
+
+    ul.keywords::before,
+    ul.courses::before {
+        font-size: .8rem;
+        font-weight: 600;
+    }
+
+    ul.keywords::before {
+        content: "Skills acquired: ";
+    }
+
+    #skills .keywords::before {
+        content: '';
+    }
+
+    .section p {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.courses::before {
+        content: "Major courses: ";
+    }
+
+    ul.keywords li:last-of-type::after,
+    ul.courses li:last-of-type::after {
+        content: "";
+    }
+
+    .level em {
+        font-style: normal;
+        padding: .1em 0;
+    }
+
+    .level .bar {
+        display: none;
+    }
+
+    #profiles .item {
+        padding: 0;
+    }
+
+    .item.display {
+        display: block;
+        opacity: 1 !important;
+    }
+}
+
+		</style>
+	</head>
+
+	<body>
+		<div id="resume">
+				<header id="header" class="clear">
+						<div>
+							<h1 class="name">Jason Magic</h1>
+							<h2 class="label">{&#x27;&#x27;Security Consultant&#x27;&#x27;, &#x27;&#x27;Adversary Simulator&#x27;&#x27;, &#x27;&#x27;Infiltrator&#x27;&#x27;};</h2>
+						</div>
+
+						<span class="location">
+								<span class="city">
+									Melbourne,
+								</span>
+								<span class="region">
+									Australia (open to relocation)
+								</span>
+						</span>
+                    
+					<div id="contact">
+						<div class="website">
+              <span class="fa fa-external-link"></span>
+							<a target="_blank" href="http://homecrew.io">http://homecrew.io</a>
+						</div>
+						<div class="email">
+              <span class="fa fa-envelope-o"></span>
+							<a href="mailto:jason.magic@outlook.com">jason.magic@outlook.com</a>
+						</div>
+						<div class="phone">
+              <span class="fa fa-mobile"></span>
+							(+61) 0420-456-620
+						</div>
+					</div>
+
+					<div id="profiles">
+						<div class="item">
+								<div class="username">
+									<span class="fa fa-linkedin linkedin social"></span>
+									<span class="url">
+										<a href="https://au.linkedin.com/in/jason-magic">Jason Magic</a>
+									</span>
+								</div>
+						</div>
+						<div class="item">
+								<div class="username">
+									<span class="fa fa-github github social"></span>
+									<span class="url">
+										<a href="https://github.com/ret2eax">ret2eax</a>
+									</span>
+								</div>
+						</div>
+						<div class="item">
+								<div class="username">
+									<span class="fa fa-rss rss social"></span>
+									<span class="url">
+										<a href="http://www.openbugbounty.org/researchers/ret2eax/">openbugbounty</a>
+									</span>
+								</div>
+						</div>
+						<div class="item">
+								<div class="username">
+									<span class="fa fa-rss rss social"></span>
+									<span class="url">
+										<a href="http://hackerone.com/ret2eax/thanks">h1</a>
+									</span>
+								</div>
+						</div>
+						<div class="item">
+								<div class="username">
+									<span class="fa fa-rss rss social"></span>
+									<span class="url">
+										<a href="http://www.imdb.com/name/nm8008823/">IMDb</a>
+									</span>
+								</div>
+						</div>
+						<div class="item">
+								<div class="username">
+									<span class="fa fa-rss rss social"></span>
+									<span class="url">
+										<a href="http://nvd.nist.gov/vuln/detail/CVE-2017-12439">CVE-2017-12439</a>
+									</span>
+								</div>
+						</div>
+						<div class="item">
+								<div class="username">
+									<span class="fa fa-rss rss social"></span>
+									<span class="url">
+										<a href="http://secure.sony.net/hallofthanks">Sony Public Recognition</a>
+									</span>
+								</div>
+						</div>
+					</div>
+				</header>
+
+					<section class="section main-summary">
+						<section>
+							<div><p>I aspire to work on objective-orientated engagements that allow for unconventional techniques in order to emulate apex threat actors via attack realism and stealth tradecraft. From a client perspective, this would ensure that a focus on remediations and cyber defence use cases are being built from relevant and real world TTPs.</p></div>
+						</section>
+					</section>
+
+				<section class="section margin1">
+					<header>
+						<h2 class='section-title'>Skills</h2>
+					</header>
+					<section id="skills">
+						<div class="item">
+							<h3 class="name">
+								Information Security
+							</h3>
+							<ul class="keywords">
+								<li>nist</li>
+								<li>iso27001</li>
+								<li>pci_dss</li>
+								<li>siems</li>
+								<li>ids/ips/idr</li>
+								<li>threat_modelling</li>
+								<li>risk_analysis</li>
+								<li>isolation</li>
+								<li>risk_controls</li>
+								<li>confidentiality</li>
+								<li>integrity</li>
+								<li>availability</li>
+								<li>non_repudiation</li>
+							</ul>
+						</div>
+						<div class="item">
+							<h3 class="name">
+								Offensive Security
+							</h3>
+							<ul class="keywords">
+								<li>osint</li>
+								<li>reconnaissance</li>
+								<li>opsec</li>
+								<li>vuln_assess</li>
+								<li>application</li>
+								<li>api</li>
+								<li>sockets</li>
+								<li>signal_r</li>
+								<li>network_layer</li>
+								<li>ios</li>
+								<li>subdomain_takeovers</li>
+								<li>social_engineering</li>
+								<li>computational_attacks</li>
+								<li>restricted_os</li>
+								<li>breakouts</li>
+								<li>thick_clients</li>
+								<li>binaries</li>
+								<li>iot</li>
+							</ul>
+						</div>
+						<div class="item">
+							<h3 class="name">
+								Configuration
+							</h3>
+							<ul class="keywords">
+								<li>dbms</li>
+								<li>firewalls</li>
+								<li>load_balancing</li>
+								<li>paas</li>
+								<li>saas</li>
+								<li>iaas</li>
+								<li>ad_policies</li>
+								<li>hash_audits</li>
+								<li>entropy_analysis</li>
+								<li>build_reviews</li>
+								<li>sys_hardening</li>
+								<li>deterministic_modelling</li>
+							</ul>
+						</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class='section-title'>Work Experience <span class="item-count">(5)</span></h2>
+					</header>
+					<section id="work">
+								<header>
+									<span class="space-left">
+											<span class="fa fa-caret-down"></span>
+									</span>
+									<div class="position">
+										Technical Security Consultant
+									</div>
+									<div class="company">
+										NCC Group
+									</div>
+									<div class="date">
+										<span class="startDate">
+											August 2019
+										</span>
+										<span class="endDate">
+											- Current
+										</span>
+									</div>
+								</header>
+
+                                <span class="website">
+                                    <a href="http://www.nccgroup.trust/au/">http://www.nccgroup.trust/au/</a>
+                                </span>
+
+
+								<div class="item display" style="opacity:1">
+									<div class="summary">
+										<p><p>Global consultancy with over 15'000 corporate and Government clients worldwide.</p></p>
+									</div>
+									<ul class="highlights">
+											<li>Open source intelligence (OSINT)</li>
+											<li>Reconnaissance assessments</li>
+											<li>External network perimeter assessment &amp; exploitation</li>
+											<li>Internal infrastructure (limited)</li>
+											<li>Vulnerability assessments</li>
+											<li>Web services, application and UI testing</li>
+											<li>Subdomain takeovers</li>
+											<li>Restriction breakouts</li>
+											<li>iOS application layer, binary analysis and local device exploitation</li>
+											<li>APIs (SOAP, RESTful, oData etc)</li>
+											<li>Social engineering incl. (spear)phishing campaigns</li>
+											<li>Robotic process automation (RPA) testing</li>
+											<li>WebSockets (full-duplex)</li>
+											<li>SignalR channels</li>
+											<li>NTLM hash audits &amp; computational offline attacks</li>
+											<li>Network security configuration reviews (firewalls, load balancers)</li>
+											<li>SaaS / PaaS / IaaS configuration reviews (Azure, ServiceNow, Amazon, SalesForce etc)</li>
+											<li>Build reviews &amp; system hardening</li>
+											<li>Database &amp; DBMS security reviews</li>
+											<li>Programming and automation (tools, scripts)</li>
+											<li>Pre-sales, scoping and proposals</li>
+											<li>Continuous client interaction</li>
+											<li>Internal research, publication and development</li>
+											<li>Internal VulnDB contributions</li>
+											<li>Internal Wiki contributions</li>
+									</ul>
+							</div>
+								<header>
+									<span class="space-left">
+											<span class="fa fa-caret-right"></span>
+									</span>
+									<div class="position">
+										Security Consultant
+									</div>
+									<div class="company">
+										HackLabs
+									</div>
+									<div class="date">
+										<span class="startDate">
+											July 2018
+										</span>
+										<span class="endDate">
+											- August 2019
+										</span>
+									</div>
+								</header>
+
+                                <span class="website">
+                                    <a href="http://www.hacklabs.com">http://www.hacklabs.com</a>
+                                </span>
+
+
+								<div class="item display none" style="opacity:0">
+									<div class="summary">
+										<p><p>HackLabs, now Pure Security was a small boutique security company offering industry-standard security services.</p></p>
+									</div>
+									<ul class="highlights">
+											<li>Application environments</li>
+											<li>Web services and APIs</li>
+											<li>External network perimeter (infrastructure)</li>
+											<li>Host-based (restricted SOEs, hardened OS assessments etc)</li>
+											<li>Vulnerability assessments</li>
+											<li>Manage SIEM IDS/IPS/IDR logging and alerts (Rapid7 InsightIDR, LogRhythm, Splunk etc)</li>
+									</ul>
+							</div>
+								<header>
+									<span class="space-left">
+											<span class="fa fa-caret-right"></span>
+									</span>
+									<div class="position">
+										Security Consultant
+									</div>
+									<div class="company">
+										The Missing Link
+									</div>
+									<div class="date">
+										<span class="startDate">
+											January 2018
+										</span>
+										<span class="endDate">
+											- July 2018
+										</span>
+									</div>
+								</header>
+
+                                <span class="website">
+                                    <a href="http://www.themissinglink.com.au/enterprise-cyber-security">http://www.themissinglink.com.au/enterprise-cyber-security</a>
+                                </span>
+
+
+								<div class="item display none" style="opacity:0">
+									<div class="summary">
+										<p><p>A boutique security consultancy offering industry-standard cyber security services towards various clients.</p></p>
+									</div>
+									<ul class="highlights">
+											<li>Conduct various security assessments inline with SOWs across a broad range of pre-defined targets</li>
+											<li>Lead conference meetings for mutual understanding pertaining to client requirements and expectations including desired abuse cases, target mapping and high risk entry points</li>
+									</ul>
+							</div>
+								<header>
+									<span class="space-left">
+											<span class="fa fa-caret-right"></span>
+									</span>
+									<div class="position">
+										Security Analyst (Cyber Attack &amp; Response)
+									</div>
+									<div class="company">
+										Deloitte
+									</div>
+									<div class="date">
+										<span class="startDate">
+											March 2017
+										</span>
+										<span class="endDate">
+											- January 2018
+										</span>
+									</div>
+								</header>
+
+                                <span class="website">
+                                    <a href="http://cyberintelligencecentre.com.au">http://cyberintelligencecentre.com.au</a>
+                                </span>
+
+
+								<div class="item display none" style="opacity:0">
+									<div class="summary">
+										<p><p>As part of the Cyber Attack and Response team associated with Deloitte's Cyber Intelligence Centre, it was my duty to provide clients with a variety of Risk Advisory services.</p></p>
+									</div>
+									<ul class="highlights">
+											<li>A focus on complete asset take over, identification and risk assessment pertaining to underlying vulnerabilities, integrated security controls, misconfigurations and overall implementation</li>
+											<li>Incident response involved detection and removal of persistent access via malicious backdoors</li>
+											<li>Government and Corporate clientele provided frequent on-site national travel</li>
+											<li>Application (http/s, thick clients)</li>
+											<li>Mobile (ios)</li>
+											<li>External infrastrucure</li>
+											<li>Internal infrastructure</li>
+											<li>Incident Response</li>
+											<li>Objective-based penetration testing</li>
+											<li>Red team operations</li>
+									</ul>
+							</div>
+								<header>
+									<span class="space-left">
+											<span class="fa fa-caret-right"></span>
+									</span>
+									<div class="position">
+										Bounty Hunter
+									</div>
+									<div class="company">
+										h1, Bugcrowd, OBB, FL
+									</div>
+									<div class="date">
+										<span class="startDate">
+											August 2016
+										</span>
+										<span class="endDate">
+											- March 2017
+										</span>
+									</div>
+								</header>
+
+                                <span class="website">
+                                    <a href="http://secure.sony.net/hallofthanks">http://secure.sony.net/hallofthanks</a>
+                                </span>
+
+
+								<div class="item display none" style="opacity:0">
+									<div class="summary">
+										<p><p>As a bug bounty hunter, I identified & aided in vulnerability mitigation within a multiplex of web applications under responsible disclosure (indexed and non-indexed programs). This included applications pertaining to the following entities:</p></p>
+									</div>
+									<ul class="highlights">
+											<li>US Dept. of Defence, US Navy, US Army, US Air Force, NATO, NASA, Australian Signals Directorate (Signals Intelligence Agency), Thailand Police Department (Bangkok), Eskom (electricity public utility), Asia-Pacific Space Cooperation Organization, Uber, Sophos, PayPal, MasterCard, Australian Securities Exchange, Stanbic Bank, Standard Bank, Cisco, Juniper Networks, Sony, Universal Studios, Vodacom, Vodafone, Optus, Fedex, Cambridge, Otago, University of Auckland, University of Western Australia, Murdoch, ASU, UCLA &amp; more</li>
+											<li>Liaised with the affected vendors&#x27; internal team; provided technicalities and POCs outlining the attack vectors&#x27; exploitation and payload capabilities, all while being coordinated under RD until mitigation</li>
+											<li>Collectively 100+ security vulnerabilities disclosed under RD</li>
+											<li>Publicly acknowledged by Sony</li>
+									</ul>
+							</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class='section-title'>Volunteer</h2>
+					</header>
+					<section id="volunteer">
+								<header class="clear">
+									<span class="space-left">
+											<span class="fa fa-caret-down"></span>
+									</span>
+									<div class="header-left">
+											<div class="position">
+												Founder
+											</div>
+										<div class="organization">
+											Peace On Earth
+										</div>
+									</div>
+									<div class="date">
+										<span class="startDate">
+											July 2019
+										</span>
+										<span class="endDate">
+											- Current
+										</span>
+									</div>
+								</header>
+
+
+
+								<div class="item display" style="opacity:1">
+									<div class="summary">
+										<p><p>A small collective consisting of like minded individuals. Through various background experiences, we aim to use our collective abilities for research & humanitarian purposes.</p></p>
+									</div>
+									<div class="website">
+										<a href="http://peaceonearth.dev">http://peaceonearth.dev</a>
+									</div>
+									<ul class="highlights">
+											<li>Mostly self-funded side projects with the goal of identifying and reducing crimes against humanity while enhancing skillset</li>
+											<li>Collaborated platform titled XPOSE</li>
+											<li>Clearnet &amp; darknet investigative targets</li>
+											<li>Polymorphic exploitation framework with minor self improving capabilities</li>
+											<li>Sentinel-1 multi-temporal satellite imagery highlighting electromagnetic spectrum anomalies associated with transmitted band signature(s) across an area of interest</li>
+									</ul>
+							</div>
+								<header class="clear">
+									<span class="space-left">
+											<span class="fa fa-caret-right"></span>
+									</span>
+									<div class="header-left">
+											<div class="position">
+												Opensource Intelligence
+											</div>
+										<div class="organization">
+											Trace Labs
+										</div>
+									</div>
+									<div class="date">
+										<span class="startDate">
+											January 2019
+										</span>
+										<span class="endDate">
+											- Current
+										</span>
+									</div>
+								</header>
+
+
+
+								<div class="item display none" style="opacity:0">
+									<div class="summary">
+										<p><p>Trace Labs is a nonprofit organisation whose mission is to accelerate the family reunification of missing persons while training members in the tradecraft of open source intelligence.</p></p>
+									</div>
+									<div class="website">
+										<a href="http://tracelabs.org/">http://tracelabs.org/</a>
+									</div>
+									<ul class="highlights">
+											<li>Perform open-source intelligence (OSINT) techniques against multiple missing persons</li>
+											<li>Collaborate with team, share and cross reference new collaborated data pertaining to the missing persons case</li>
+											<li>Cases often varied from recent missing persons reported over a few days, to unsolved cold cases</li>
+											<li>Voluntary work offered in order to enhance personal OSINT and reconnaissance capabilities amongst a good cause</li>
+											<li>After multiple weeks of gathering intelligence, the curated data is handed over to local authorities in hope of providing assistance</li>
+											<li>Cases are strictly those of which authorities have requested public assistance</li>
+									</ul>
+							</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class='section-title'>Education <span class="item-count">(1)</span></h2>
+					</header>
+					<section id="education">
+							<header class="clear">
+								<span class="space-left">
+										<span class="fa fa-caret-down"></span>
+								</span>
+								<div class="header-left">
+										<div class="studyType">
+											Bachelor of Science,
+										</div>
+										<div class="area">
+											Cyber Security
+										</div>
+										<div class="institution">
+											Edith Cowan University
+										</div>
+								</div>
+								<div class="date">
+									<span class="startDate">
+										2014
+									</span>
+									<span class="endDate">
+										- Current
+									</span>
+								</div>
+							</header>
+
+
+                <ul class="courses">
+                    <li>ethical hacking &amp; defence</li>
+                    <li>information_security</li>
+                    <li>cryptography</li>
+                    <li>computer_security</li>
+                    <li>wireless_security</li>
+                    <li>network_security</li>
+                    <li>digital_forensics</li>
+                    <li>information_warfare</li>
+                    <li>applied_intelligence</li>
+                    <li>counter terrorism &amp; intelligence</li>
+                    <li>radicalism &amp; political extremism</li>
+                    <li>reverse_engineering</li>
+                    <li>IT_security_management</li>
+                    <li>secure_programming</li>
+                    <li>unix_c</li>
+                    <li>java</li>
+                    <li>python</li>
+                    <li>ecma_syntax</li>
+                </ul>
+
+								<div class="item display" style="opacity:1">
+							</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class='section-title'>Awards</h2>
+					</header>
+					<section id="awards">
+						<header class="clear">
+							<span class="space-left">
+									<span class="fa fa-caret-down"></span>
+							</span>
+							<div class="header-left">
+									<div class="title">
+										Hall of Fame
+									</div>
+									<div class="awarder">
+										Sony
+									</div>
+							</div>
+								<div class="date">
+									2016
+								</div>
+						</header>
+							<div class="item display" style="opacity:1">
+								<div class="summary">
+									<p><p>Public acknowledgement via responsibly disclosing a security vulnerability impacting the confidentiality and integrity of Sony's products, services and customers.</p></p>
+								</div>
+						</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class='section-title'>Publications</h2>
+					</header>
+					<section id="publications">
+							<header class="clear">
+								<span class="space-left">
+									<span class="fa fa-caret-down"></span>
+								</span>
+								<div class="header-left">
+										<span class="name">
+											<span class="website">
+												<a href="https://issuu.com/apsm/docs/acsm_issue4_2018/4">[ ISSUE 04 ] Hunting Bugs via Shockwave Flash Analysis</a>
+											</span>
+										</span>
+										<span class="publisher">
+											in Australian Cyber Security Magazine
+										</span>
+								</div>
+									<span class="date">
+										4 April 2018
+									</span>
+							</header>
+								<div class="item display" style="opacity:1">
+								<div class="summary">
+									<p><p>An introductory article explaining the attack vectors pertaining to shockwave.</p></p>
+								</div>
+							</div>
+							<header class="clear">
+								<span class="space-left">
+									<span class="fa fa-caret-right"></span>
+								</span>
+								<div class="header-left">
+										<span class="name">
+											<span class="website">
+												<a href="https://nvd.nist.gov/vuln/detail/CVE-2017-12439">CVE-2017-12439</a>
+											</span>
+										</span>
+										<span class="publisher">
+											in National Vulnerability Database
+										</span>
+								</div>
+									<span class="date">
+										1 January 2017
+									</span>
+							</header>
+								<div class="item display none" style="opacity:0">
+								<div class="summary">
+									<p><p>Flash Slideshow Maker Professional through v5.20, when the advanced configuration is used, has an xml_path HTTP parameter that trusts user-supplied input, in conjunction with an unsafe XML configuration file. This has resultant content forgery, cross site scripting, and unvalidated redirection issues.</p></p>
+								</div>
+							</div>
+							<header class="clear">
+								<span class="space-left">
+									<span class="fa fa-caret-right"></span>
+								</span>
+								<div class="header-left">
+										<span class="name">
+											<span class="website">
+												<a href="https://packetstormsecurity.com/files/143542/Flash-Slideshow-Maker-Professional-XSS-Content-Forgery-Redirect.html">Flash Slideshow Maker Professional Security Advisory</a>
+											</span>
+										</span>
+										<span class="publisher">
+											in Packetstorm Security
+										</span>
+								</div>
+									<span class="date">
+										1 August 2017
+									</span>
+							</header>
+								<div class="item display none" style="opacity:0">
+								<div class="summary">
+									<p><p>Multiple client-side vulnerabilities within Flash Slideshow Movie Maker Pro - All Versions (XSS, XSF, CF, URs).</p></p>
+								</div>
+							</div>
+							<header class="clear">
+								<span class="space-left">
+									<span class="fa fa-caret-right"></span>
+								</span>
+								<div class="header-left">
+										<span class="name">
+											<span class="website">
+												<a href="https://www.aisa.org.au/Public/Members/Australian_Cyber_Security_Magazine/2017_August_Issue.aspx">[ ISSUE 02 ] An Introduction to Bug Bounty Programs</a>
+											</span>
+										</span>
+										<span class="publisher">
+											in Australian Cyber Security Magazine
+										</span>
+								</div>
+									<span class="date">
+										15 July 2017
+									</span>
+							</header>
+								<div class="item display none" style="opacity:0">
+								<div class="summary">
+									<p><p>As a contributor to the Australian Cyber Security Magazine, I published a feature article outlining an introduction to bug bounty programs, and the successes of being a bug bounty hunter.</p></p>
+								</div>
+							</div>
+							<header class="clear">
+								<span class="space-left">
+									<span class="fa fa-caret-right"></span>
+								</span>
+								<div class="header-left">
+										<span class="name">
+											<span class="website">
+												<a href="https://www.aisa.org.au/Public/Members/Australian_Cyber_Security_Magazine/2017_June_Issue_.aspx">[ ISSUE 01 ] From Student to Professional</a>
+											</span>
+										</span>
+										<span class="publisher">
+											in Australian Cyber Security Magazine
+										</span>
+								</div>
+									<span class="date">
+										21 May 2017
+									</span>
+							</header>
+								<div class="item display none" style="opacity:0">
+								<div class="summary">
+									<p><p>As a contributor to the Australian Cyber Security Magazine, I shared my story of how I became a Cyber Security professional within the offensive industry.</p></p>
+								</div>
+							</div>
+					</section>
+				</section>
+
+
+				<section class="section margin1">
+					<header>
+						<h2 class='section-title' class='section-title'>Interests</h2>
+					</header>
+					<section id="interests">
+							<div class="item">
+									<h3 class="name">
+										Cyber Security
+									</h3>
+									<ul class="keywords">
+											<li>exploit_dev</li>
+											<li>0day_hunting</li>
+											<li>security research</li>
+											<li>red_team</li>
+											<li>blue_team</li>
+											<li>black_team</li>
+											<li>surveillance</li>
+											<li>counter_surveillance</li>
+											<li>side-channels_attacks</li>
+											<li>crypto</li>
+											<li>scada/ics</li>
+											<li>incident_response</li>
+											<li>malware_analysis</li>
+											<li>reverse_engineering</li>
+											<li>hardware_hacking</li>
+											<li>sigint</li>
+											<li>comsec</li>
+											<li>opsec</li>
+											<li>physec</li>
+											<li>tor</li>
+											<li>electromagnetic_spectrum</li>
+											<li>remote_sensing</li>
+											<li>electronic/signals_warfare</li>
+											<li>ota_cellular</li>
+											<li>counter-counter_measures</li>
+											<li>cyber_warfare</li>
+											<li>iot</li>
+									</ul>
+							</div>
+							<div class="item">
+									<h3 class="name">
+										Programming
+									</h3>
+									<ul class="keywords">
+											<li>python</li>
+											<li>c</li>
+											<li>javascript</li>
+									</ul>
+							</div>
+							<div class="item">
+									<h3 class="name">
+										Hobbies
+									</h3>
+									<ul class="keywords">
+											<li>travel</li>
+											<li>learning</li>
+											<li>research</li>
+											<li>innovation</li>
+									</ul>
+							</div>
+					</section>
+				</section>
+
+				<section class="section">
+					<header>
+						<h2 class='section-title'>References</h2>
+					</header>
+					<section id="references">
+						<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;I&#x27;d like to personally thank Jason for identifying and responsibly disclosing a security vulnerability associated with the Australian Securities Exchange internet perimeter. Jason&#x27;s feedback was valuable to us and was acted on promptly.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Australian Securities Exchange
+							</div>
+						</div>
+						<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;I wish to thank Jason for his detailed report on the issue. We have now updated our service to remove the potential for any abuse of this vulnerability.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Defence Web Services
+							</div>
+						</div>
+						<div class="item">
+							<blockquote class="reference">
+								&#8220;&#32;Jason was incredibly timely, helpful and friendly in identifying the vulnerability and verifying that we had patched it.&#32;&#8221;
+							</blockquote>
+							<div class="name">
+								Brandeis University
+							</div>
+						</div>
+					</section>
+				</section>
+		</div>
+		<script>
+			(function(){
+				var elements = document.querySelector("#resume");
+
+				// adding the element to the all container
+				// and using event delegation
+				elements.addEventListener("click", function(e) {
+					var current = e.target;
+					// font awesone arrows
+					var arrowRight = current.classList.contains('fa-caret-right');
+					var arrowDown = current.classList.contains('fa-caret-down');
+
+					if(current && current.nodeName == "SPAN" && (arrowRight || arrowDown)) {
+						var header = e.target.parentNode.parentNode;
+						var item = header.nextSibling;
+
+						// select the .item element from the siblings
+						while (!item || !item.classList || !item.classList.contains('item')) {
+							item = item.nextSibling;
+						}
+
+						// hide or show the .item element
+						item.classList.toggle('none');
+
+						// if the .item is going to be shown then imcrease is opacity
+						// every 20 milliseconds to make a fadeIn effect
+						if (!item.classList.contains('none')) {
+							var id = setInterval(function() {
+								item.style.opacity = parseFloat(item.style.opacity) + 0.09;
+								if (parseFloat(item.style.opacity) >= 1) {
+									clearInterval(id);
+								}
+							}, 20);
+						} else {
+							item.style.opacity = 0;
+						}
+
+						current.classList.toggle('fa-caret-right');
+						current.classList.toggle('fa-caret-down');
+					}
+
+				}, false);
+
+				// Make the #resume visible only when the DOM is fully loaded
+				elements.style.opacity = '1';
+			})();
+		</script>
+	</body>
+
+</html>
