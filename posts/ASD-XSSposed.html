@@ -104,6 +104,7 @@ ___________________________________________________________________</pre>
 <p>#[THE TARGET] :</p>
 
 Australian Signals Directorate (ASD): Australian Government Signals Intelligence and Information Security Agency. The Australian Signals Directorate (ASD) is an intelligence agency in the Australian Government Department of Defence. Our mission, 'Reveal their secrets, protect our own', accurately.
+<p>This particle vulnerability was identified on the ASD's non-classified internet facing web service.</p>    
 
 <p>#[INTRODUCTION] :</p>
 This vulnerability was responsibly disclosed to the vendor and CERT (Computer Emergency Response Team) upon identification and has since been patched. Vulnerability confirmation and minor technical details can be verified on <a href="https://www.openbugbounty.org/incidents/183988/" target="_blank">openbugbounty</a>.
@@ -145,7 +146,7 @@ Your browser does not support the video tag.
 <a href="http://asd.gov.au/videos/cyber-main-small.swf?clickTag=javascript:confirm(document.cookie)" target="_blank">http://asd.gov.au/videos/cyber-main-small.swf?clickTag=javascript:confirm(document.cookie)</a>
 </p>
 
-<p>It also should be noted that while the above URL is crafted to display the document.cookie output, cookies cannot be stolen due to the <i>HttpOnly<i> flag being set. <i>See below</i>.</p>
+<p>It also should be noted that cookies cannot be stolen due to the <i>HttpOnly<i> flag being set. <i>See below</i>.</p>
 
 <pre class="hack dark">
 ret2eax@h0m3cr3w:~$ <i>curl -I asd.gov.au</i>
@@ -160,8 +161,6 @@ Vary: Accept-Encoding
 Server: REDACTED
 CF-RAY: REDACTED<i>
 </pre>
-
-<p>Therefore, this ruled out the possibility of cookie theft & session hijacking. However, this was not a deal-breaker, as XSS allows a vast range of payloads other than just stealing user/admin sessions. This obviously extended the exploitability of this vulnerability to also include social attack vectors. i.e. phishing or serving malware via the <a href="http://asd.gov.au" target="_blank">asd.gov.au</a> domain. Thus, allowing an adversary to also exploit the reputable credibility of the Australian Signals Directorate (ASD) Intelligence Agency.</p>
 
 <p>#[NOTIFICATION & DISCLOSURE TIMELINE] :</p>
 28 September 2016 at 08:28 GMT	Vulnerability reported via Open Bug Bounty<br>
