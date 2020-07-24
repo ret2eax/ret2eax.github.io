@@ -155,7 +155,26 @@ Bob Computes the Shared Secret (<b>S</b>) via:
 <pre class="hack dark">
 6<sup>13</sup>mod 17 = 10 	(<b>S</b> = <b>A<sup>b</sup></b> mod <b>p</b>)
 </pre>
-<p>The shared secret (<b>S</b>) is now devised between Alice and Bob, in this case, being <b>10</b>’.</p>	  
+<p>The shared secret (<b>S</b>) is now devised between Alice and Bob, in this case, being <b>10</b>’.</p>
+<p>At it’s initial appearance, it may not seem like it, but Alice and Bob did the same calculation:</p>
+<pre class="hack dark">
+12<sup>15</sup> mod 17 ≅ 613 mod 17					(<b>S</b> = <b>B<sup>a</b> mod <b>p</b> ≅ <b>S</b> = <b>A<sup>b</sup></b> mod <b>p</b>)
+</pre>
+<p>For example, considering Alice, the value ‘12’ that she received from Bob (B) was calculated via 12 = 3<sup>13</sup> mod 17. Therefore her calculation is the same as:</p>
+<pre class="hack dark">
+(3<sup>13</sup>)<sup>15</sup> mod 17 ≅ 3<sup>13*15</sup> mod 17
+</pre>
+For example, considering Bob, the value ‘6’ that he received from Alice (<b>A</b>) was calculated via: 6 = 3<sup>15</sup> mod 17. Therefore, his calculation is the same as:
+<pre class="hack dark">
+(3<sup>15</sup>)13 mod 17 ≅ 3<sup>15*13</sup> mod 17
+</pre>
+Which means, these two equations are congruent to each other:
+<pre class="hack dark">
+(<b>g<sup>b</sup></b> mod <b>p)<b><sup>a</sup> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup><b></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b>
+&there4; (3<sup>13</sup> mod 17)<sup>15</sup> mod 17 = 3<sup>13*15</sup> mod 17 ≅ (3<sup>15</sup> mod 17)<sup>13</sup> mod 17 = 3<sup>15*13</sup> mod 17
+
+</pre>
+
 	  
 <p>Initially, to compute such a key exchange ECDH domain parameters must be agreed upon.</p>
 <p>Commonly agreed selections of the following are chosen, and are all publicly available:</p>
