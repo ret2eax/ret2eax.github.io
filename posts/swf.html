@@ -95,13 +95,13 @@ This would then be called in the manner of:<br>
 
 <p>It should be noted that as a precondition, a permissive cross-domain policy needs to be configured:</p>
 <pre class="hack dark">
-<?xml version="1.0"?>
-<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
-<cross-domain-policy>
-<site-control permitted-cross-domain-policies="all"/>
-<allow-access-from domain="*" secure="false"/>
-<allow-http-request-headers-from domain="*" headers="*" secure="false"/>
-</cross-domain-policy>
+&lt;?xml version="1.0"?>
+&lt;!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+&lt;cross-domain-policy>
+&lt;site-control permitted-cross-domain-policies="all"/>
+&lt;allow-access-from domain="*" secure="false"/>
+&lt;allow-http-request-headers-from domain="*" headers="*" secure="false"/>
+&lt;/cross-domain-policy>
 </pre>
 <p>I identified this issue within many SWF generators and slideshow makers, including that of a Windows application titled <a href="https://www.flash-slideshow-maker.com/">Flash Slideshow Maker Professional</a>, with version 5.20 and below being vulnerable in the way they handle 'advanced' file behaviour. See <a href="cve-2017-12439.html">CVE-2017-12439</a> for more information.
 </p><p> ~ ret2eax</p>
