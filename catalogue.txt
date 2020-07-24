@@ -4,9 +4,11 @@
 <span id="a">ret2eax@h0mecr3w:~#</span>:<span id="b">~</span><span id="c">$</span> .././e-zine.sh<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTO, MALWARE &amp; MEMORY FORENSICS
-    \_ 0x01a: <a href="posts/ecdh.html" target="_blank">CRYPTO 101: The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</a><br>
+    \_ 0x01a: <a href="posts/ecdh.html" target="_blank">The Diffie Hellman Protocol & Its Mathematical DLP</a><br>
+    \_ 0x01b: <a href="posts/ecdh.html" target="_blank">The Elliptic Curve Diffie Hellman Protocol & Its Mathematical DLP</a><br>
+    \_ 0x01c: <a href="posts/ecdh.html" target="_blank">Curve25519 & The X25519 Function, A TOR Network Key Exchange [SOON]</a><br>
 0x02: WEB SECURITY: POST REMEDIATION
-    \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed (AU Dept. of Defense)</a>
+    \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed</a>
     \_ 0x02b: <a href="#">Abusing a Flaw within Facebook's Domain</a> [SOON]
     \_ 0x02c: <a href="#">Bounty Tale: Hacking a Global Mobile Telecommunications Company</a> [SOON]
     \_ 0x02d: <a href="#">Bounty Tale: Hacking a Bank for Fun &amp; Profit, The Legal Way</a> [SOON]
