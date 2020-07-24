@@ -287,34 +287,34 @@ Which is the equivalent of <b>B</b> = 5<sup>15</sup> mod 23, which = 19</p>
 <p>For this implementation to contain a higher level of accuracy, the following must be considered:</p>
 <pre class="hack dark">
 
-1.	Instead of the public values being printed to mimic/simulate public transmission, 
-    the values would actually be transmitted across a public channel. The implementation 
-    would therefore be required to function on the Network Layer.
+Instead of the public values being printed to mimic/simulate public transmission, 
+the values would actually be transmitted across a public channel. The implementation 
+would therefore be required to function on the Network Layer.
 
-2.	Instead of using small numerical values, the use of extremely large numerals would 
-    be incorporated. This would enhance the shared secret key’s integrity due to 
-    Diffie-Hellman’s Key Exchange trap-door function. 
+Instead of using small numerical values, the use of extremely large numerals would 
+be incorporated. This would enhance the shared secret key’s integrity due to 
+Diffie-Hellman’s Key Exchange trap-door function. 
 
-3.	The shared secret key should never be printed, saved or transmitted, and would 
-    remain as a non-public secret. 
+The shared secret key should never be printed, saved or transmitted, and would 
+remain as a non-public secret. 
 
-4.	Likewise, the same rule above applies for both Alice and Bob’s randomly devised 
-    secret value.
+Likewise, the same rule above applies for both Alice and Bob’s randomly devised 
+secret value.
 
-5.	The secret should also never be derived directly. Typically, in a real-world 
-    simulation the secret result is parsed through hash functions to produce a 
-    corresponding hashed key. Both parties will then therefore require to be using 
-    the same hash algorithm.
+The secret should also never be derived directly. Typically, in a real-world 
+simulation the secret result is parsed through hash functions to produce a 
+corresponding hashed key. Both parties will then therefore require to be using 
+the same hash algorithm.
 
-6.	Instead of the implementation selecting the private values statically via the 
-    program’s source-code, it would instead generate these private values (each of Alice and Bob) 
-    via a generator function that can either be devised, or imported.
+Instead of the implementation selecting the private values statically via the 
+program’s source-code, it would instead generate these private values (each of Alice and Bob) 
+via a generator function that can either be devised, or imported.
 
-7.	Additionally, during the random value generation, the implementation would incorporate 
-    the use of a Random Number Generator (RNG) to enhance Entropy (a measure of uncertainty) 
-    of the randomly selected variable values i.e. Alice and Bob’s secret. This is achievable 
-    via a Pseudo-Random Number Generator (PRNG) / Deterministic Random Bit Generator (DRBG) or,
-    more so, via a True-Random Number Generator (TRNG).
+Additionally, during the random value generation, the implementation would incorporate 
+the use of a Random Number Generator (RNG) to enhance Entropy (a measure of uncertainty) 
+of the randomly selected variable values i.e. Alice and Bob’s secret. This is achievable 
+via a Pseudo-Random Number Generator (PRNG) / Deterministic Random Bit Generator (DRBG) or,
+more so, via a True-Random Number Generator (TRNG).
 
 </pre>
 <p> ~ ret2eax</p>
