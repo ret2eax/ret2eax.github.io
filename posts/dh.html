@@ -170,7 +170,7 @@ For example, considering Bob, the value ‘6’ that he received from Alice (<b>
 </pre>
 Which means, these two equations are congruent to each other:
 <pre class="hack dark">
-(<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup><b></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b>
+(<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b>
 &there4; (3<sup>13</sup> mod 17)<sup>15</sup> mod 17 = 3<sup>13*15</sup> mod 17 ≅ (3<sup>15</sup> mod 17)<sup>13</sup> mod 17 = 3<sup>15*13</sup> mod 17
 </pre>
 <p>So Alice computes the value in one order, and Bob computes it in the other. Alice never knows Bob’s secret value used to calculate the result, nor does Bob ever know Alice’s used secret value yet both Alice and Bob arrive with the same resulting value. We can be confidently certain that neither Eve nor anybody else but Alice and Bob know the generated secret key. This secret key can now be used as a cryptographic encryption key for any encryption algorithm that incorporates shared secrets to parse mathematical functions that alter original plaintext to the corresponding cipher text and vice versa according to the mathematical ‘rules’ associated/devised with the secret key’s value.</p>
