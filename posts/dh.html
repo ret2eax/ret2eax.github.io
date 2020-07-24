@@ -128,11 +128,34 @@ ___________________________________________________________________</pre>
 <p>We can understand, with further mathematical analysis, as to how Alice and Bob both received the same value, being S, via different variable computations. This is achievable via the existing properties of modular arithmetic exponents. Of which is that, the resulting computed values are identical to each other despite the order of the calculated exponentiation:</p>
 <pre class="hack dark">
   <center>(<b>g<sup>a</sup></b> mod <b>p</b>)<b><sup>b</sup></b> mod <b>p</b> = <b>g<sup>ab</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b></center>
-</pre>	  
-	  
-<p>#[ PICTORIAL REPRESENTATION ] :</p>	  
-	  
-	  
+</pre>	   
+
+<p>#[ DEMONSTRATION WITH SMALL NUMERICAL VALUES ] :</p>	  
+For demonstration purposes, small numerical values have been used. These given values are as follows:
+
+<pre class="hack dark">
+Prime modulus (<b>p</b>) = 17,		
+Primitive root modulo generator (<b>g</b>) = 3,
+Alice’s private value (<b>a</b>) = 15,	
+Bob’s private value (<b>b</b>) = 13
+</pre>
+Alice’s Public Value (<b>A</b>) is computed via:
+<pre class="hack dark">
+3<sup>15</sup> mod 17 = 6 	(<b>A</b> = <b>g<sup>a</sup></b> mod <b><sup>p</sup></b>)
+</pre>
+Bob’s Public Value (B) is computed via:
+3<sup>13</sup> mod 17 = 12 	(<b>B</b> = <b>g<sup>b</sup></b> mod <b>p</b>)
+</pre>
+<p>… And now the exchange:</p>
+<p>Alice Computes the Shared Secret (<b>S</b>) via:</p> 
+<pre class="hack dark">
+12<sup>15</sup> mod 17 = 10 	(<b>S</b> = <b>B<sup>a</sup></b> mod <b>p</b>)
+</pre>
+Bob Computes the Shared Secret (<b>S</b>) via:
+<pre class="hack dark">
+6<sup>13</sup>mod 17 = 10 	(<b>S</b> = <b>A<sup>b</sup></b> mod <b>p</b>)
+</pre>
+<p>The shared secret (<b>S</b>) is now devised between Alice and Bob, in this case, being <b>10</b>’.</p>	  
 	  
 <p>Initially, to compute such a key exchange ECDH domain parameters must be agreed upon.</p>
 <p>Commonly agreed selections of the following are chosen, and are all publicly available:</p>
