@@ -124,7 +124,7 @@ ___________________________________________________________________</pre>
 <p><b>0x05:</b><br> Alice then takes the computational value of Bob’s public result, <b>B</b> and raises it to the power of her private number <b>a</b> and, therefore, solves <b>S</b> = <b>Ba</b> mod p</b>, where S</b> is the shared secret.
 <p><b>0x06:</b><br> Likewise, Bob performs the same operation with Alice’s public computed result, <b>A</b>, by raising it to the power of his private number <b>b</b> and, therefore, solves S</b> = <b>Ab</b> mod p</b>, where <b>S</b> is the shared secret.
 
-<p>A common shared secret between Alice and Bob has now been devised in secrecy, where the value computed in step 5) is identical to the resulting computed value in step <b>0x06</b>).</p>
+<p>A common shared secret between Alice and Bob has now been devised in secrecy, where the value computed in step <b>0x06</b> is identical to the resulting computed value in step <b>0x06</b>).</p>
 <p>We can understand, with further mathematical analysis, as to how Alice and Bob both received the same value, being S, via different variable computations. This is achievable via the existing properties of modular arithmetic exponents. Of which is that, the resulting computed values are identical to each other despite the order of the calculated exponentiation:</p>
 <pre class="hack dark">
   <center>(<b>g<sup>a</sup></b> mod <b>p</b>)<b><sup>b</sup></b> mod <b>p</b> ≅ <b>g<sup>ab</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b></center>
