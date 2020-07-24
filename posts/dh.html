@@ -128,7 +128,7 @@ ___________________________________________________________________</pre>
 <p>A common shared secret between Alice and Bob has now been devised in secrecy, where the value computed in step 5) is identical to the resulting computed value in step <b><i>0x06</i></b>).</p>
 <p>We can understand, with further mathematical analysis, as to how Alice and Bob both received the same value, being S, via different variable computations. This is achievable via the existing properties of modular arithmetic exponents. Of which is that, the resulting computed values are identical to each other despite the order of the calculated exponentiation:</p>
 <pre class="hack dark">
-  <center>(<b>g<sup>a</sup></b> mod <b>p</b>)<b><sup>b</sup></b> mod <b>p</b> = <b>gab</b> mod <b>p</b> ≅ (<b>gb</b> mod <b>p</b>)<b>a</b> mod <b>p</b> = <b>gba</b> mod <b>p</b></center>
+  <center>(<b>g<sup>a</sup></b> mod <b>p</b>)<b><sup>b</sup></b> mod <b>p</b> = <b>g<sup>ab</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b>a</b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b></center>
 </pre>	  
 	  
 	  
