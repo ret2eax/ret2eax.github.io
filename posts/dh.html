@@ -170,10 +170,70 @@ For example, considering Bob, the value ‘6’ that he received from Alice (<b>
 </pre>
 Which means, these two equations are congruent to each other:
 <pre class="hack dark">
-(<b>g<sup>b</sup></b> mod <b>p)<b><sup>a</sup> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup><b></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b>
+(<b>g<sup>b</sup></b> mod <b>p)<b><sup>a</sup></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup><b></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b>
 &there4; (3<sup>13</sup> mod 17)<sup>15</sup> mod 17 = 3<sup>13*15</sup> mod 17 ≅ (3<sup>15</sup> mod 17)<sup>13</sup> mod 17 = 3<sup>15*13</sup> mod 17
+</pre>
+<p>So Alice computes the value in one order, and Bob computes it in the other. Alice never knows Bob’s secret value used to calculate the result, nor does Bob ever know Alice’s used secret value yet both Alice and Bob arrive with the same resulting value. We can be confidently certain that neither Eve nor anybody else but Alice and Bob know the generated secret key. This secret key can now be used as a cryptographic encryption key for any encryption algorithm that incorporates shared secrets to parse mathematical functions that alter original plaintext to the corresponding cipher text and vice versa according to the mathematical ‘rules’ associated/devised with the secret key’s value.</p>
+<p><b>Eve’s Observations if Intercepting the Public Channel’s Data Traffic During the Exchange</b></p>
+<p>The values transmitted publicly via an insecure channel are: 6 (<b>A</b>), 12 (<b>B</b>), 3 (<b>g</b>), and 17(<b>p</b>). Depending on the size of the values, particularly the prime modulus (<b>p</b>), without one of the private/secret values, 15 (<b>a</b>) or 13 (<b>b</b>), Eve will be unable to solve the resulting shared secret solution (<b>S</b>). However, as stated above, small number values have been incorporated for demonstration purposes. These values are much larger in a real world-simulating environment which in turn enhances the impracticality to solve <b>S</b> without <b>a</b>, or, <b>b</b> via reverse mathematics. This leads to the <b>discrete logarithm problem</b>.</p>
+
+<p>#[ THE DISCRETE LOGARITHM PROBLEM ] :</p>
+<p>The discrete logarithm problem associated with the Diffie-Hellman key exchange is as follows: </p>
+<pre class="hack dark">
+<center>“Given y, find x so that g x mod p = y”</center>
+</pre>
+<p><i>With small values, it’s quite simple:</i></p>
+<pre class="hack dark">
+3<sup>29</sup> mod 17 = 12 (easy trap-door function)
+3<sup>x</sup> mod 17 = 12 (harder to reverse but not difficult. It’s just a matter of trial and error)
+</pre>
+<p><i>With large values, it becomes computationally intractable:</i></p>
+<p>Suppose the prime modulus <b>p</b> has a length of 1024-bits (~ 308 base10/decimal digits), with <b>x</b> being known this is a simple trap-door function. However, without knowing <b>x</b>, <b>p</b>, being 1024-bits in length, is a value so large that it means there are <b>2<sup>1024</sup></b> possible combinations for <b>x</b>.</p>
+<p>While such a discrete logarithm problem is traditionally used (<b>g<sup>x</sup></b> mod <b>p</b>), the general process of the D-H key exchange can be modified to use elliptic curve cryptography (ECC) to form the Elliptic Curve Diffie-Hellman key exchange protocol (ECDH). A similar analysis on the ECDH protocol can be observed <a href="ecdh.htm">here.</href></p>
+<p>#[ PYTHON IMPLEMENTATION FOR DEMONSTRATION ] :</p>
+<pre class="hack dark">
+from __future__ import print_function
+ 
+sharedPrime = 23    # p
+sharedBase = 5      # g
+ 
+aliceSecret = 6     # a
+bobSecret = 15      # b
+ 
+print('Publicly Shared Variables:')
+print('Publicly Shared Prime:', sharedPrime )
+print('Publicly Shared Base:', sharedBase )
+ 
+# Alice Sends Bob A = g^a mod p
+A = (sharedBase**aliceSecret) % sharedPrime
+print('\n Alice Sends Over Public Chanel:', A )
+ 
+# Bob Sends Alice B = g^b mod p
+B = (sharedBase ** bobSecret) % sharedPrime
+print('Bob Sends Over Public Chanel:', B )
+ 
+print( '\n------------\n')
+print('Privately Calculated Shared Secret:')
+
+# Alice Computes Shared Secret: s = B^a mod p
+aliceSharedSecret = (B ** aliceSecret) % sharedPrime
+print('Alice Shared Secret:', aliceSharedSecret )
+ 
+# Bob Computes Shared Secret: s = A^b mod p
+bobSharedSecret = (A**bobSecret) % sharedPrime
+print('Bob Shared Secret:', bobSharedSecret )
+</pre>
+
+<p>Try it yourself below:</p>
+<pre class="hack dark">
 
 </pre>
+
+
+
+
+
+
 
 	  
 <p>Initially, to compute such a key exchange ECDH domain parameters must be agreed upon.</p>
