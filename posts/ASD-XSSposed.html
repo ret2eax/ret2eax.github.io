@@ -135,7 +135,6 @@ After pulling the SWFs via wget, the local files were decompiled into .flr via t
 <p>The clickTag flashvar was initially declared to serve a purpose of re-directing a user to an informative page segment within the ASD's HTTP content. However, due to the lack of variable/parameter definition, as well as, lack of input sanitization, use of unsafe GetURL() method, and incorporation of insecure global variables (i.e. _level0, _root, _global etc). An attacker is able to control the behaviour of the vulnerable flashvar in question. This is achieved by assigning malicious values to that flashvar and calling it via GET. In this particular scenario, this allowed malicious unvalidated/open redirects, as well as, allowing an attacker to execute malicious client-side scripts via the following XSS vector;'<i>javascript:MaliciousScriptHere</i>'.</p>
 
 <p>#[PoC: EXPLOITING THE VULNERABILITY] :</p>
-<p> NOTE: The following links will no longer be functional, as the vulnerability has been patched directly by ASD under the coordination of responsible disclosure. Since ASD's patch was to remove the vulnerable file entirely, the following URLs will result in a 404 HTTP response. However, I screen-recorded a basic live PoC demonstrating the effects of the presented URLs. See, proof-of-concept video below.</p>
 <p><video width="800" height="430" controls>
   <source src="../videos/ASD-PoC.mp4" type="video/mp4">
 Your browser does not support the video tag.
