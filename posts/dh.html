@@ -252,7 +252,7 @@ Alice’s public value (A) is computed via modular arithmetic:
 16	A = (sharedBase**aliceSecret) % sharedPrime   #(A = g^a mod p) 
 </pre>
 <p>
-Which is the equivalent to A = 56 mod 23, which = 8
+Which is the equivalent to <b>A</b> = 5<sup>6</sup> mod 23, which = 8
 </p>
 <p>
 This computed value is then printed to mimic it being transmitted over a public/insecure channel medium to Bob. 
@@ -262,7 +262,7 @@ This computed value is then printed to mimic it being transmitted over a public/
 20	B = (sharedBase**bobSecret) % sharedPrime    #(B = g^b mod p) 
 </pre>
 <p>
-Which is the equivalent of B = 515 mod 23, which = 19</p>
+Which is the equivalent of <b>B</b> = 5<sup>15</sup> mod 23, which = 19</p>
 
 <p>This computed value is then also printed to mimic it being transmitted over a public channel medium to Alice.</p>
 
@@ -271,14 +271,14 @@ Which is the equivalent of B = 515 mod 23, which = 19</p>
 </pre>
 27	aliceSharedSecret = (B**aliceSecret) % sharedPrime           #(S = B^a mod p) 
 
-<p>Which is the equivalent of S = 196 mod 23, which = 2</p>
+<p>Which is the equivalent of <b>S</b> = 19<sup>6</sup> mod 23, which = 2</p>
 
 <p>Likewise, Bob does the same for the received value from Alice:</p>
 <pre class="hack dark"
 31	bobSharedSecret = (A**bobSecret) % sharedPrime 			#(S = A^b mod p) 
 </pre>
-<p>Which is the equivalent of S = 815 mod 23, which = 2</p>
-<p>Therefore, the shared secret / secret key value, being 2, is now known to both Alice and Bob. Eve has no way of knowing it even though Eve knows values p, g, A and B (as displayed under the ‘Publicly Shared Variables’ output). 
+<p>Which is the equivalent of <b>S</b> = 8<sup>15</sup> mod 23, which = 2</p>
+<p>Therefore, the shared secret / secret key value, being 2, is now known to both Alice and Bob. Eve has no way of knowing it even though Eve knows values <b>p</b>, <b>g</b>, <b>A</b> and <b>B</b> (as displayed under the ‘Publicly Shared Variables’ output). 
 </p>
 <p>[ -- Implementation concludes -- ]</p>
 
