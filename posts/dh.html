@@ -303,18 +303,15 @@ secret value.
 
 The secret should also never be derived directly. Typically, in a real-world 
 simulation the secret result is parsed through hash functions to produce a 
-corresponding hashed key. Both parties will then therefore require to be using 
-the same hash algorithm.
+corresponding hashed key. 
 
 Instead of the implementation selecting the private values statically via the 
 program’s source-code, it would instead generate these private values (each of Alice and Bob) 
 via a generator function that can either be devised, or imported.
 
 Additionally, during the random value generation, the implementation would incorporate 
-the use of a Random Number Generator (RNG) to enhance Entropy (a measure of uncertainty) 
-of the randomly selected variable values i.e. Alice and Bob’s secret. This is achievable 
-via a Pseudo-Random Number Generator (PRNG) / Deterministic Random Bit Generator (DRBG) or,
-more so, via a True-Random Number Generator (TRNG).
+the use of a random number generator to enhance Entropy (a measure of uncertainty) of
+the randomly selected variable values. This is achievable true-random number generator.
 
 </pre>
 <p> ~ ret2eax</p>
