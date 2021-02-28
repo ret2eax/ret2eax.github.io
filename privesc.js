@@ -1,6 +1,6 @@
 //BEGIN
 <html>
-  <body>
+  <body style="background-color:black;">
   <script>
   console.log("Reading XSRF-TOKEN value...");
   function readCookie(name) {
