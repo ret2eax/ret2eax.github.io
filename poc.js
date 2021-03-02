@@ -7,7 +7,7 @@
               cache: 'no-cache',
               mode: 'no-cors',
               headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'text/html',
                 'X-CSRF-TOKEN': extract
               }
             });
