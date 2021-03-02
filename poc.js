@@ -1,7 +1,7 @@
 //BEGIN
-console.log("Beginning exploit...");
-console.log("GET URL is: " + GET_URL);
-console.log("might need to put the entire https:// URL here if this fails..");
+console.log("Initiating exploit...");
+//console.log("GET URL is: " + GET_URL);
+//console.log("might need to put the entire https:// URL here if this fails..");
 
 
 function readToken() {
