@@ -21,5 +21,5 @@
     \_ 0x03e: <a href="#"> Basic Information Security pertaining to GSM/CDMA Networks</a> [SOON]
     \_ 0x03f: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]
     \_ 0x03g: <a href="#"> RF Rolling Code Algorithms and Keyless Ignition FOBs </a> [SOON]<br>
-<span id="a">ret2eax@h0mecr3w</span>:<span id="b">~</span><span id="c">$</span> 
 <center><footer><< <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
+<span id="a">ret2eax@h0mecr3w</span>:<span id="b">~</span><span id="c">$</span> 
