@@ -4,12 +4,12 @@
 <span id="a">ret2eax@h0mecr3w</span>:<span id="b">~</span><span id="c">$</span> .././e-zine.sh &amp;<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTOGRAPHY, &amp; MALWARE
-    \_ 0x01a: <a href="posts/dh.html" target="_blank">The Diffie-Hellman KE Protocol & Its Mathematical DLP</a>
-    \_ 0x01b: <a href="posts/ecdh.html" target="_blank">The Elliptic Curve Diffie-Hellman KE Protocol & Its Mathematical DLP</a>
-    \_ 0x01c: <a href="#" target="_blank">Hyperelliptic curve Diffie-Hellman KE Protocol</a>[SOON]
-    \_ 0x01d: <a href="https://eprint.iacr.org/2018/485.pdf" target="_blank">Ordinary Isogeny Diffie-Hellman KE Theoretical Analysis</a>[SOON]
-    \_ 0x01e: <a href="#l" target="_blank">Supersingular Isogeny Diffie-Hellman KE Theoretical Analysis</a> [SOON]
-    \_ 0x01e: <a href="#" target="_blank">Commutative Supersingular Isogeny Diffie-Hellman KE Theoretical Analysis [SOON]</a>
+    \_ 0x01a: <a href="posts/dh.html" target="_blank">The Diffie-Hellman (D-H) KE Protocol & Its Mathematical DLP</a>
+    \_ 0x01b: <a href="posts/ecdh.html" target="_blank">The Elliptic Curve D-H KE Protocol & Its Mathematical DLP</a>
+    \_ 0x01c: <a href="#" target="_blank">Hyperelliptic curve D-H KE Protocol</a> [SOON]
+    \_ 0x01d: <a href="https://eprint.iacr.org/2018/485.pdf" target="_blank">Ordinary Isogeny D-H KE Theoretical Analysis</a> [NEXT_R]
+    \_ 0x01e: <a href="#l" target="_blank">Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
+    \_ 0x01e: <a href="#" target="_blank">Commutative Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
     \_ 0x01g: <a href="#" target="_blank">Curve25519 & The X25519 Function, A TOR Network Key Exchange</a> [SOON]<br>
 0x02: INFRASTRUCTURE &amp; APPSEC DISCLOSURES: POST REMEDIATION
     \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed</a>
