@@ -9,22 +9,18 @@
     \_ 0x01c: <a href="#" target="_blank">Hyperelliptic curve D-H KE Protocol</a> [SOON]
     \_ 0x01d: <a href="https://eprint.iacr.org/2018/485.pdf" target="_blank">Ordinary Isogeny D-H KE Theoretical Analysis</a> [NEXT_R]
     \_ 0x01e: <a href="#l" target="_blank">Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
-    \_ 0x01e: <a href="#" target="_blank">Commutative Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
-    \_ 0x01g: <a href="#" target="_blank">Curve25519 & The X25519 Function, A TOR Network Key Exchange</a> [SOON]<br>
+    \_ 0x01f: <a href="#" target="_blank">Commutative Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
+    \_ 0x01g: <a href="#" target="_blank">Curve25519 & The X25519 Function, A TOR Network Key Exchange</a> [ SOON ]<br>
 0x02: INFRASTRUCTURE &amp; APPSEC DISCLOSURES: POST REMEDIATION
     \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed</a>
-    \_ 0x02b: <a href="#">Abusing a Flaw within Facebook's Domain</a> [SOON]
-    \_ 0x02c: <a href="#">Bounty Tale: Hacking a Global Mobile Telecommunications Company</a> [SOON]
-    \_ 0x02d: <a href="#">Bounty Tale: Hacking a Bank for Fun &amp; Profit, The Legal Way</a> [SOON]
-    \_ 0x02e: <a href="posts/swf.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a><br>
+    \_ 0x02b: <a href="posts/swf.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a> [ LEGACY ] [ DEPRECATED ]<br>
 0x03: SECURITY RESEARCH, EXPLOITS &amp; EXPLOIT ADVISORIES
-    \_ 0x03a: <a href="/posts/cve-2017-12439.html" target="_blank">CVE-2017-12439 Security Advisory</a>
-    \_ 0x03b: <a href="#">CVE Block (CVE-2018-16995 to CVE-2018-16998) Security Advisory</a> [SOON]
-    \_ 0x03c: <a href="posts/socusoft-bof.html">Local Buffer Overflow via pdmlog.dll library</a>
-    \_ 0x03d: <a href="#"> Extracting Secrets from Public Datasets using Regular Expression</a> [SOON]
-    \_ 0x03e: <a href="#"> Basic Information Security pertaining to GSM/CDMA Networks</a> [SOON]
-    \_ 0x03f: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]
-    \_ 0x03g: <a href="#"> RF Rolling Code Algorithms and Keyless Ignition FOBs </a> [SOON]
+    \_ 0x03a: <a href="posts/cve-2017-12439.html" target="_blank">CVE-2017-12439 Security Advisory</a>
+    \_ 0x03b: <a href="posts/socusoft-bof.html">Local Buffer Overflow via pdmlog.dll library</a>
+    \_ 0x03c: <a href="#"> Extracting Secrets from Public Datasets using Regular Expression</a> [SOON]
+    \_ 0x03d: <a href="#"> Basic Information Security pertaining to GSM/CDMA Networks</a> [SOON]
+    \_ 0x03e: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]
+    \_ 0x03f: <a href="#"> RF Rolling Code Algorithms and Keyless Ignition FOBs </a> [SOON]
     \_ 0x03g: <a href="#"> Analysis the FBI's TOR Browser Exploit</a> [SOON]<br>
 <center><footer><< <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
 <span id="a">ret2eax@h0mecr3w</span>:<span id="b">~</span><span id="c">$</span> 
