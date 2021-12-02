@@ -1,4 +1,4 @@
-# GitHub Pages - My e-Zine // Blog
+# GitHub Pages - Publications
 
 https://ret2eax.github.io/
 
