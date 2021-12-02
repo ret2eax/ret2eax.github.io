@@ -40,7 +40,7 @@
 	text: null,
 	accessCountimer:null,
 	index:200, // current cursor position
-	speed:1000, // speed of the Typer
+	speed:10, // speed of the Typer
 	file:"", //file, must be setted
 	accessCount:0, //times alt is pressed for Access Granted
 	deniedCount:0, //times caps is pressed for Access Denied
@@ -166,6 +166,8 @@ function t() {
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
+	
+	// I should clean this up and optimize. 
 
 </script>
 </body> 
