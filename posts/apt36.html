@@ -103,9 +103,9 @@ ___________________________________________________________________</pre>
 
 <p>#[INTRODUCTION] :</p>
 
-<p>APT36, also referred to as Operation C-Major, PROJECTM, Mythic Leopard, and Transparent Tribe, is a Pakistani government-aligned actor that is a politically motivated Advanced Persistent Threat (APT) group. This APT group has been linked to Pakistan and mainly focuses its resources on targeting Indian Government entities and personnel. The motivation behind these attacks is information theft and espionage to gather intelligence from the Indian government, military, and diplomatic resources.</p>
+<p><a href="https://malpedia.caad.fkie.fraunhofer.de/actor/operation_c-major">APT36</a>, also referred to as Operation C-Major, PROJECTM, Mythic Leopard, and Transparent Tribe, is a Pakistani government-aligned actor that is a politically motivated Advanced Persistent Threat (APT) group. This APT group has been linked to Pakistan and mainly focuses its resources on targeting Indian Government entities and personnel. The motivation behind these attacks is information theft and espionage to gather intelligence from the Indian government, military, and diplomatic resources.</p>
     
-<p>An example of this was unveiled by an investigation in previous years, of which, identified the APT group targeting Windows systems across Indian embassies in Saudi Arabia and Kazakstan. Similarly, the group also targeted officials of India’s Central Bureau of Investigation  (CBI) agency. It was also discovered by CNN-IBN (an Indian TV station) that Pakistani officials were collecting data about Indian troop movements using an Android mobile app called SmeshApp. These Android campaigns continue to be prominent and I have identified over 70 variants of this malware used for the group’s campaigns targeting officials across the Android mobile ecosystem.</p>
+<p>An example of this was unveiled by an investigation in previous years, of which, identified the APT group targeting Windows systems across Indian embassies in Saudi Arabia and Kazakstan. Similarly, the group also targeted officials of India’s Central Bureau of Investigation  (CBI) agency, and it was also discovered by CNN-IBN that Pakistani officials, allegedly Pakistan's ISI (Inter-Services Intelligence Agency) were collecting data about Indian troop movements using Android malware disguised as an application called SmeshApp (2016). At the time (2016), an attack against the Pathankhot Air Force base, resulting in at least 6 deaths, was carried out with a marked degree of foresight and knowledge of the air base and operations, where part of the intelligence gathered for that attack originated from SmeshApp's success. While an outdated example, such Android campaigns from APT36 continue and are prominent today. This publication is a result of having identified over 70 variants of Android malware with APT36 origins, and is used for the group’s campaigns across the Android mobile ecosystem.</p>
     
 <p>Typically, the APT group’s arrival methods include the use of spear-phishing and a USB worm that would then drop and execute a remote access trojan (RAT).  The group also uses Android RATs (mobile malware), as mentioned above, that could be deployed by such spear-phishing campaigns, alongside other deployment vectors. A notable campaign by this APT group was leveraging deceit through disguising a RAT via a fraudulent national COVID-19 contact tracing application.</p>
     
@@ -186,21 +186,21 @@ Go into details here.
     
     <p>The above defines the registered broadcast recievers to be used for malicious intent:</p>
     
-    <p>After decompiling the sample's DEX/SMALI to readable JAVA/Kotlin classes, the entry point, being, `MainActivity.class` defined by Android's "MAIN" intent contains and onCreate() method invoking the `CMDService.class`, of which is also invoked via the `onResume()` and `onStart()` method within the defined `MainActivity`. This is illustrated below:
+    <p>After decompiling the sample's DEX/SMALI to readable JAVA/Kotlin classes, the entry point, being, the `MainActivity` class defined by Android's "MAIN" intent contains and `onCreate()` method invoking the `CMDService` class, of which is also invoked via the `onResume()` and `onStart()` method within the sample's `MainActivity` class:
       
           <pre class="hack dark"><i>
 MainActivity.class CODE SNIPIT HERE
 </i>
 </pre>
       
-      Following the callback to `CMDService.class`, we can see the sample defines command and control (C2) capabilities as well as instantiates programmatic `IF/ELSE` conditional statements for C2 flow prior to data exfiltration to the remote C2 server. This highlighted below:</p>
+      Following the callback to the `CMDService` class, we can see the sample defines Command and Control (C2) capabilities as well as instantiates programmatic `IF/ELSE` conditional statement clauses for C2 flow prior to data exfiltration to the remote C2:</p>
 
     <pre class="hack dark"><i>
 CMDService.class CODE SNIPIT HERE
 </i>
 </pre>
     
-    <p>In addition to the above, the sample contains a `CallMonitor`class and a `SMSMonitor` class, of which, both defines `HTTPAsyncTasks` that points to another class titled `setting`. This `setting.class` defines the remote C2 within the `webUrl` parameter for data exfiltration.</p>
+    <p>In addition to the above, the sample contains a `CallMonitor` class and a `SMSMonitor` class, both of which, define a HTTP asynchronous task containing callbacks to another class titled `setting`. This `setting` class defines the adversary's remote C2 within the `webUrl` parameter and is leveraged for C2 input alongside data exfiltration mechanics.</p>
     
     <pre class="hack dark"><i>
 CODE SNIPIT HERE
