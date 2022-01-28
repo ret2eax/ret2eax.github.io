@@ -123,20 +123,84 @@ Go into details here.
 
 <p>#[ANALYSIS OF SAMPLE X] :</p>
 
-    <p>blah</p>
+    <p>The following analysis is based on a Android APK malware sample origintating from APT36. This sample has been defined here as sample X, and will be referred to as sample X from this point onwards. During the initial analysis it was identified that this sample had excessive android.permission.* constants defined within the application's manfiest. This permitted the application to leverage access to the relevant Android device functions associated with such constants. In addition to the aforementioned, the manifest details the sample's entry point alongside registered broadcast recievers. These definitions have been outlined within the sample's manifest below:</p>
 <pre class="hack dark"><i>
-CODE SNIPIT HERE
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.example.redacted.redacted&quot; platformBuildVersionCode=&quot;23&quot; platformBuildVersionName=&quot;6.0-2438415&quot;&gt;
+  &lt;uses-sdk android:minSdkVersion=&quot;13&quot; android:targetSdkVersion=&quot;21&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_MULTICAST_STATE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.ACCESS_FINE_LOCATION&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.RECEIVE_SMS&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.READ_SMS&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.SEND_SMS&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.PROCESS_OUTGOING_CALLS&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.RECORD_AUDIO&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.CAMERA&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.READ_CONTACTS&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.VIBRATE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.READ_CALL_LOG&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.CLEAR_APP_CACHE&quot;/&gt;
+  &lt;uses-permission android:name=&quot;android.permission.READ_INSTALL_SESSIONS&quot;/&gt;
+  &lt;application android:theme=&quot;@style/AppTheme&quot; android:label=&quot;@string/app_name&quot; android:icon=&quot;@drawable/ic_launcher&quot; android:debuggable=&quot;true&quot; android:allowBackup=&quot;false&quot;&gt;
+    &lt;activity android:label=&quot;@string/app_name&quot; android:name=&quot;com.example.appcode.appcode.MainActivity&quot;&gt;
+      &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;
+        &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;
+      &lt;/intent-filter&gt;
+    &lt;/activity&gt;
+    &lt;service android:name=&quot;com.example.appcode.appcode.CMDService&quot;&gt;
+      &lt;action android:name=&quot;.CMDService&quot;/&gt;
+    &lt;/service&gt;
+    &lt;receiver android:name=&quot;com.example.appcode.appcode.BootUpReceiver&quot;&gt;
+      &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.BOOT_COMPLETED&quot;/&gt;
+        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot;/&gt;
+      &lt;/intent-filter&gt;
+    &lt;/receiver&gt;
+    &lt;receiver android:name=&quot;com.example.appcode.appcode.SMSMonitor&quot; android:exported=&quot;true&quot;&gt;
+      &lt;intent-filter android:priority=&quot;999&quot;&gt;
+        &lt;action android:name=&quot;android.provider.Telephony.SMS_RECEIVED&quot;/&gt;
+      &lt;/intent-filter&gt;
+    &lt;/receiver&gt;
+    &lt;receiver android:name=&quot;com.example.appcode.appcode.CallMonitor&quot;&gt;
+      &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.PHONE_STATE&quot;/&gt;
+      &lt;/intent-filter&gt;
+    &lt;/receiver&gt;
+  &lt;/application&gt;
+&lt;/manifest&gt;
 </i>
 </pre>
 
-    <p>blah</p>
+    <p>The above defnies the following Android device permissions:</p>
+    
+    <p>The above defines the sample's entry point via the android.intent.action.MAIN Android Intent:</p>
+    
+    <p>The above defines the registered broadcast recievers to be used for malicious intent:</p>
+    
+    <p>After decompiling the sample's DEX/SMALI to readable JAVA/Kotlin classes, the entry point, being, `MainActivity.class` defined by Android's "MAIN" intent contains and onCreate() method invoking the `CMDService.class`, of which is also invoked via the `onResume()` and `onStart()` method within the defined `MainActivity`. This is illustrated below:
+      
+          <pre class="hack dark"><i>
+MainActivity.class CODE SNIPIT HERE
+</i>
+</pre>
+      
+      Following the callback to `CMDService.class`, we can see the sample defines command and control (C2) capabilities as well as instantiates programmatic `IF/ELSE` conditional statements for C2 flow prior to data exfiltration to the remote C2 server. This highlighted below:</p>
 
     <pre class="hack dark"><i>
-CODE SNIPIT HERE
+CMDService.class CODE SNIPIT HERE
 </i>
 </pre>
     
-    <p>blah</p>
+    <p>In addition to the above, the sample contains a `CallMonitor`class and a `SMSMonitor` class, of which, both defines `HTTPAsyncTasks` that points to another class titled `setting`. This `setting.class` defines the remote C2 within the `webUrl` parameter for data exfiltration. The remote C2 is: `http[:]//android.viral91.xyz/admin/webservices` and can be seen within the below snipit:</p>
     
     <pre class="hack dark"><i>
 CODE SNIPIT HERE
