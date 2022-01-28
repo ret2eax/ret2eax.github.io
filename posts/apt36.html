@@ -201,10 +201,17 @@ LIST HERE
 </i>
 </pre>
     
-    <p>After decompiling the sample's DEX/SMALI to readable JAVA/Kotlin classes, the entry point, being, the `MainActivity` class defined by Android's "MAIN" intent contains and `onCreate()` method invoking the `CMDService` class, of which is also invoked via the `onResume()` and `onStart()` method within the sample's `MainActivity` class:
+    <p>After decompiling the sample's DEX/SMALI to readable JAVA/Kotlin classes, the entry point, being, the `MainActivity` class defined by Android's "MAIN" intent contains and `onCreate()` method invoking the `CMDService` class, of which is also invoked via the `onResume()` and `onStart()` method within the sample's `MainActivity` class. The following represents the `onCreate()` method which is executed upon the APK being compiled by Android's JVM environment.
       
           <pre class="hack dark"><i>
-MainActivity.class CODE SNIPIT HERE
+  protected void onCreate(android.os.Bundle p9) {
+    super.onCreate(p9);
+    Maybe([ARRAY, OBJECT]) v7_0 = new android.content.Intent(v3_1);
+    Maybe([ARRAY, OBJECT]) v3_2 = v7_0;
+    v7_0.<init>(this.getBaseContext(), com.example.redacted.redacted.CMDService.class);
+    this.startService(v3_2);
+    return;
+  }
 </i>
 </pre>
       
