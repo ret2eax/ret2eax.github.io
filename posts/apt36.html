@@ -1,0 +1,171 @@
+<!doctype html>
+<!--
+'ello;
+
+````````````````````````````````````````````````````````````````
+````````````````````````````:'+##+',````````````````````````````
+````````````````````````:##############.````````````````####````
+``````````````````````+##################:````````````,#####+```
+````````````````````'######################,``````````#######```
+```````````````````##+';:::;'+###############````````########```
+``````````````````.``` ,'+@###################``````.#######+```
+````````````````````+##########################`````+####+.`````
+`````````````````,##############################````####````````
+````````````````#################################`:'###`````````
+``````````````:#######################################:``.,`````
+`````````````'#########################################,#####```
+````````````,################################################'``
+````````````#################################################;``
+```````````.###################@########################   ,'```
+```````````##############;.``````````,'################,````````
+```````````###########.``````````````````;#############`````````
+``````````.########+```````````````````````.##########``````````
+``````````'#######```````````````````````````:#######.``````````
+``````````######+``````````````````````````````######:``````````
+``````````######```````````````````````````````.#####'``````````
+``````````#####`````````````````````````````````######``````````
+``````````####'````++':````````````````` ,'+#.```#####``````````
+``````````####.``````;###'````````````:###+``````#####``````````
+``````````####```````######:`````````#####+``````'####``````````
+``````````####``````#########``````:########`````;####``````````
+``````````####`````,########:#````'#########`````;####``````````
+``````````#### `````########````````########`````'####``````````
+``````````####.``````+####'``````````+####'``````#####``````````
+``````````####+````````  `````````````` ````````.#####``````````
+``````````#####`````````````````````````````````######``````````
+``````````######```````````````````````````````;######``````````
+``````````#######`````````````````````````````,#######``````````
+``````````########``````````'######.`````````+########``````````
+``````````##########,````.###########:`````+##########``````````
+``````````,##########################################+``````````
+```````````##########################################.``````````
+```````````##########################################```````````
+````````````########################################.```````````
+````````````+#######################################````````````
+`````````````######################################`````````````
+`````````````,####################################;`````````````
+``````````````+###################################``````````````
+``````````:````##################################```````````````
+``````````#.````################################`````@``````````
+``````````##`````##############################`````##``````````
+``````````###`````###########################+`````###``````````
+``````````####.````#########################.`````####``````````
+``````````#####;````:#####################;`````'#####``````````
+``````````#######`````##################:``````######'``````````
+``````````,#######.`````:+##########+:``````.########```````````
+```````````;########``````````````````````;#########````````````
+`````````````+########`````,+;,.````.,;##########+,`````````````
+```````````````,+#######,`````.'#############+;.````````````````
+```````````````````,;#####+, ````` `.,,,,.``````````````````````
+```````````````````````` `..,,.`````````````````````````````````
+````````````````````````````````````````````````````````````````
+-->
+<html>
+<head>
+<meta name="Description" content="Publications by ret2eax, a security researcher, consultant and enthusiast.">
+<link rel="stylesheet" href="../Resources/css/hack.css">
+<link rel="stylesheet" href="../Resources/css/themes/dark.css">
+<title>0x01a: ECDH Key Exchange 101</title>
+</head>
+<p>
+<center><img src="../images/ret_logo.png" width="80"></center><br>
+<center>((((λf.(λx.(fx)))(λy.y))(λz.z)))</center>
+<p>
+<center><< <a href="../index.html">home</a> >></center>
+<body class="hack dark">
+  <div class="main container">
+<h1>0x01b: Elliptic Curve Diffie-Hellman</h1>
+<pre class="hack dark">  _   _     ____
+ |'| |'| U /"___|
+/| |_| |\\| | u
+U|  _  |u | |/__
+ |_| |_|   \____|
+ //   \\  _// \\
+(_") ("_)(__)(__)
+
+
+#homecrew
+@ret2eax
+
+ret2eax@h0m3cr3w:~$ ./content.sh
+
+listing content..
+
+[1.] INTRODUCTION
+[2.] 
+
+___________________________________________________________________</pre>
+
+<p>#[INTRODUCTION] :</p>
+    
+
+
+
+<p>#[INTRODUCTION] :</p>
+
+<p>APT36, also referred to as Operation C-Major, PROJECTM, Mythic Leopard, and Transparent Tribe, is a Pakistani government-aligned actor that is a politically motivated Advanced Persistent Threat (APT) group. This APT group has been linked to Pakistan and mainly focuses its resources on targeting Indian Government entities and personnel. The motivation behind these attacks is information theft and espionage to gather intelligence from the Indian government, military, and diplomatic resources.</p>
+    
+<p>An example of this was unveiled by an investigation in previous years, of which, identified the APT group targeting Windows systems across Indian embassies in Saudi Arabia and Kazakstan. Similarly, the group also targeted officials of India’s Central Bureau of Investigation  (CBI) agency. It was also discovered by CNN-IBN (an Indian TV station) that Pakistani officials were collecting data about Indian troop movements using an Android mobile app called SmeshApp. These Android campaigns continue to be prominent and I have identified over 70 variants of this malware used for the group’s campaigns targeting officials across the Android mobile ecosystem.</p>
+    
+<p>Typically, the APT group’s arrival methods include the use of spear-phishing and a USB worm that would then drop and execute a remote access trojan (RAT).  The group also uses Android RATs (mobile malware), as mentioned above, that could be deployed by such spear-phishing campaigns, alongside other deployment vectors. A notable campaign by this APT group was leveraging deceit through disguising a RAT via a fraudulent national COVID-19 contact tracing application.</p>
+    
+<p>The two malware strains that will be focused on here is in pertinence to such Android RATs weaponised to execute various payloads that would essentially spawn a remote backdoor on the targeted Android mobile device. These backdoors deployed by APT36 permit the group’s ability to intercept phone calls, SMS messages, track victims’ locations, and steal personal identifiable information (PII) amongst other capabilities.</p>
+
+<p>#[PAKISTAN AND INDIA POLITICAL RELATIONS AND TENSIONS] :</p>
+
+Go into details here.
+
+  
+<p>#[SIGNALS AND IOCs] :</p>
+
+<p>Malware analysis across the various samples shows that many of the campaigns and attacks appear related by common signals and IoCs (Indicators of Compromise). These signals and IoCs include, but are not limited to;</p>
+    <p>.. more here ..</p> 
+
+<p>#[ANALYSIS] :</p>
+
+    <p>blah</p>
+<pre class="hack dark"><i>
+CODE SNIPIT HERE
+</i>
+</pre>
+
+    <p>blah</p>
+
+    <pre class="hack dark"><i>
+CODE SNIPIT HERE
+</i>
+</pre>
+    
+    <p>blah</p>
+    
+    <pre class="hack dark"><i>
+CODE SNIPIT HERE
+</i>
+</pre>
+    <p>blah</p>
+     <pre class="hack dark"><i>
+CODE SNIPIT HERE
+</i>
+</pre>
+    <p>blah</p>
+     <pre class="hack dark"><i>
+CODE SNIPIT HERE
+</i>
+</pre>
+    <p>blah</p>
+     <pre class="hack dark"><i>
+CODE SNIPIT HERE
+</i>
+</pre>
+    <p>blah</p>
+
+<p> ~ ret2eax
+</div>
+<center>
+<footer><< <a href=mailto:ret2eax@riseup.net>ret2eax@riseup.net</a> >></footer></center>
+<p>
+</body>
+</html>
+
+
+<!-- Goodbye -->
