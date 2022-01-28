@@ -105,11 +105,11 @@ ___________________________________________________________________</pre>
 
 <p><a href="https://malpedia.caad.fkie.fraunhofer.de/actor/operation_c-major">APT36</a>, also referred to as Operation C-Major, PROJECTM, Mythic Leopard, and Transparent Tribe, is a Pakistani government-aligned actor that is a politically motivated Advanced Persistent Threat (APT) group. This APT group has been linked to Pakistan and mainly focuses its resources on targeting Indian Government entities and personnel. The motivation behind these attacks is information theft and espionage to gather intelligence from the Indian government, military, and diplomatic resources.</p>
     
-<p>An example of this was unveiled by an investigation in previous years, of which, identified the APT group targeting Windows systems across Indian embassies in Saudi Arabia and Kazakstan. Similarly, the group also targeted officials of India’s Central Bureau of Investigation  (CBI) agency, and it was also discovered by CNN-IBN that Pakistani officials, allegedly Pakistan's ISI (Inter-Services Intelligence Agency) were collecting data about Indian troop movements using Android malware disguised as an application called SmeshApp (2016). At the time (2016), an attack against the Pathankhot Air Force base, resulting in at least 6 deaths, was carried out with a marked degree of foresight and knowledge of the air base and operations, where part of the intelligence gathered for that attack originated from SmeshApp's success. While an outdated example, such Android campaigns from APT36 continue and are prominent today. This publication is a result of having identified over 70 variants of Android malware with APT36 origins, and is used for the group’s campaigns across the Android mobile ecosystem.</p>
+<p>An example of this was unveiled by an investigation in previous years, of which, identified the APT group targeting Windows systems across Indian embassies in Saudi Arabia and Kazakstan. Similarly, the group also targeted officials of India’s Central Bureau of Investigation  (CBI) agency, and it was also discovered by CNN-IBN that Pakistani officials, allegedly Pakistan's ISI (Inter-Services Intelligence Agency) were collecting data about Indian troop movements using Android malware disguised as an application called <a href="https://www.firstpost.com/tech/news-analysis/smeshapp-cyberterrorism-is-real-but-what-is-it-and-what-can-we-do-about-it-3678773.html">SmeshApp</a> (2016). At the time (2016), an attack against the Pathankhot Air Force base, resulting in at least 6 deaths, was carried out with a marked degree of foresight and knowledge of the air base and operations, where part of the intelligence gathered for that attack originated from SmeshApp's success. While an outdated example, such Android campaigns from APT36 continue and are prominent today. This publication is a result of having identified over 70 variants of Android malware with APT36 origins, and is used for the group’s campaigns across the Android mobile ecosystem.</p>
     
-<p>Typically, the APT group’s arrival methods include the use of spear-phishing and a USB worm that would then drop and execute a remote access trojan (RAT).  The group also uses Android RATs (mobile malware), as mentioned above, that could be deployed by such spear-phishing campaigns, alongside other deployment vectors. A notable campaign by this APT group was leveraging deceit through disguising a RAT via a fraudulent national COVID-19 contact tracing application.</p>
+<p>Typically, the APT group’s arrival methods include the use of spear-phishing and a USB worm that would then drop and execute a remote access trojan (RAT).  The group also uses Android RATs (mobile malware), as mentioned above (and will be analysed below), that could be deployed by such spear-phishing campaigns, alongside other deployment vectors. Another recent notable campaign by this APT group was leveraging deceit through disguising a RAT via a fraudulent national COVID-19 contact tracing application. Further reading can be located <a href="https://www.trendmicro.com/en_us/research/22/a/investigating-apt36-or-earth-karkaddans-attack-chain-and-malware.html">here</a></p>
     
-<p>The two malware strains that will be focused on here is in pertinence to such Android RATs weaponised to execute various payloads that would essentially spawn a remote backdoor on the targeted Android mobile device. These backdoors deployed by APT36 permit the group’s ability to intercept phone calls, SMS messages, track victims’ locations, and steal personal identifiable information (PII) amongst other capabilities.</p>
+<p>The two malware strains that will be focused on throughout this publication is in pertinence to such Android RATs weaponised to execute various payloads that would essentially spawn a remote backdoor on the targeted Android mobile device. These backdoors deployed by APT36 permit the group’s ability to intercept phone calls, SMS messages, track victims’ locations, steal personal identifiable information (PII) amongst other capabilities.</p>
 
 <p>#[PAKISTAN AND INDIA POLITICAL RELATIONS AND TENSIONS] :</p>
 
@@ -182,9 +182,24 @@ Go into details here.
 
     <p>The above defnies the following Android device permissions:</p>
     
+       <pre class="hack dark"><i>
+LIST HERE
+</i>
+</pre>
+    
     <p>The above defines the sample's entry point via the android.intent.action.MAIN Android Intent:</p>
     
+           <pre class="hack dark"><i>
+LIST HERE
+</i>
+</pre>
+    
     <p>The above defines the registered broadcast recievers to be used for malicious intent:</p>
+    
+           <pre class="hack dark"><i>
+LIST HERE
+</i>
+</pre>
     
     <p>After decompiling the sample's DEX/SMALI to readable JAVA/Kotlin classes, the entry point, being, the `MainActivity` class defined by Android's "MAIN" intent contains and `onCreate()` method invoking the `CMDService` class, of which is also invoked via the `onResume()` and `onStart()` method within the sample's `MainActivity` class:
       
