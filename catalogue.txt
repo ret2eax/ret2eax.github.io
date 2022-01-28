@@ -6,11 +6,12 @@
 <p>0x01: REVERSE ENGINEERING, CRYPTOGRAPHY, &amp; MALWARE
     \_ 0x01a: <a href="posts/dh.html" target="_blank">The Diffie-Hellman (D-H) KE Protocol & Its Mathematical DLP</a>
     \_ 0x01b: <a href="posts/ecdh.html" target="_blank">The Elliptic Curve Diffie-Helmman KE Protocol & Its Mathematical DLP</a>
-    \_ 0x01c: <a href="#" target="_blank">Hyperelliptic curve Diffie-Hellman KE Theoretical Analysis</a> [NEXT_RELEASE]
-    \_ 0x01d: <a href="https://eprint.iacr.org/2018/485.pdf" target="_blank">Ordinary Isogeny D-H KE Theoretical Analysis</a> [SOON]
-    \_ 0x01e: <a href="#l" target="_blank">Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
-    \_ 0x01f: <a href="#" target="_blank">Commutative Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
-    \_ 0x01g: <a href="#" target="_blank">Curve25519 & The X25519 Function, A TOR Network Key Exchange</a> [SOON]<br>
+    \_ 0x01c: <a href="#" target="_blank">Reverse Engineering Pakistani linked APT36 Malware Targeting Indian Military & Diplomatic Resources</a> [NEXT_RELEASE]
+    \_ 0x01d: <a href="#" target="_blank">Hyperelliptic curve Diffie-Hellman KE Theoretical Analysis</a> [SOON]
+    \_ 0x01e: <a href="https://eprint.iacr.org/2018/485.pdf" target="_blank">Ordinary Isogeny D-H KE Theoretical Analysis</a> [SOON]
+    \_ 0x01f: <a href="#l" target="_blank">Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
+    \_ 0x01g: <a href="#" target="_blank">Commutative Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
+    \_ 0x01h: <a href="#" target="_blank">Curve25519 & The X25519 Function, A TOR Network Key Exchange</a> [SOON]<br>
 0x02: INFRASTRUCTURE &amp; APPSEC DISCLOSURES: POST REMEDIATION
     \_ 0x02a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed</a>
     \_ 0x02b: <a href="posts/swf.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a> [LEGACY/DEPRECATED]<br>
