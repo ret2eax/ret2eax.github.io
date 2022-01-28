@@ -6,7 +6,7 @@
 <p>0x01: REVERSE ENGINEERING, CRYPTOGRAPHY, &amp; MALWARE
     \_ 0x01a: <a href="posts/dh.html" target="_blank">The Diffie-Hellman (D-H) KE Protocol & Its Mathematical DLP</a>
     \_ 0x01b: <a href="posts/ecdh.html" target="_blank">The Elliptic Curve Diffie-Helmman KE Protocol & Its Mathematical DLP</a>
-    \_ 0x01c: <a href="#" target="_blank">Reverse Engineering APT36 Malware Targeting Indian Military & Diplomatic Resources</a> [NEXT_RELEASE]
+    \_ 0x01c: <a href="#" target="_blank">Reversing APT36 Malware Targeting Indian Military & Diplomatic Resources</a> [NEXT_RELEASE]
     \_ 0x01d: <a href="#" target="_blank">Hyperelliptic curve Diffie-Hellman KE Theoretical Analysis</a> [SOON]
     \_ 0x01e: <a href="https://eprint.iacr.org/2018/485.pdf" target="_blank">Ordinary Isogeny D-H KE Theoretical Analysis</a> [SOON]
     \_ 0x01f: <a href="#l" target="_blank">Supersingular Isogeny D-H KE Theoretical Analysis</a> [SOON]
