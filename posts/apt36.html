@@ -886,12 +886,12 @@ public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends and
 </i>
 </pre>
     <p>Following the callback `v14_2.<init>(com.example.appcode.appcode.setting.weburl);`, highlights the remote C2 source, a hard-coded static value, defined within a webUrl parameter within the referenced `setting` class (truncated for brevity):</p>
-     <p>The above contains `v14_2.<init>(com.example.appcode.appcode.setting.weburl);`, a callback to the `setting` class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device, as well as, exfiltrate extracted device data over a HTTP socket:</p>
+     <p>The above contains `v14_2.<init>(com.example.appcode.appcode.setting.weburl);`, a callback to the `setting` class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device (command execution), as well as, exfiltrate device data over an outbound HTTP socket:</p>
      
      <pre class="hack dark"><i>
 static {
     com.example.redacted.redacted.setting.verion = "1.0.0.0";
-    com.example.redacted.redacted.setting.weburl = "http[:]//android[.]viral91[.]xyz/admin/webservices";      [REMOTE C2 FOR COMMAND EXECUTION AND DATA EXFILTRATION]
+    com.example.redacted.redacted.setting.weburl = "http[:]//android[.]viral91[.]xyz/admin/webservices";   
     com.example.redacted.redacted.setting.errors = 0;
     com.example.redacted.redacted.setting.imi = "";
     com.example.redacted.redacted.setting.os = "";
