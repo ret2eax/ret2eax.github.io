@@ -128,7 +128,7 @@ ___________________________________________________________________</pre>
 <p>#[ANALYSIS OF SAMPLE X] :</p>
 
     <p>The following analysis is based on a Android APK malware sample origintating from APT36. This sample has been defined here as sample X, and will be referred to as sample X from this point onwards. During the initial analysis it was identified that this sample had excessive android.permission.* constants defined within the application's manfiest. This permitted the application to leverage access to the relevant Android device functions associated with such constants. In addition to the aforementioned, the manifest details the sample's entry point alongside registered broadcast recievers. These definitions have been outlined within the sample's manifest below:</p>
-<pre class="hack dark"><i>
+<pre class="hack dark"><i><code>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.example.redacted.redacted&quot; platformBuildVersionCode=&quot;23&quot; platformBuildVersionName=&quot;6.0-2438415&quot;&gt;
   &lt;uses-sdk android:minSdkVersion=&quot;13&quot; android:targetSdkVersion=&quot;21&quot;/&gt;
@@ -181,7 +181,7 @@ ___________________________________________________________________</pre>
     &lt;/receiver&gt;
   &lt;/application&gt;
 &lt;/manifest&gt;
-</i>
+</i></code>
 </pre>
 
     <p>The above defnies the following Android device permission constants (android.permission.*):</p>
