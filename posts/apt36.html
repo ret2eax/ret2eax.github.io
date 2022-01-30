@@ -187,42 +187,42 @@ ___________________________________________________________________</pre>
     <p>The above defnies the following Android device permission constants (android.permission.*):</p>
     
        <pre class="hack dark"><code>
-.ACCESS_NETWORK_STATE                // ACCESS NETWORK INFORMATION, Wi-Fi, GSM, GPRS, UMTS ETC]
-.WRITE_EXTERNAL_STORAGE              [WRITE TO DEVICE EXTERNAL STORAGE] 
-.ACCESS_WIFI_STATE                   [ACCESS WIFI NETWORK INFORMATION]
-.ACCESS_COARSE_LOCATION              [ACCESS APPROXIMATE LOCATION]
-.RECEIVE_BOOT_COMPLETED              [RECEIVE THE `ACTION_BOOT_COMPLETED` INTENT] 
-.CHANGE_WIFI_MULTICAST_STATE         [WIFI MULTICAST MODE]
-.INTERNET                            [NETWORK OPERATIONS] 
-.ACCESS_FINE_LOCATION.               [ACCESS PRECISE LOCATION, GETLAT/GETLONG X,Y CO-ORDINATES] 
-.RECEIVE_SMS                         [RECEIVE INBOUND SMS MESSAGES]
-.READ_SMS                            [READ DEVICE SMS STORE]
-.SEND_SMS                            [INTERACT W/ SMS MANAGER API TO SEMD TEXT & PDU SMS MESSAGES]
-.READ_PHONE_STATE                    [READ ACCESS TO CELLULAR NETWORK INFO, STATUS OF ONGOING CALLS ETC] 
-.PROCESS_OUTGOING_CALLS              [IDENTIFY NUMBER DURING OUTBOUND CALL, REDIRECT OR ABORT THE CALL] 
-.RECORD_AUDIO                        [ACCESS DEVICE MICROPHONE TO RECORD AUDIO]
-.CAMERA                              [ACCESS TO THE DEVICE CAMERA]
-.CALL_PHONE                          [INITIATE PHONE CALL WITHOUT UI DIALER OR CONFIRMATION FROM OWNER]  
-.READ_CONTACTS                       [INTERACT W/ CONTACTSCONTRACT API TO READ DEVICE CONTACTS]
-.VIBRATE                             [ACCESS TO THE DEVICE DC MOTOR THAT CREATES VIBRATION]
-.READ_CALL_LOG                       [READ DEVICE CALL LOG]
-.CLEAR_APP_CACHE                     [CLEAR CACHE OF ALL INSTALLED APKs]
+.ACCESS_NETWORK_STATE                // ACCESS NETWORK INFORMATION, Wi-Fi, GSM, GPRS, UMTS ETC
+.WRITE_EXTERNAL_STORAGE              // WRITE TO DEVICE EXTERNAL STORAGE
+.ACCESS_WIFI_STATE                   // ACCESS WIFI NETWORK INFORMATION
+.ACCESS_COARSE_LOCATION              // ACCESS APPROXIMATE LOCATION
+.RECEIVE_BOOT_COMPLETED              // RECEIVE THE `ACTION_BOOT_COMPLETED` INTENT
+.CHANGE_WIFI_MULTICAST_STATE         // WIFI MULTICAST MODE
+.INTERNET                            // NETWORK OPERATIONS 
+.ACCESS_FINE_LOCATION.               // ACCESS PRECISE LOCATION, GETLAT/GETLONG X,Y CO-ORDINATES
+.RECEIVE_SMS                         // RECEIVE INBOUND SMS MESSAGES
+.READ_SMS                            // READ DEVICE SMS STORE
+.SEND_SMS                            // INTERACT W/ SMS MANAGER API TO SEMD TEXT & PDU SMS MESSAGES
+.READ_PHONE_STATE                    // READ ACCESS TO CELLULAR NETWORK INFO, STATUS OF ONGOING CALLS ETC 
+.PROCESS_OUTGOING_CALLS              // IDENTIFY NUMBER DURING OUTBOUND CALL, REDIRECT OR ABORT THE CALL
+.RECORD_AUDIO                        // ACCESS DEVICE MICROPHONE TO RECORD AUDIO
+.CAMERA                              // ACCESS TO THE DEVICE CAMERA
+.CALL_PHONE                          // INITIATE PHONE CALL WITHOUT UI DIALER OR CONFIRMATION FROM OWNER 
+.READ_CONTACTS                       // INTERACT W/ CONTACTSCONTRACT API TO READ DEVICE CONTACTS
+.VIBRATE                             // ACCESS TO THE DEVICE DC MOTOR THAT CREATES VIBRATION
+.READ_CALL_LOG                       // READ DEVICE CALL LOG
+.CLEAR_APP_CACHE                     // CLEAR CACHE OF ALL INSTALLED APKs
 </code>
 </pre>
     
     <p>The sample's entry point is defined within the manifest via the `android.intent.action.MAIN` Intent:</p>
     
            <pre class="hack dark"><code>
-android.intent.action.MAIN on com.example.redcated.redacted.MainActivity
+android.intent.action.MAIN -> com.example.redcated.redacted.MainActivity
 </code>
 </pre>
     
     <p>The sample's manifest defines the registered device broadcast recievers to be used for malicious intent:</p>
     
            <pre class="hack dark"><code>
-android.intent.action.BOOT_COMPLETED         [ON BOOT COMPLETE EVENT USED FOR MALWARE PERSISTENCE]
-android.provider.Telephony.SMS_RECEIVED      [RECEIVER FOR DEVICE SMS MONITORING]
-android.intent.action.PHONE_STATE.           [RECEIVER FOR DEVICE PHONE CALL MONITORING]
+android.intent.action.BOOT_COMPLETED         // ON BOOT COMPLETE EVENT USED FOR MALWARE PERSISTENCE
+android.provider.Telephony.SMS_RECEIVED      // RECEIVER FOR DEVICE SMS MONITORING
+android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL MONITORING
 </code>
 </pre>
     
