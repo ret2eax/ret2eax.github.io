@@ -65,6 +65,9 @@
 <meta name="Description" content="Publications by ret2eax, a security researcher, consultant and enthusiast.">
 <link rel="stylesheet" href="../Resources/css/hack.css">
 <link rel="stylesheet" href="../Resources/css/themes/dark.css">
+<link rel="stylesheet" href="../Resources/highlight/styles/custom.min.css">
+<script src="../Resources/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 <title>0x01a: ECDH Key Exchange 101</title>
 </head>
 <p>
@@ -191,7 +194,7 @@ Which means, these two equations are congruent to each other:
 <p>Suppose the prime modulus <b>p</b> has a length of 1024-bits (~ 308 base10/decimal digits), with <b>x</b> being known this is a simple trap-door function. However, without knowing <b>x</b>, <b>p</b>, being 1024-bits in length, is a value so large that it means there are <b>2<sup>1024</sup></b> possible combinations for <b>x</b>.</p>
 <p>While such a discrete logarithm problem is traditionally used (<b>g<sup>x</sup></b> mod <b>p</b>), the general process of the D-H key exchange can be modified to use elliptic curve cryptography (ECC) to form the Elliptic Curve Diffie-Hellman key exchange protocol (ECDH). A similar analysis on the ECDH protocol can be observed <a href="ecdh.html">here</a>.</p>
 <p>#[ PYTHON IMPLEMENTATION FOR DEMONSTRATION ] :</p>
-<pre class="hack dark">
+<pre class="hack dark"><code>
   
 1	# Variable Declaration
 2	sharedPrime = 23    # p  
@@ -224,7 +227,7 @@ Which means, these two equations are congruent to each other:
 29	bobSharedSecret = (A**bobSecret) % sharedPrime
 30	print('Bob Shared Secret:', bobSharedSecret) 
 
-</pre>
+</code></pre>
 
 <p>Try it yourself below:</p>
 <pre class="hack dark">
@@ -236,21 +239,21 @@ Which means, these two equations are congruent to each other:
 <p>Initially, a sum of four variables is defined, each containing unique data (in this case, integers). These variables are named sharedPrime, sharedBase, aliceSecret and bobSecret.
 </p>
 <p>Each of these variables have been co-signed with single letters to later demonstrate the D-H mathematical functions for better understanding.</p>
-<pre class="hack dark">
+<pre class="hack dark"><code>
 1	sharedPrime = 23    # p  
 2	sharedBase = 5 	# g  
 3	aliceSecret = 6 	# a  
 4	bobSecret = 15  	# b 
-</pre>
+</code></pre>
 <p>
 First Alice and Bob agree on a Prime number, sharedPrime (p) that must be a prime number. Likewise a base, sharedBase (g), is also agreed upon where g must be a primitive root modulo. These above mentioned values of 23 (p) and 5 (g) are public, not secret and can therefore be known to anyone, such as Eve. Following these public values, Alice and Bob each randomly select their own private/secret integer that they keep to themselves. Alice’s value: a is 6, Bob’s value: b is 15.
 </p>
 <p>
 Alice’s public value (A) is computed via modular arithmetic: 
 </p>
-<pre class="hack dark">
+<pre class="hack dark"><code>
 16	A = (sharedBase**aliceSecret) % sharedPrime   #(A = g^a mod p) 
-</pre>
+</code></pre>
 <p>
 Which is the equivalent to <b>A</b> = 5<sup>6</sup> mod 23, which = 8
 </p>
@@ -258,24 +261,24 @@ Which is the equivalent to <b>A</b> = 5<sup>6</sup> mod 23, which = 8
 This computed value is then printed to mimic it being transmitted over a public/insecure channel medium to Bob. 
 </p>
 <p>Likewise, Bob’s public value (B) is computed via modular arithmetic: </p>
-<pre class="hack dark">
+<pre class="hack dark"><code>
 20	B = (sharedBase**bobSecret) % sharedPrime    #(B = g^b mod p) 
-</pre>
+</code></pre>
 <p>
 Which is the equivalent of <b>B</b> = 5<sup>15</sup> mod 23, which = 19</p>
 
 <p>This computed value is then also printed to mimic it being transmitted over a public channel medium to Alice.</p>
 
 <p>Alice then computes the received value via:</p>
-<pre class="hack dark">
+<pre class="hack dark"><code>
 27	aliceSharedSecret = (B**aliceSecret) % sharedPrime           #(S = B^a mod p) 
-</pre>
+</code></pre>
 <p>Which is the equivalent of <b>S</b> = 19<sup>6</sup> mod 23, which = 2</p>
 
 <p>Likewise, Bob does the same for the received value from Alice:</p>
-<pre class="hack dark">
+<pre class="hack dark"><code>
 31	bobSharedSecret = (A**bobSecret) % sharedPrime 			#(S = A^b mod p) 
-</pre>
+</code></pre>
 <p>Which is the equivalent of <b>S</b> = 8<sup>15</sup> mod 23, which = 2</p>
 <p>Therefore, the shared secret / secret key value, being 2, is now known to both Alice and Bob. Eve has no way of knowing it even though Eve knows values <b>p</b>, <b>g</b>, <b>A</b> and <b>B</b> (as displayed under the ‘Publicly Shared Variables’ output). 
 </p>
