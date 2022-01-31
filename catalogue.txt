@@ -18,7 +18,7 @@
     \_ 0x03b: <a href="posts/socusoft-bof.html">Local Buffer Overflow via pdmlog.dll library</a>
     \_ 0x03c: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]
     \_ 0x03d: <a href="#"> Analysing the FBI's TOR Browser Exploit</a> [SOON]<br>
-0x04: MY COMMERICAL SERVICES
+0x04: COMMERCIAL SERVICES
 \_ 0x04a: <a href="https://hackthegrid.com.au" target="_blank">H4CK TH3 GR1D</a><br>
 <center><footer><< <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
 <span id="a">ret2eax@h0m3cr3w</span>:<span id="b">~</span><span id="c">$</span>
