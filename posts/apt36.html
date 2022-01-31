@@ -218,6 +218,176 @@ android.provider.Telephony.SMS_RECEIVED      // RECEIVER FOR DEVICE SMS MONITORI
 android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL MONITORING
 </code>
 </pre>
+  
+  <p>MainActivity SMALi:</p>
+ 
+<pre class="hack dark"><code class="language-smali">
+.class public Lcom/example/appcode/appcode/MainActivity;
+.super Landroid/app/Activity;
+.source "MainActivity.java"
+
+
+# direct methods
+.method public constructor <init>()V
+    .registers 3
+
+    .prologue
+    .line 22
+    move-object v0, p0
+
+    .local v0, "this":Lcom/example/appcode/appcode/MainActivity;
+    move-object v1, v0
+
+    invoke-direct {v1}, Landroid/app/Activity;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method protected onCreate(Landroid/os/Bundle;)V
+    .registers 10
+
+    .prologue
+    .line 26
+    move-object v0, p0
+
+    .local v0, "this":Lcom/example/appcode/appcode/MainActivity;
+    move-object v1, p1
+
+    .local v1, "savedInstanceState":Landroid/os/Bundle;
+    move-object v2, v0
+
+    move-object v3, v1
+
+    invoke-super {v2, v3}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+
+    .line 27
+    move-object v2, v0
+
+    new-instance v3, Landroid/content/Intent;
+
+    move-object v7, v3
+
+    move-object v3, v7
+
+    move-object v4, v7
+
+    move-object v5, v0
+
+    invoke-virtual {v5}, Lcom/example/appcode/appcode/MainActivity;->getBaseContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    const-class v6, Lcom/example/appcode/appcode/CMDService;
+
+    invoke-direct {v4, v5, v6}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    invoke-virtual {v2, v3}, Lcom/example/appcode/appcode/MainActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    .line 28
+    return-void
+.end method
+
+.method public onResume()V
+    .registers 9
+
+    .prologue
+    .line 42
+    move-object v0, p0
+
+    .local v0, "this":Lcom/example/appcode/appcode/MainActivity;
+    move-object v2, v0
+
+    :try_start_2
+    invoke-super {v2}, Landroid/app/Activity;->onResume()V
+
+    .line 43
+    move-object v2, v0
+
+    new-instance v3, Landroid/content/Intent;
+
+    move-object v7, v3
+
+    move-object v3, v7
+
+    move-object v4, v7
+
+    move-object v5, v0
+
+    invoke-virtual {v5}, Lcom/example/appcode/appcode/MainActivity;->getBaseContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    const-class v6, Lcom/example/appcode/appcode/CMDService;
+
+    invoke-direct {v4, v5, v6}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    invoke-virtual {v2, v3}, Lcom/example/appcode/appcode/MainActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    .line 44
+    move-object v2, v0
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Lcom/example/appcode/appcode/MainActivity;->moveTaskToBack(Z)Z
+    :try_end_1e
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_1e} :catch_20
+
+    move-result v2
+
+    .line 45
+    .line 46
+    :goto_1f
+    return-void
+
+    .line 45
+    :catch_20
+    move-exception v2
+
+    move-object v1, v2
+
+    goto :goto_1f
+.end method
+
+.method public onStart()V
+    .registers 4
+
+    .prologue
+    .line 34
+    move-object v0, p0
+
+    .local v0, "this":Lcom/example/appcode/appcode/MainActivity;
+    move-object v2, v0
+
+    :try_start_2
+    invoke-super {v2}, Landroid/app/Activity;->onStart()V
+
+    .line 35
+    move-object v2, v0
+
+    invoke-virtual {v2}, Lcom/example/appcode/appcode/MainActivity;->onResume()V
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_9} :catch_a
+
+    .line 36
+    .line 37
+    :goto_9
+    return-void
+
+    .line 36
+    :catch_a
+    move-exception v2
+
+    move-object v1, v2
+
+    goto :goto_9
+.end method
+</code></pre>
     
     <p>After decompiling the sample's DEX (Dalvik bytecode), SMALi/baksmali to readable JAVA/Kotlin classes; the entry point, being, the `MainActivity` class defined by `android.intent.action.MAIN` is seen to contain an `onCreate()` method invoking another class, being `CMDService` class, of which, is also invoked via the `onResume()` and `onStart()` method within the same `MainActivity` class. The following represents the `onCreate()` method which is immediatley called by Android's javac/kotlinc compiler and executed on the JVM: 
       
@@ -889,16 +1059,12 @@ static {
 </code>
 </pre>
 
-</p></Some SMALi?</p>
-    <p>IN PROGRESS maybe add this before the readable classes</p>
-<pre class="hack dark"><code class="language-kotlin">
-CODE SNIPIT HERE
-</code></pre>
+
 
 <p>some ARM ASM?</p>
     <p>IN PROGRESS</p>
 <pre class="hack dark"><code class="language-kotlin">
-CODE SNIPIT HERE
+CODE SNIPIT HERE</code>
 </pre>
     <p>FINAL COMMENTS ON SAMPLE X AND CONCLUSION</p>
      
