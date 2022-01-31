@@ -238,34 +238,34 @@ y2G = 3
 
 <p>#[SAMPLE PYTHON IMPLEMENTATION FOR DEMONSTRATION] :</p>
 
-<pre class="hack dark"><code class="language-python">
-	  from elliptic import *
-	  from finitefield.finitefield import FiniteField
-	  import os
+<pre class="hack dark"><code>
+from elliptic import *
+from finitefield.finitefield import FiniteField
+import os
 
-	  def generateSecretKey(numBits):
-	    return int.from_bytes(os.urandom(numBits // 8), byteorder='big')
+def generateSecretKey(numBits):
+	return int.from_bytes(os.urandom(numBits // 8), byteorder='big')
 
-	  def sendDH(privateKey, generator, sendFunction):
-	    return sendFunction(privateKey * generator)
+def sendDH(privateKey, generator, sendFunction):
+	return sendFunction(privateKey * generator)
 
-	def receiveDH(privateKey, receiveFunction):
-	  return privateKey * receiveFunction()
+def receiveDH(privateKey, receiveFunction):
+	return privateKey * receiveFunction()
 
-	def slowOrder(point):
-	    Q = point
-	    i = 1
-	    while True:
-	        if type(Q) is Ideal:
-	            return i
-	        else:
-	            Q = Q + point
-	            i += 1
+def slowOrder(point):
+	Q = point
+	i = 1
+	while True:
+		if type(Q) is Ideal:
+		return i
+		else:
+		  Q = Q + point
+	          i += 1
 
-	if __name__ == "__main__":
-	    F = FiniteField(3851, 1)
+if __name__ == "__main__":
+	F = FiniteField(3851, 1)
 
-	    # Totally insecure curve: y^2 = x^3 + 324x + 1287
+	# Totally insecure curve: y^2 = x^3 + 324x + 1287
 	    curve = EllipticCurve(a=F(324), b=F(1287))
 
 	    # order is 1964
