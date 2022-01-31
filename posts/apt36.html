@@ -913,6 +913,75 @@ static {
     com.example.appcode.appcode.setting.SERVERPORT = 12280;
 </i>
 </pre>
+
+The malware author's C2 is registered to a Wilhelm Zwalina, associated with a German host provider, Contabo GmbH. A common connection amongst various APT36 campaigns:
+<pre class="hack dark"><code class="language-http">
+
+ret2eax@h0m3cr3w~$: whois 5.189.177.175
+
+inetnum:      5.0.0.0 - 5.255.255.255
+organisation: RIPE NCC
+status:       ALLOCATED
+
+netname:        CONTABO
+descr:          Contabo GmbH
+country:        DE
+org:            ORG-GG22-RIPE
+admin-c:        MH7476-RIPE
+tech-c:         MH7476-RIPE
+status:         ASSIGNED PA
+mnt-by:         MNT-CONTABO
+mnt-lower:      MNT-CONTABO
+mnt-domains:    MNT-CONTABO
+mnt-routes:     MNT-CONTABO
+created:        2014-04-27T12:56:48Z
+last-modified:  2014-04-27T12:56:48Z
+source:         RIPE
+
+organisation:   ORG-GG22-RIPE
+org-name:       Contabo GmbH
+country:        DE
+org-type:       LIR
+address:        Aschauer Strasse 32a
+address:        81549
+address:        Munchen
+address:        GERMANY
+phone:          +498921268372
+fax-no:         +498921665862
+abuse-c:        MH12453-RIPE
+mnt-ref:        RIPE-NCC-HM-MNT
+mnt-ref:        MNT-CONTABO
+mnt-ref:        MNT-OCIRIS
+mnt-by:         RIPE-NCC-HM-MNT
+mnt-by:         MNT-CONTABO
+created:        2009-12-09T13:41:08Z
+last-modified:  2021-09-14T10:49:04Z
+source:         RIPE # Filtered
+
+person:         Wilhelm Zwalina
+address:        Contabo GmbH
+address:        Aschauer Str. 32a
+address:        81549 Muenchen
+phone:          +49 89 21268372
+fax-no:         +49 89 21665862
+nic-hdl:        MH7476-RIPE
+mnt-by:         MNT-CONTABO
+mnt-by:         MNT-GIGA-HOSTING
+created:        2010-01-04T10:41:37Z
+last-modified:  2020-04-24T16:09:30Z
+source:         RIPE
+
+% Information related to '5.189.176.0/20AS51167'
+
+route:          5.189.176.0/20
+descr:          CONTABO
+origin:         AS51167
+mnt-by:         MNT-CONTABO
+created:        2014-04-27T12:57:54Z
+last-modified:  2014-04-27T12:57:54Z
+source:         RIPE
+</code>
+</pre>
     
       <p><b>#[CONCLUSION] :</b></p>
     <p>IN PROGRESS</p>
