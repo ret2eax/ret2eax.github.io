@@ -44,7 +44,7 @@ Flash player related vulnerabilities have been notorious in their susceptibility
 As opposed to deep diving into flash exploitation and the various attack vectors. This article will be focusing on a more generic overview prior to presenting my own findings as a reminder as to how Shockwave Flash (SWF) files can pose a threat, their capabilities and the potential attack path associated with the insecure variations being hosted and exposed to the public domain.
 SWF files are created through ActionScript syntax, of which, is very similar to JavaScript as both conform to the ECMA-based syntax. Like any other language, failure to properly validate and sanitize user inputs can leave the segment vulnerable to various attacks. Furthermore, ActionScript itself, contains vulnerabilities associated with it, itself, this includes methods rendered ‘unsafe’, such as, but not limited to:
 <p>#[VULNERABLE ACTIONSCRIPT METHODS] :</p>
-<pre class="hack dark"><code>
+<pre class="hack dark"><code class="language-actionscript">
 externalInterface.call(); 
 getURL();
 loadVariables();
@@ -64,7 +64,7 @@ AddDLL;
 </pre>
 
 <p>#[INSECURE GLOBAL VARIABLES] :</p>
-<pre class="hack dark"><code>
+<pre class="hack dark"><code class="language-actionscript">
 _root, _global, _level0</code>
 </pre>
 In terms of performing the analysis, SWF files can be decompiled through various tools, a common one being flare. Therefore, exploitation is handled in a white-box mannered approach. Once decompiled a source code analysis can be initiated. There are tools out their which can perform a static-code analysis in an automated manner, however, they often miss many insecurities. Therefore, it is recommended that a more manual approach be taken. Since ActionScript is a straight forward language, only basic knowledge of its structure, methods and syntax is required.
@@ -73,7 +73,7 @@ The main objective with the code analysis is to get an overview of the code flow
 
 For example, see a vulnerable decompiled source below:
 <pre class="hack dark">
-<code>
+<code class="language-actionscript">
 button 48 {
 	on (release) {
 		var str = (_level0.clickTag != undefined) ? _level0.clickTag
@@ -89,7 +89,7 @@ button 48 {
 </p>
 
 <p>#[EXPLOITING VULNERABLE XML CONFIGURATIONS THROUGH CDATA] :</p>
-<pre class="hack dark"><code>
+<pre class="hack dark"><code class="language-xml">
 &lt;![CDATA[<]]>script&lt;![CDATA[>]]>alert('xss')&lt;![CDATA[<]]>/script&lt;![CDATA[>]]></code>
 </pre>
 
