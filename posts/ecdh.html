@@ -238,7 +238,7 @@ y2G = 3
 
 <p>#[SAMPLE PYTHON IMPLEMENTATION FOR DEMONSTRATION] :</p>
 
-<pre class="hack dark"><i>
+<pre class="hack dark"><code>
 1	  from elliptic import *
 2	  from finitefield.finitefield import FiniteField
 3	  import os
@@ -283,7 +283,7 @@ y2G = 3
 42
 43	    print('Shared secret is %s == %s' % (sharedSecret1, sharedSecret2))
 44	    print('extracting x coordinate to get an integer shared secret: %d' % (sharedSecret1.x.n))
-</i>
+</code>
 </pre>
 </p>
 <p>#[BREAKING DOWN THE SOURCE] :</p>
@@ -291,7 +291,7 @@ y2G = 3
 <p>In short, as opposed to outlining the obvious and self-explanatory semantics of code line by line, a general overview of what is happening within this implementation is as follows:</p>
 <p>The program initially imports subscripts and modules, including computations resulting from the sub-script elliptic.py, as well as Python's os module, which allows access to the operating system's Random Number Generator (RND) via the 'urandom' function that is used to generate both Alice and Bob's private keys.</p>
 <p>Three functions are then defined: generateSecretKey, SendDH, and RecieveDH, all of which are later called.</p>
-<pre class="hack dark"><i>
+<pre class="hack dark"><code>
 5	  def generateSecretKey(numBits):
 6	    return int.from_bytes(os.urandom(numBits // 8), byteorder='big')
 7
@@ -300,37 +300,37 @@ y2G = 3
 10
 11	def receiveDH(privateKey, receiveFunction):
 12	  return privateKey * receiveFunction()
-</i>
+</code>
 </pre>
 <p>The generateSecretKey function is called upon via, 'generateSecretyKey(8)' to generate a secret key each for Alice (aliceSecretKey) and Bob (bobSecretKey):</p>
-<pre class="hack dark"><i>
+<pre class="hack dark"><code>
 37	aliceSecretKey = generateSecretKey(8)
 38	bobSecretKey = generateSecretKey(8)
-</i>
+</code>
 </pre>
 <p>The '8' is accepted as input to instruct the function to generate 8 random bytes (via os.urandom) to output a byte string object that is then converted to an integer value. Thus, a random value is generated for Alice and Bob's secret key.</p>
 <p>The simple and therefore non-secure elliptic curve being used in the protocol's implementation is defined by y2 = x3 +324x + 1287 over the finite field &Zeta;/3851:</p>
-<pre class="hack dark"><i>
+<pre class="hack dark"><code>
 25	    F = FiniteField(3851, 1)
 26
 27	    # Totally insecure curve: y^2 = x^3 + 324x + 1287
 28	    curve = EllipticCurve(a=F(324), b=F(1287))
-</i>
+</code>
 </pre>
 <p>A base point (basePoint) is chosen (920, 303) that will be used as a generator:</p>
-<pre class="hack dark"><i>
+<pre class="hack dark"><code>
 30	    # order is 1964
 31	    basePoint = Point(curve, F(920), F(303))
-</i>
+</code>
 </pre>
 <p>These values are then called within the relevant functions with placeholders for actual network transmission functions. These functions are SendDH, and RecieveDH. These two functions mimic 'SendData' and have been derived for the purpose of simulating such network transmission. Both Alice and Bob call these functions as seen below:</p>
-<pre class="hack dark"><i>
+<pre class="hack dark"><code>
 37	 alicePublicKey = sendDH(aliceSecretKey, basePoint, lambda x:x)
 38	 bobPublicKey = sendDH(bobSecretKey, basePoint, lambda x:x)
 39
 40	 sharedSecret1 = receiveDH(bobSecretKey, lambda: alicePublicKey)
 41	 sharedSecret2 = receiveDH(aliceSecretKey, lambda: bobPublicKey)
-</i>
+</code>
 </pre>
 <p>alicePublicKey is computed with variables: aliceSecretKey and basePoint where the result is transmitted to Bob to compute sharedSecret1 with his private value (bobSecretKey). Likewise, bobPublicKey is computed with variables: bobSecretKey and basePoint where it is then transmitted to Alice to compute sharedSecret2 with her private value (aliceSecretKey). A shared secret point (x and y co-ordinate) on the curve has now been devised between Alice and Bob.</p>
 <p>The x co-ordinate is extracted, and the corresponding integer is now the shared secret between Bob and Alice.</p>
