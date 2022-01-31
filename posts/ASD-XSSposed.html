@@ -65,6 +65,9 @@
 <meta name="Description" content=""Publications by ret2eax, a security researcher, consultant and enthusiast."">
 <link rel="stylesheet" href="../Resources/css/hack.css">
 <link rel="stylesheet" href="../Resources/css/themes/dark.css">
+<link rel="stylesheet" href="../Resources/highlight/styles/custom.min.css">
+<script src="../Resources/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
 <title>0x02a: ASD Intelligence Agency XSSposed</title>
 </head>
   <p>
@@ -122,13 +125,13 @@ After pulling the SWFs via wget, the local files were decompiled into .flr via t
 <p>It was through this process, that one of the several SWFs were identified of containing a vulnerability that allowed an external user to alter a variable’s input. Thus, breaching the integrity of the file's behaviour. Below you'll find an extract containing the vulnerable segment of the source.</p>
 
 <pre class="hack dark">
-<i>button 48 {
+<code>button 48 {
 
     on (release) {
       var str = (_level0.clickTag != undefined) ? _level0.clickTag
       getURL(str, '');
     }
-  }</i>
+  }</code>
 </pre>
 <p> The above illustrates a vulnerability within the clickTag flashvar. During the analysis, it was discovered that the clickTag flashvar is associated with the release of button 48. This ‘button’ was mapped to the entire flash movie. Meaning, that the value stored within this flashvar is called strictly upon the condition of the victim/user clicking anywhere on the movie itself. Therefore, this vulnerability does require a form of social interaction for successful exploitation, as the user is required to click on the flash movie to trigger the malicious client-side script. However, since the flash movie prompts the user to click via <i>'Start Here'</i> it's likely that the end-user will commit this interaction.
 
@@ -150,7 +153,7 @@ Your browser does not support the video tag.
 <pre class="hack dark">
 ret2eax@h0m3cr3w:~$ <i>curl -I asd.gov.au</i>
 
-<i>HTTP/1.1 200 OK
+<code>HTTP/1.1 200 OK
 Date: REDACTED
 Content-Type: text/html
 Connection: keep-alive
@@ -158,7 +161,7 @@ Set-Cookie: REDACTED; REDACTED; path=/; domain=.asd.gov.au; HttpOnly
 Last-Modified: REDACTED
 Vary: Accept-Encoding
 Server: REDACTED
-CF-RAY: REDACTED<i>
+CF-RAY: REDACTED<code>
 </pre>
 
 <p>#[NOTIFICATION & DISCLOSURE TIMELINE] :</p>
