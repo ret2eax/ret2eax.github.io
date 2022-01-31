@@ -211,9 +211,11 @@ y2G = 3
 <p>The shared secret point is (13, 7). Therefore, it remains only to convert this point to a bit string suitable for use as a secret key.</p>
 
 <p>#[EVE'S OBSERVATION - INTERCEPTING THE PUBLIC CHANNEL DURING THE EXCHANGE] :</p>
-	<p>Eve would see the public domain parameters, including Alice and Bob's public values:</p>
-<pre class="hack dark"
-y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6)</pre>
+<p>Eve would see the public domain parameters, including Alice and Bob's public values:</p>
+
+<pre class="hack dark">
+y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6)
+</pre>
 
 <p>Even with these public values, Eve is unable to compute the point of P. This is the elliptic curve discrete logarithm problem and is addressed in greater detail below. This discrete logarithm problem is derived from the trap door (one-way) functions implemented as a successor product of elliptic curve point multiplicative notation and additive notation.</p>
 
