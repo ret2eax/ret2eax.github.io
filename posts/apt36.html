@@ -235,7 +235,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
       
       Following the callback to the `CMDService` class defined within the above `onCreate()` method, we can see the sample defines Command and Control (C2) capabilities as well as instantiates programmatic `IF/ELSE`, `CASE/SWITCH` conditional statement for C2 flow. These C2 clauses execute depending on the input recieved by the remote C2 server that in the control of APT36. Note; the below class has been truncated for brevity, while still highlighting a portion of the sample's backdoor capabilities:</p>
 
-    <pre class="hack dark"><code>
+    <pre class="hack dark"><code class="language-kotlin">
   public constructor com.example.redacted.redacted.CMDService() {
     Maybe([ARRAY, OBJECT]) v5_0 = new com.example.redacted.redacted.fileUpload(v2_0);
     Maybe([ARRAY, OBJECT]) v2_1 = v5_0;
@@ -883,7 +883,7 @@ public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends and
 </pre>
          <p>The above contains `v14_2.<init>(com.example.appcode.appcode.setting.weburl);`, a callback to the `setting` class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device (command execution), as well as, exfiltrate device data over an outbound HTTP socket:</p>
      
-     <pre class="hack dark"><code>
+     <pre class="hack dark"><code class="language-kotlin">
 static {
     com.example.redacted.redacted.setting.verion = "1.0.0.0";
     com.example.redacted.redacted.setting.webUrl = "http[:]//android[.]viral91[.]xyz/admin/webservices";   
@@ -899,7 +899,7 @@ static {
 <p>#[ANALYSIS OF SAMPLE Y] :</p>
 
     <p>IN PROGRESS</p>
-<pre class="hack dark"><i>
+<pre class="hack dark"><code class="language-kotlin">
 CODE SNIPIT HERE
 </i>
 </pre>
