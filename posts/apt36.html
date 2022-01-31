@@ -221,7 +221,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
     
     <p>After decompiling the sample's DEX (Dalvik bytecode), SMALi/baksmali to readable JAVA/Kotlin classes; the entry point, being, the `MainActivity` class defined by `android.intent.action.MAIN` is seen to contain an `onCreate()` method invoking another class, being `CMDService` class, of which, is also invoked via the `onResume()` and `onStart()` method within the same `MainActivity` class. The following represents the `onCreate()` method which is immediatley called by Android's javac/kotlinc compiler and executed on the JVM: 
       
-          <pre class="hack dark"><code>
+          <pre class="hack dark"><code class="language-kotlin">
   protected void onCreate(android.os.Bundle p9) {
     super.onCreate(p9);
     Maybe([ARRAY, OBJECT]) v7_0 = new android.content.Intent(v3_1);
