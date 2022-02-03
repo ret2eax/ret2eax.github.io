@@ -15,10 +15,7 @@
     \_ 0x02b: <a href="posts/swf.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a> [LEGACY/DEPRECATED]<br>
 0x03: SECURITY RESEARCH, EXPLOITS &amp; EXPLOIT ADVISORIES
     \_ 0x03a: <a href="posts/cve-2017-12439.html" target="_blank">CVE-2017-12439 Security Advisory</a>
-    \_ 0x03b: <a href="posts/socusoft-bof.html">Local Buffer Overflow via pdmlog.dll library</a>
-    \_ 0x03c: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]
-    \_ 0x03d: <a href="#"> Analysing the FBI's TOR Browser Exploit</a> [SOON]<br>
-0x04: COMMERCIAL SERVICES
-\_ 0x04a: <a href="https://hackthegrid.com.au" target="_blank">H4CK TH3 GR1D</a><br>
+    \_ 0x03b: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]
+    \_ 0x03c: <a href="#"> Analysing the FBI's TOR Browser Exploit</a> [SOON]<br>
 <center><footer><< <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
 <span id="a">ret2eax@h0m3cr3w</span>:<span id="b">~</span><span id="c">$</span>
