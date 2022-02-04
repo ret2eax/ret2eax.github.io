@@ -241,10 +241,12 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 "Given elements y and g of the group, and a prime p, find k such that y = gk mod p"</pre>
 
 <p>When the elliptic curve group is defined via the notation of scalar multiplication or additive notation, then the elliptic-curve discrete logarithm problem is as follows: </p>
-	<p>$$\textit{"Given points G and P in the group, find a number that Gk = P"}$$</p>
+	<p>$$\color{#20c20e}\textit{"Given points G and P in the group, find a number that Gk = P"}$$</p>
 <pre class="hack dark">"Given points G and P in the group, find a number that Gk = P"</pre>
-<p>k is called the discrete logarithm of P to the base of G.</p>
+	<p><b>k</b> is called the discrete logarithm of <b>P</b> to the base of <b>G</b>.</p>
 <p>An Example (small-scaled variables):</p>
+	<p>In the elliptic curve group defined by: </p>
+	<p>$$\color{#20c20e}y^2 = x^3 + 9x + 17 \textit{ over } \mathbb{F}_{23}$$</p>
 <p>In the elliptic curve group defined by: y2 = x3 + 9x + 17 over F_23</p>
 <p>What is the discrete logarithm k of: P = (12,17) to the base G = (16,5)? </p>
 <p>Practically, in this demonstration, k can be solved quite simply via computing multiples of G until P being (12, 17) is found. For example: The first few multiples of G are as follows: </p>
