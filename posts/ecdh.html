@@ -127,8 +127,13 @@ ___________________________________________________________________</pre>
 <p>Therefore, in complete analogy to the conventional D-H key exchange protocol, it is feasible to realize a key exchange incorporating elliptic curves.  Hence the derived name, Elliptic Curve Diffie-Hellman (ECDH) key exchange protocol.</p>
 
 <p>#[ELLIPTIC CURVE DH DOMAIN PARAMETERS] :</p>
-<p> In Elliptic Curve Cryptography (ECC), the domain parameters, elements defining the elliptic curve, can be mathematically agreed upon through either prime fields (<b>p</b>, <b>a</a>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>), or binary fields (<b>m</b>, <b>f</b>(<b>x</b>),<b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>);  prime (denoted as p) or is a power of two 2^{m}(2^m). The latter being the binary case, and also necessitates the choice of an auxiliary curve denoted by f. Thus the field is defined by <b>p</b> in the prime case and the pair of <b>m</b> and <b>f</b> in the binary case. The example demonstrated below will incorporate the prime fields methodology.</p>
 <p>Initially, to compute such a key exchange ECDH domain parameters must be agreed upon.</p>
+<p> In Elliptic Curve Cryptography (ECC), the domain parameters, elements defining the elliptic curve, can be mathematically agreed upon through either prime fields (<b>p</b>, <b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>), or binary fields (<b>m</b>, <b>f</b>(<b>x</b>),<b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>);  prime (denoted as <b>p</b>) or is a power of two 2^{m}. The latter being the binary case, and also necessitates the choice of an auxiliary curve denoted by f. Thus the field is defined by <b>p</b> in the prime case and the pair of <b>m</b> and <b>f</b> in the binary case. The example demonstrated below will incorporate the prime fields methodology:</p>
+	  
+<pre class="hack dark">
+\emph{(p, a, b, G, n, h)}
+</pre>
+
 <p>Commonly agreed selections of the following are chosen, and are all publicly available:</p>
 <p>		- The field parameter: <b>p</b>. (This specifies which finite field our curve will be defined over)</P>
 <p> 	- The curve parameters: <b>a</b> & <b>b</b>. (These parameters along with parameter <b>p</b> define our curve)</p>
