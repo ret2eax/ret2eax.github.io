@@ -65,6 +65,7 @@
 <meta name="Description" content="Publications by ret2eax, a security researcher, consultant and enthusiast.">
 <link rel="stylesheet" href="../Resources/css/hack.css">
 <link rel="stylesheet" href="../Resources/css/themes/dark.css">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../Resources/highlight/styles/custom.min.css">
 <script src="../Resources/highlight/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
@@ -129,6 +130,7 @@ ___________________________________________________________________</pre>
 
 <p>A common shared secret between Alice and Bob has now been devised in secrecy, where the value computed in step <b>0x05</b> is identical to the resulting computed value in step <b>0x06</b>).</p>
 <p>We can understand, with further mathematical analysis, as to how Alice and Bob both received the same value, being S, via different variable computations. This is achievable via the existing properties of modular arithmetic exponents. Of which is that, the resulting computed values are identical to each other despite the order of the calculated exponentiation:</p>
+<p>$$\color{#20c20e}(g^a\textit{ mod p)}^b\textit{ mod p} \cong g^{ab}\textit{ mod p} \cong (g^b\textit{ mod p})^a\textit{ mod p} = g^{ba}\textit{ mod p}$$</p>
 <pre class="hack dark">
   <center>(<b>g<sup>a</sup></b> mod <b>p</b>)<b><sup>b</sup></b> mod <b>p</b> ≅ <b>g<sup>ab</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b></center>
 </pre>	   
