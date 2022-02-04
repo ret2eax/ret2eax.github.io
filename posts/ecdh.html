@@ -126,7 +126,7 @@ ___________________________________________________________________</pre>
 <p>#[ECDH DOMAIN PARAMETERS] :</p>
 <p>Initially, to compute such a key exchange domain parameters must be agreed upon.</p>
 <p> In Elliptic Curve Cryptography (ECC), the domain parameters, elements defining the elliptic curve, can be mathematically agreed upon through either prime fields (<b>p</b>, <b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>), or binary fields (<b>m</b>, <b>f</b>(<b>x</b>),<b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>);  prime (denoted as <b>p</b>) or is a power of two (2^{<b>m</b>}). The latter being the binary case, and also necessitates the choice of an auxiliary curve denoted by <b>f</b>. Thus the field is defined by <b>p</b> in the prime case and the pair of <b>m</b> and <b>f</b> in the binary case. The example demonstrated below will incorporate the former prime field methodology:</p>
-	  <p>$$\texit{(p, a, b, G, n, h)}$$</p>
+	  <p>$$\color{#20c20e}\textit{(p, a, b, G, n, h)}$$</p>
 
 <p>Commonly agreed selections of the following are chosen, and are all publicly available:</p>
 <p>		- The field parameter: <b>p</b>. (This specifies which finite field our curve will be defined over)</P>
@@ -143,12 +143,19 @@ ___________________________________________________________________</pre>
 <p>The resulting co-ordinate point values (<b>A</b> and <b>B</b>) are then publicly transmitted across the publicly insecure communication medium, where Bob receives Alice's public value (<b>A</b>), and Alice receives Bob's public value (<b>B</b>).</p>
 <p>Bob takes Alice's public value (<b>A</b>) and multiplies it by his private value (<b>&beta;</b>):</p>
 	<p>$$\color{#20c20e}P = \beta A \cong P = \beta aG$$</p>
-
+<pre class="hack dark"><i>
+<b>P</b> = <b>&beta;</b><b>A</b> (equivalent to: <b>P</b> = <b>&beta;</b><b>&#x0251;</b><b>G</b>)
+</i>
+</pre>
 <p>Alice takes Bob's public value (<b>B</b>) and multiplies it by her private value (<b>&#x0251;</b>):</p>
 	<p>$$\color{#20c20e}P = \alpha B \cong P = \alpha \beta$$</p>
 
 <p>$$\color{#20c20e}\therefore \sum P = \beta \alpha G = \sum P = \beta A \cong \sum P = \alpha \beta G = \sum P = \alpha B$$ <center>(pending Sigma index)</center></p>
-
+<pre class="hack dark"><i>
+<b>P</b> = <b>&#x0251;</b><b>B</b> (equivalent to: <b>P</b> = <b>&#x0251;</b><b>&beta;</b><b>G</b>)
+<b>&there4; P</b> = <b>&beta;&#x0251;G</b> = <b>P</b> = <b>&beta;A</b> &cong; <b>P</b> = <b>&#x0251;&beta;G</b> = <b>P</b> = <b>&#x0251;B</b>
+</i>
+</pre>
 <p>This generates the same point (<b>P</b> on the curve. Alice and Bob now have a mutually agreed shared secret, a point of a curve. This point consists of an ordered pair, the <b>x</b> and <b>y</b> co-ordinate (<b>x</b>, <b>y</b>).</p>
 
 <p># [DEMONSTRATING GROUP OPERATIONS AND MECHANICS OF THE CURVE y2 = x3 +2x + 2 (mod 17)] :</p>
@@ -229,15 +236,20 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 <p>#[THE ELLIPTIC CURVE DISCRETE LOGARITHM PROBLEM] :</p>
 <p>Revising back to the conventional D-H protocol, of which, being in the multiplicative group &Zeta;p*, where p is a prime. The discrete logarithm problem is:</p>
 	
-<p>$$\textit{"Given elements y and g of the group, and a prime p, find k such that y = gk mod p"}$$</p>	
+<p>$$\color{#20c20e}\textit{"Given elements y and g of the group, and a prime p, find k such that y = gk mod p"}$$</p>	
+<pre class="hack dark">
+"Given elements y and g of the group, and a prime p, find k such that y = gk mod p"</pre>
 
 <p>When the elliptic curve group is defined via the notation of scalar multiplication or additive notation, then the elliptic-curve discrete logarithm problem is as follows: </p>
-	<p>$$\textit{"Given points G and P in the group, find a number that Gk = P"}$$</p>
+	<p>$$\color{#20c20e}\textit{"Given points G and P in the group, find a number that Gk = P"}$$</p>
+<pre class="hack dark">"Given points G and P in the group, find a number that Gk = P"</pre>
 	<p><b>k</b> is called the discrete logarithm of <b>P</b> to the base of <b>G</b>.</p>
 <p>An Example (small-scaled variables):</p>
 	<p>In the elliptic curve group defined by: </p>
 	<p>$$\color{#20c20e}y^2 = x^3 + 9x + 17 \textit{ over } \mathbb{F}_{23}$$</p>
-	<p>$$\textit{What is the discrete logarithm k of P = (12,17) to the base G = (16,5)?}$$</p>
+	<p>$$\color{#20c20e}\textit{What is the discrete logarithm k of: P = (12,17) to the base G = (16,5)}$$</p>
+<p>In the elliptic curve group defined by: y2 = x3 + 9x + 17 over F_23</p>
+<p>What is the discrete logarithm k of: P = (12,17) to the base G = (16,5)? </p>
 	<p>Practically, in this demonstration, <b>k</b> can be trivially solved by computing multiples of <b>G</b> until <b>P</b> being (12, 17) is found. For example: The first few multiples of <b>G</b> are as follows: </p>
 	<p>Since 8G = (12,17) which is = <b>P</b> (as <b>P</b> = (12, 17)), the discrete logarithm of <b>P</b> to the base <b>G</b> is <b>k</b> = 8.</p>
 	<p>However, in a real world application, the value <b>k</b> (in the above demonstration) would (you'd hope) be large enough that it become computationally intractable to solve in this manner, thus making the elliptic curve discrete logarithm problem mathematically overwhelming with large secure values. </p>
