@@ -160,6 +160,8 @@ ___________________________________________________________________</pre>
 <p>>_Generating the Cyclic Group:</p>
 <p>The cyclic group is generated via computing multiples of the generator point (G). Therefore, the first step would be to compute 2G. However, in order to do this the slope of the tangent line through G must be computed. This is achieved via the following formula: </p>
 	<p>$$\color{#20c20e}s  = \frac {3x2G + a} {2yG} \textit{ mod p} $$</p>
+	<p>$$\color{#20c20e}s=\frac{{3x_{1}}^{2}+a}{2y_{1}}\textit{mod p}$$</p>
+<p>$$\color{#20c20e}\therefore s=\frac{{3x_{1}}^{2}+a}{2y_{1}}\textit{mod p} = (2\cdot 1)^{-1}(3\cdot 5^2+2)=2^{-1}\cdot 9=9 \cdot 9=13 \textit{13 mod 17}$$</p>
 <pre class="hack dark"><i>
 s  =   3x2G + a	/ 2yG	&there4;   s = 3(52) + 2 / 2(1)    =   77 &bull; 2-1  =  9&bull;9  = 13 (mod 17)
 </i>
