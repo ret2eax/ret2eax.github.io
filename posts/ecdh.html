@@ -247,14 +247,14 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 <p>An Example (small-scaled variables):</p>
 	<p>In the elliptic curve group defined by: </p>
 	<p>$$\color{#20c20e}y^2 = x^3 + 9x + 17 \textit{ over } \mathbb{F}_{23}$$</p>
+	<p>$$\color{#20c20e}\textit{What is the discrete logarithm k of: P = (12,17) to the base G = (16,5)}$$</p>
 <p>In the elliptic curve group defined by: y2 = x3 + 9x + 17 over F_23</p>
 <p>What is the discrete logarithm k of: P = (12,17) to the base G = (16,5)? </p>
-<p>Practically, in this demonstration, k can be solved quite simply via computing multiples of G until P being (12, 17) is found. For example: The first few multiples of G are as follows: </p>
-<p>Since 8G = (12,17) which is = P (as P = (12, 17)), the discrete logarithm of P to the base G is k = 8.</p>
-<p>However, in a real world simulation, the value k (in the above demonstration) would be large enough that it would be computationally intractable to solve in this manner, making the elliptic curve discrete logarithm problem mathematically overwhelming with large values. </p>
-<p>In addition to the above there is an abundance of known algorithms based on group/number theory that can solve the ECDLP when implemented with small values, two of which include: the baby-step giant-step, which is, a Meet-In-The-Middle space-time trade-off cryptographic attack algorithm. Another is Pollard's Rho algorithm, of which, is an integer factorization algorithm.
-</p>
-<p>In saying this however, when implementing such large-scaled values in conjunction to the ECDH protocol, even with mass-computational power, it would take millenniums to solve for k. This is based on the assumption that the protocol has been implemented correctly.</p>
+	<p>Practically, in this demonstration, <b>k</b> can be trivially solved by computing multiples of <b>G</b> until <b>P</b> being (12, 17) is found. For example: The first few multiples of <b>G</b> are as follows: </p>
+	<p>Since 8G = (12,17) which is = <b>P</b> (as <b>P</b> = (12, 17)), the discrete logarithm of <b>P</b> to the base <b>G</b> is <b>k</b> = 8.</p>
+	<p>However, in a real world application, the value <b>k</b> (in the above demonstration) would (you'd hope) be large enough that it become computationally intractable to solve in this manner, thus making the elliptic curve discrete logarithm problem mathematically overwhelming with large secure values. </p>
+<p>In addition to the above there is an abundance of known algorithms based on group/number theory that can solve the ECDLP when implemented with small values, two of which include: the baby-step giant-step, which is, a Meet-In-The-Middle space-time trade-off cryptographic attack algorithm. Another is Pollard's Rho algorithm, of which, is an integer factorization algorithm.</p>
+<p>In saying this however, when implementing such large-scaled values in conjunction to the ECDH protocol, even with mass-computational power, it would take millenniums to solve for <b>k</b>. This is based on the assumption that the protocol has been implemented correctly.</p>
 <p>This very principle defines the security of this protocol (and the conventional D-H protocol) as its security is measured by the time it takes to reverse the computations achieved via the algorithm's trap-door functions.</p>
 <p></p>
 
