@@ -126,7 +126,7 @@ ___________________________________________________________________</pre>
 <p>#[ECDH DOMAIN PARAMETERS] :</p>
 <p>Initially, to compute such a key exchange domain parameters must be agreed upon.</p>
 <p> In Elliptic Curve Cryptography (ECC), the domain parameters, elements defining the elliptic curve, can be mathematically agreed upon through either prime fields (<b>p</b>, <b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>), or binary fields (<b>m</b>, <b>f</b>(<b>x</b>),<b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>);  prime (denoted as <b>p</b>) or is a power of two (2^{m}). The latter being the binary case, and also necessitates the choice of an auxiliary curve denoted by <b>f</b>. Thus the field is defined by <b>p</b> in the prime case and the pair of <b>m</b> and <b>f</b> in the binary case. The example demonstrated below will incorporate the former prime field methodology:</p>
-	  <p>$$\mathit{(p, a, b, G, n, h)}$$</p>
+	  <p>$$\color{#20c20e}\mathit{(p, a, b, G, n, h)}$$</p>
 
 <p>Commonly agreed selections of the following are chosen, and are all publicly available:</p>
 <p>		- The field parameter: <b>p</b>. (This specifies which finite field our curve will be defined over)</P>
@@ -142,15 +142,15 @@ ___________________________________________________________________</pre>
 <p>Likewise, Alice computes her public value (<b>A</b>) in the same manner as Bob via: <b>A</b> = <b>&#x0251;</b><b>G</b></p>
 <p>The resulting co-ordinate point values (<b>A</b> and <b>B</b>) are then publicly transmitted across the publicly insecure communication medium, where Bob receives Alice's public value (<b>A</b>), and Alice receives Bob's public value (<b>B</b>).</p>
 <p>Bob takes Alice's public value (<b>A</b>) and multiplies it by his private value (<b>&beta;</b>):</p>
-	<p>$$P = \beta A \cong P = \beta aG$$</p>
+	<p>$$\color{#20c20e}P = \beta A \cong P = \beta aG$$</p>
 <pre class="hack dark"><i>
 <b>P</b> = <b>&beta;</b><b>A</b> (equivalent to: <b>P</b> = <b>&beta;</b><b>&#x0251;</b><b>G</b>)
 </i>
 </pre>
 <p>Alice takes Bob's public value (<b>B</b>) and multiplies it by her private value (<b>&#x0251;</b>):</p>
-	<p>$$P = \alpha B \cong P = \alpha \beta$$</p>
+	<p>$$\color{#20c20e}P = \alpha B \cong P = \alpha \beta$$</p>
 
-<p>$$\therefore \sum P = \beta \alpha G = \sum P = \beta A \cong \sum P = \alpha \beta G = \sum P = \alpha B$$ <center>(pending Sigma index)</center></p>
+<p>$$\color{#20c20e}\therefore \sum P = \beta \alpha G = \sum P = \beta A \cong \sum P = \alpha \beta G = \sum P = \alpha B$$ <center>(pending Sigma index)</center></p>
 <pre class="hack dark"><i>
 <b>P</b> = <b>&#x0251;</b><b>B</b> (equivalent to: <b>P</b> = <b>&#x0251;</b><b>&beta;</b><b>G</b>)
 <b>&there4; P</b> = <b>&beta;&#x0251;G</b> = <b>P</b> = <b>&beta;A</b> &cong; <b>P</b> = <b>&#x0251;&beta;G</b> = <b>P</b> = <b>&#x0251;B</b>
