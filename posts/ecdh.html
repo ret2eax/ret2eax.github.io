@@ -184,9 +184,15 @@ y2G = 3
 &there4; (x2G, y2G) = (6, 3)
 </i>
 </pre>
-	<p>
-
-<p>In order to completely generate the cyclic group, this process is repeated for 3G, 4G, 5G and onwards until we compute a point of infinity. The below presents all 19 values within this demonstrated cyclic group:</p>
+	<p>We can verify that (6,3) is a point on the curve by:</p>
+<p>$$\color{#20c20e}3^2=9, 6^3+12+2=36\cdot6+14\equiv2\cdot6+14=26\equiv9 \textit{ mod } 17$$</p>
+	
+	<p>Calculating the x and y co-ordinate for 3G:</p>
+	<p>$$$$\color{#20c20e}G+2G=(5,1)+(6,3)=(10,6) \textit{ since }s=\frac{y_2-y_1}{x_2-x_1}\textit{ mod }p=\frac{3-1}{6-5}=2(1)^{-1}\equiv2\textit{ mod }17$$</p>
+	<p>$$\color{#20c20e}x_3=s^2-x_1-x_2=4-11=-7\equiv10\textit{ mod }17$$</p>
+	<p>$$\color{#20c20e}y_3=s(x_1-x_3)-y_1=-10-1=-11\equiv6\textit{ mod }17$$</p>
+	<p>$$color{#20c20e}\therefore G+2G = 3G = (10,6)$$</p>
+<p>In order to completely generate the cyclic group, this process is repeated for 4G, 5G, 6G and onwards until we compute a point of infinity. The below presents all 19 values within this demonstrated cyclic group:</p>
 <pre class="hack dark">G = (5, 1 ), 2G = (6, 3), 3G = (10, 6), 4G = (3, 1), 5G = (9, 16), 6G = (16, 13), 7G = (0, 6),
 8G = (13, 7), 9G = (7, 6), 10G = (7,11), 11G = (13, 10), 12G = (0, 11), 13G = (16, 4),
 14G = (9, 1), 15G = (3, 16), 16G = (10, 11), 17G = (6, 14), 18G = (5, 16), 19G = θ
