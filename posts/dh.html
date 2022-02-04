@@ -171,14 +171,18 @@ Bob Computes the Shared Secret (<b>S</b>) via:
 12<sup>15</sup> mod 17 ≅ 6<sup>13</sup> mod 17					(<b>S</b> = <b>B<sup>a</b> mod <b>p</b> ≅ <b>S</b> = <b>A<sup>b</sup></b> mod <b>p</b>)
 </pre>
 <p>For example, considering Alice, the value ‘12’ that she received from Bob (B) was calculated via 12 = 3<sup>13</sup> mod 17. Therefore her calculation is the same as:</p>
+<p>$$\color{#20c20e}(3^{13})^{15} \textit{mod 17 } \cong 3^{13*15} \textit{mod 17}$$</p>
 <pre class="hack dark">
 (3<sup>13</sup>)<sup>15</sup> mod 17 ≅ 3<sup>13*15</sup> mod 17
 </pre>
 For example, considering Bob, the value ‘6’ that he received from Alice (<b>A</b>) was calculated via: 6 = 3<sup>15</sup> mod 17. Therefore, his calculation is the same as:
+<p>$$\color{#20c20e}(3^{15})^{13} \textit{mod 17 } \cong 3^{15*13} \textit{mod 17}$$</p>
 <pre class="hack dark">
 (3<sup>15</sup>)13 mod 17 ≅ 3<sup>15*13</sup> mod 17
 </pre>
 Which means, these two equations are congruent to each other:
+<p>$$\color{#20c20e}(g^b\textit{mod p})^a \textit{mod p} = g^{ba}\textit{mod p} \cong (g^b\textit{mod p})^a\textit{mod p} = g^{ba} \textit{mod p}$$</p>
+<p>$$\color{#20c20e}\therefore (3^{13} \textit{mod 17})^{15} \textit{mod 17 } = 3^{13*15} \textit{mod 17} \cong (3^{15} \textit{mod 17})^{13} \textit{mod 17 } = 3^{15*13} \textit{mod 17}$$</p>
 <pre class="hack dark">
 (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b> ≅ (<b>g<sup>b</sup></b> mod <b>p</b>)<b><sup>a</sup></b> mod <b>p</b> = <b>g<sup>ba</sup></b> mod <b>p</b>
 &there4; (3<sup>13</sup> mod 17)<sup>15</sup> mod 17 = 3<sup>13*15</sup> mod 17 ≅ (3<sup>15</sup> mod 17)<sup>13</sup> mod 17 = 3<sup>15*13</sup> mod 17
@@ -189,6 +193,7 @@ Which means, these two equations are congruent to each other:
 
 <p>#[ THE DISCRETE LOGARITHM PROBLEM ] :</p>
 <p>The discrete logarithm problem associated with the Diffie-Hellman key exchange is as follows: </p>
+<p>$$\color{#20c20e}\textit{"Given y, find x so that g x mod p = y"}$$</p>
 <pre class="hack dark">
 <center>“Given y, find x so that g x mod p = y”</center>
 </pre>
