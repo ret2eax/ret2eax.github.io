@@ -145,23 +145,28 @@ Alice’s private value (<b>a</b>) = 15,
 Bob’s private value (<b>b</b>) = 13
 </pre>
 Alice’s Public Value (<b>A</b>) is computed via:
+<p>$$\color{#20c20e}3^{15}\textit{ mod 17} = 6 \textit{ }(A = g^a \textit{ mod p})$$</p>
 <pre class="hack dark">
 3<sup>15</sup> mod 17 = 6 	(<b>A</b> = <b>g<sup>a</sup></b> mod <b><sup>p</sup></b>)
 </pre>
 Bob’s Public Value (B) is computed via:
+<p>$$\color{#20c20e}3^{13}\textit{ mod 17} = 12 \textit{ }(B = g^b \textit{ mod p})$$</p>
 3<sup>13</sup> mod 17 = 12 	(<b>B</b> = <b>g<sup>b</sup></b> mod <b>p</b>)
 </pre>
 <p>… And now the exchange:</p>
 <p>Alice Computes the Shared Secret (<b>S</b>) via:</p> 
+<p>$$\color{#20c20e}12^{15}\textit{ mod 17} = 10 \textit{ }(S = B^a \textit{ mod p})$$</p>
 <pre class="hack dark">
 12<sup>15</sup> mod 17 = 10 	(<b>S</b> = <b>B<sup>a</sup></b> mod <b>p</b>)
 </pre>
 Bob Computes the Shared Secret (<b>S</b>) via:
+<p>$$\color{#20c20e}6^{13}\textit{ mod 17} = 10 \textit{ }(S = A^b \textit{ mod p})$$</p>
 <pre class="hack dark">
 6<sup>13</sup>mod 17 = 10 	(<b>S</b> = <b>A<sup>b</sup></b> mod <b>p</b>)
 </pre>
 <p>The shared secret (<b>S</b>) is now devised between Alice and Bob, in this case, being <b>10</b>’.</p>
 <p>At it’s initial appearance, it may not seem like it, but Alice and Bob did the same calculation:</p>
+<p>$$\color{#20c20e}12^{15}\textit{ mod 17 } \cong 6^{13}\textit{ mod 17 })\textit{ }S = B^a\textit{ mod p} \cong S = A^b \textit{ mod p}$$</p>
 <pre class="hack dark">
 12<sup>15</sup> mod 17 ≅ 6<sup>13</sup> mod 17					(<b>S</b> = <b>B<sup>a</b> mod <b>p</b> ≅ <b>S</b> = <b>A<sup>b</sup></b> mod <b>p</b>)
 </pre>
