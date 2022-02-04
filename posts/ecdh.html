@@ -161,7 +161,7 @@ ___________________________________________________________________</pre>
 <p># [DEMONSTRATING GROUP OPERATIONS AND MECHANICS OF THE CURVE y2 = x3 +2x + 2 (mod 17)] :</p>
 <p>For the purpose of demonstrating the Elliptic Curve Diffie-Hellman protocol's mechanism, the incorporated parameters contain small numerical values (similar to the conventional D-H protocol). Initially, a multiplex of group operations needs to occur prior to establishing the key exchange with ECDH. </p>
 	<p>The curve:</p>
-	<p>$$\color{#20c20e}y^2 = x^3 + 2x + 2 (mod^{17})$$</p>
+	<p>$$\color{#20c20e}y2 = x3 + 2x + 2 \textit{( mod 17)}$$</p>
 <p>From this curve's structure, a cyclic group will need to be generated. Therefore, a generator (G) is required. For the curve, y2 = x3 +2x + 2 (mod 17), the point (5, 1) is a generator. Therefore, G = (5, 1).</p>
 
 <p>>_Generating the Cyclic Group:</p>
@@ -200,7 +200,7 @@ y2G = 3
 <p>Count the number of points in the cyclic group; in this case the order of <b>G</b> is 19. &there4; <b>n</b> = 19
 
 <p><u>>_Finding the co-factor (h):</u></p>
-<p>The co-factor of the curve: y2 = x3 +2x + 2 (mod 17) with generator point G = (5, 1) is 1. </p>
+	<p>The co-factor of the curve: y2 = x3 +2x + 2 (mod 17) with generator point <b>G</b> = (5, 1) is 1. </p>
 <p>&there4; h = 1. This co-factor of 1 is ideal as a smaller number represents better point distribution across the curve.  It is stated that any co-factor greater then 4 promotes an increase of being more susceptible to attacks.</p>
 
 <p><u>>_The key exchange can now commence:</u></p>
