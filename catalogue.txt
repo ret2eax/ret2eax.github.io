@@ -1,7 +1,7 @@
 <center>ret2eax</center>
 <center><img src="images/ret_logo.png" width="120"></img></center>
 <center>((((&lambda;f.(&lambda;x.(fx)))(&lambda;y.y))(&lambda;z.z)))</center>
-<span id="a">ret2eax@h0m3cr3w</span>:<span id="b">~</span><span id="c">$</span> .././e-zine.sh &amp;<br/>
+<span id="a">ret2eax@h0m3cr3w</span>:<span id="b">~</span><span id="c">$</span> /l00t/publ1c4ti0ns.sh &amp;<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
 <p>0x01: REVERSE ENGINEERING, CRYPTOGRAPHY, &amp; MALWARE
     \_ 0x01a: <a href="posts/dh.html" target="_blank">The Diffie-Hellman (D-H) KE Protocol & Its Mathematical DLP</a>
@@ -20,4 +20,5 @@
 0x04: COMMERCIAL SERVICES
 \_ 0x04a: <a href="https://hackthegrid.com.au" target="_blank">H4CK TH3 GR1D</a><br>
 <center><footer><< <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
+<p>[1] + 5175 one ./l00t/publ1c4ti0ns.sh</p>
 <span id="a">ret2eax@h0m3cr3w</span>:<span id="b">~</span><span id="c">$</span>
