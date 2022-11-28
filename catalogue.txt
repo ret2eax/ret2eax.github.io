@@ -19,6 +19,6 @@
     \_ 0x03c: <a href="#"> Analysing the FBI's TOR Browser Exploit</a> [SOON]<br>
 0x04: COMMERCIAL SERVICES
 \_ 0x04a: <a href="https://hackthegrid.com.au" target="_blank">H4CK TH3 GR1D</a><br>
-<center><footer><< <a href="mailto:ret2eax@riseup.net">ret2eax@riseup.net</a> >></center></footer>
+<center><footer><< <a href="mailto:homecrew@riseup.net">homecrew@riseup.net</a> >></center></footer>
 <p>[1] + 5175 done ./zine.sh</p>
 <span id="a">ret2eax@h0m3cr3w</span>:<span id="b">~</span><span id="c">$</span>
