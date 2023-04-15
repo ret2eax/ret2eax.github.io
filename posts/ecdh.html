@@ -111,7 +111,7 @@ ___________________________________________________________________</pre>
 
 <p>Elliptic curve Diffie-Hellman (ECDH) is an anonymous key agreement protocol based on the conventional Diffie-Hellman key exchange protocol, but with the use of elliptic curves. This allows two parties, each having an elliptic curve public-private key pair, to establish a shared secret over an insecure channel. This shared secret may be directly used as a key, or to derive another key which can then be used to encrypt subsequent communications using a symmetric key cipher. It is a variant of the Diffie-Hellman protocol using elliptic curve cryptography.</p>
 
-	  <p><h2>[ PICTORIAL REPRESENTATION ]</h2></p>
+	<p><h2><font color="#56BEDE">[ PICTORIAL REPRESENTATION ]</h2></font></p>
 <p>Where <b>m</b> is Alice's private key, and <b>mG</b> is her public key. And where <b>n</b> is Bob's private key, and <b>nG</b> is his public key.</p>
   <center><img src="/images/ecdh.png" width="750"></center>
 
@@ -119,7 +119,7 @@ ___________________________________________________________________</pre>
 <p>The Elliptic Curve Diffie-Hellman (ECDH) key exchange protocol offers the same secret key establishment as proposed by the mechanisms of the conventional Diffie-Hellman key exchange protocol (D-H) that was discussed initially. However, the difference is that the former incorporates Elliptic Curve Cryptography (ECC), as opposed to integers, over Galois fields (finite fields).</p>
 <p>Therefore, in complete analogy to the conventional D-H key exchange protocol, it is feasible to realize a key exchange incorporating elliptic curves.  Hence the derived name, Elliptic Curve Diffie-Hellman (ECDH) key exchange protocol.</p>
 
-<p><b>[ECDH DOMAIN PARAMETERS]</b></p>
+<p><h2>[ ECDH DOMAIN PARAMETERS ]</h2></p>
 <p>Initially, to compute such a key exchange domain parameters must be agreed upon.</p>
 <p> In Elliptic Curve Cryptography (ECC), the domain parameters, elements defining the elliptic curve, can be mathematically agreed upon through either prime fields (<b>p</b>, <b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>), or binary fields (<b>m</b>, <b>f</b>(<b>x</b>),<b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>);  prime (denoted as <b>p</b>) or is a power of two (2^{<b>m</b>}). The latter being the binary case, and also necessitates the choice of an auxiliary curve denoted by <b>f</b>. Thus the field is defined by <b>p</b> in the prime case and the pair of <b>m</b> and <b>f</b> in the binary case. The example demonstrated below will incorporate the former prime field methodology:</p>
 	  <p>$$\color{#20c20e}\textit{(p, a, b, G, n, h)}$$</p>
