@@ -361,7 +361,8 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 <p>The above implementation is successful with its accuracy in demonstrating a representation that portrays how the Elliptic Curve D-H key exchange mechanism works. Though it is not an applicable implementation that should be implemented.</p>
 <p>The implementation offers insight as to how the protocol works. It's similar to the <a href="../dh.html">conventional D-H protocol</a>, though the mathematical functions differ. These functions have been clearly showcased within the vast implementation scripts of the ECDH implementation.
 <p>Similarly to the <a href="../dh.html">conventional D-H</a>, for this implementation to contain a higher level of security, the following must be considered:</p>
-<pre class="hack dark"><i>
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-plaintext">
 1.	The use of insecure curves are not be used. Instead, Curves that have been assessed and tested
 	by mathematical professionals should be incorporated for security.
 
@@ -381,7 +382,7 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 	attacks based on the ECDLP, it may be vulnerable to other types of attacks, such as side-channel 
 	attacks or implementation errors. Therefore, it is important to use proper security measures and 
 	to ensure that the protocol is implemented correctly.
-</i>
+</code>
 </pre>
 <p></p>
 </div>
