@@ -235,21 +235,21 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 <p>Therefore, for Eve to obtain the shared secret P, she would need either &beta; (Bob's private value) or &#x0251; (Alice's private value), or alternatively, Eve would need to solve the elliptic curve discrete logarithm problem. For small-scaled numeric variables this wouldn't be mathematically overwhelming. However, for large-scaled numeral values... Good luck to Eve.</p>
 
 
-<p><h2><font color="#56BEDE">[ THE ELLIPTIC CURVE DISCRETE LOGARITHM PROBLEM ]</h2></font></p>
+<p><h2><font color="#56BEDE">[ THE ELLIPTIC CURVE DISCRETE LOGARITHM PROBLEM (ECDLP) ]</h2></font></p>
 <p>Revising back to the conventional D-H protocol, of which, being in the multiplicative group &Zeta;p*, where p is a prime. The discrete logarithm problem is:</p>
 	
 <p>$$\color{#20c20e}\textit{"Given elements y and g of the group, and a prime p, find k such that y = gk mod p"}$$</p>	
 
 <p>When the elliptic curve group is defined via the notation of scalar multiplication or additive notation, then the elliptic-curve discrete logarithm problem is as follows: </p>
 	<p>$$\color{#20c20e}\textit{"Given points G and P in the group, find a number that Gk = P"}$$</p>
-	<p><b>k</b> is called the discrete logarithm of <b>P</b> to the base of <b>G</b>.</p>
+<p><b>k</b> is called the discrete logarithm of <b>P</b> to the base <b>G</b> if <b>P</b> = <b>kG</b>.</p>
 	<p>An example (small-scaled variables) in the elliptic curve group defined by: </p>
 	<p>$$\color{#20c20e}y^2 = x^3 + 9x + 17 \textit{ over } \mathbb{F}_{23}$$</p>
 	<p>$$\color{#20c20e}\textit{What is the discrete logarithm k of P = (12,17) to the base G = (16,5)?}$$</p>
 	<p>Practically, in this demonstration, <b>k</b> can be trivially solved by computing multiples of <b>G</b> until <b>P</b> being (12, 17) is found. For example: The first few multiples of <b>G</b> are as follows: </p>
 	<p>Since 8G = (12,17) which is = <b>P</b> (as <b>P</b> = (12, 17)), the discrete logarithm of <b>P</b> to the base <b>G</b> is <b>k</b> = 8.</p>
 	<p>However, in a real world application, the value <b>k</b> (in the above demonstration) would (you'd hope) be large enough that it become computationally intractable to solve in this manner, thus making the elliptic curve discrete logarithm problem mathematically overwhelming with large secure values. </p>
-<p>In addition to the above there is an abundance of known algorithms based on group/number theory that can solve the ECDLP when implemented with small values, two of which include: the baby-step giant-step, which is, a Meet-In-The-Middle space-time trade-off cryptographic attack algorithm. Another is Pollard's Rho algorithm, of which, is an integer factorization algorithm.</p>
+<p>In addition to the above there is an abundance of known algorithms based on group/number theory that can solve the ECDLP when implemented with small values, two of which include: the baby-step giant-step, which is, a Meet-In-The-Middle space-time trade-off algorithm. Another is Pollard's Rho algorithm, of which, is an integer factorization algorithm.</p>
 <p>In saying this however, when implementing such large-scaled values in conjunction to the ECDH protocol, even with mass-computational power, it would take millenniums to solve for <b>k</b>. This is based on the assumption that the protocol has been implemented correctly.</p>
 <p>This very principle defines the security of this protocol (and the conventional D-H protocol) as its security is measured by the time it takes to reverse the computations achieved via the algorithm's trap-door functions.</p>
 <p></p>
@@ -373,6 +373,8 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 5.	Public keys/values would actually functionally transmit across a network medium.
 
 6.	Once devised, the shared secret value should parse hash functions.
+
+7.	Finally, I would like to clarify that while it is true that the ECDH protocol is secure against attacks based on the ECDLP, it may be vulnerable to other types of attacks, such as side-channel attacks or implementation errors. Therefore, it is important to use proper security measures and to ensure that the protocol is implemented correctly.
 </i>
 </pre>
 <p> ~ ret2eax</p>
