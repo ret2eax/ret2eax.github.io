@@ -76,7 +76,7 @@
 <center><< <a href="../index.html">home</a> >></center>
 <body class="hack dark">
   <div class="main container">
-<h1>0x01b: The Elliptic Curve Diffie Hellman KE Protocol & Its Mathematical DLP Analysis</h1>
+<h1><font color="white">0x01b: The Elliptic Curve Diffie Hellman KE Protocol & Its Mathematical DLP Analysis</h1></font>
 <pre class="hack dark">  
  _      ___            _____          _____
 | |__  / _ \ _ __ ___ |___ /  ___ _ _|___ /_      __
@@ -104,19 +104,19 @@ listing content..
 
 ___________________________________________________________________</pre>
 
-	  <p><h2><font color="#56BEDE">[ DESCRIPTIVE REFERENCE ]</h2></font></p>
+	  <p><h2><font color="white">[ DESCRIPTIVE REFERENCE ]</h2></font></p>
 
 <p>Elliptic curve Diffie-Hellman (ECDH) is an anonymous key agreement protocol based on the conventional Diffie-Hellman key exchange protocol, but with the use of elliptic curves. This allows two parties, each having an elliptic curve public-private key pair, to establish a shared secret over an insecure channel. This shared secret may be directly used as a key, or to derive another key which can then be used to encrypt subsequent communications using a symmetric key cipher. It is a variant of the Diffie-Hellman protocol using elliptic curve cryptography.</p>
 
-	<p><h2><font color="#56BEDE">[ PICTORIAL REPRESENTATION ]</h2></font></p>
+	<p><h2><font color="white">[ PICTORIAL REPRESENTATION ]</h2></font></p>
 <p>Where <b>m</b> is Alice's private key, and <b>mG</b> is her public key. And where <b>n</b> is Bob's private key, and <b>nG</b> is his public key.</p>
   <center><img src="/images/ecdh.png" width="750"></center>
 
-	<p><h2><font color="#56BEDE">[ ANALYSIS ]</h2></font></p>
+	<p><h2><font color="white">[ ANALYSIS ]</h2></font></p>
 <p>The Elliptic Curve Diffie-Hellman (ECDH) key exchange protocol offers the same secret key establishment as proposed by the mechanisms of the conventional Diffie-Hellman key exchange protocol (D-H) that I discussed previously <a href="../dh.html">here</a>. However, the difference is that the former incorporates Elliptic Curve Cryptography (ECC), as opposed to integers, over Galois fields (finite fields).</p>
 <p>Therefore, in complete analogy to the conventional D-H key exchange protocol, it is feasible to realize a key exchange incorporating elliptic curves.  Hence the derived name, Elliptic Curve Diffie-Hellman (ECDH) key exchange protocol.</p>
 
-<p><h2><font color="#56BEDE">[ ECDH DOMAIN PARAMETERS ]</h2></font></p>
+<p><h2><font color="white">[ ECDH DOMAIN PARAMETERS ]</h2></font></p>
 <p>Initially, to compute such a key exchange domain parameters must be agreed upon.</p>
 <p> In Elliptic Curve Cryptography (ECC), the domain parameters, elements defining the elliptic curve, can be mathematically agreed upon through either prime fields (<b>p</b>, <b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>), or binary fields (<b>m</b>, <b>f</b>(<b>x</b>),<b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b>);  prime (denoted as <b>p</b>) or is a power of two (2^{<b>m</b>}). The latter being the binary case, and also necessitates the choice of an auxiliary curve denoted by <b>f</b>. Thus the field is defined by <b>p</b> in the prime case and the pair of <b>m</b> and <b>f</b> in the binary case. The example demonstrated below will incorporate the former prime field methodology:</p>
 	  <p>$$\color{#20c20e}\textit{(p, a, b, G, n, h)}$$</p>
@@ -127,7 +127,7 @@ ___________________________________________________________________</pre>
 <p> 	- The base point (generator): <b>G</b>.</p>
 	<p> 	- The prime order of <b>G</b>: <b>n</b>. (The smallest prime number such that <b>n</b> multiplied by <b>G</b> via scalar multiplication will equal the elliptic identity)</p>
 
-<p><h2><font color="#56BEDE">[ UNDERSTANDING THE MECHANICS ]</h2></font></p>
+<p><h2><font color="white">[ UNDERSTANDING THE MECHANICS ]</h2></font></p>
 <p>All parties Alice, Bob and Eve (an eavesdropper) are aware of the domain parameters <b>p</b>, <b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b> as these are the public values.</p>
 <p>Alice randomly selects a secret integer (<b>&#x0251;</b>), where <b>&#x0251;</b> is between 1 and <b>n</b> - 1. No one else but Alice knows this value. Likewise, Bob also randomly selects a secret integer (<b>&beta;</b>), where <b>&beta;</b> is between 1 and <b>n</b> - 1, which is strictly known to Bob only. Both Alice and Bob now have their own private key values.</p>
 <p>Following the above, through the means of the domain parameters:</p>
@@ -144,19 +144,19 @@ ___________________________________________________________________</pre>
 
 <p>This generates the same point (<b>P</b> on the curve. Alice and Bob now have a mutually agreed shared secret, a point of a curve. This point consists of an ordered pair, the <b>x</b> and <b>y</b> co-ordinate (<b>x</b>, <b>y</b>).</p>
 
-<p><h2><font color="#56BEDE">[ DEMONSTRATING GROUP OPERATIONS AND MECHANICS OF THE CURVE y2 = x3 +2x + 2 (mod 17) ]</h2></font></p>
+<p><h2><font color="white">[ DEMONSTRATING GROUP OPERATIONS AND MECHANICS OF THE CURVE ]</h2></font></p>
 <p>For the purpose of demonstrating the Elliptic Curve Diffie-Hellman protocol's mechanism, the incorporated parameters contain small numerical values (similar to the example I demonstrated for the <a href="../dh.html">conventional D-H protocol</a>). Initially, a multiplex of group operations needs to occur prior to establishing the key exchange with ECDH. </p>
 	<p>The curve:</p>
 	<p>$$\color{#20c20e}y^2 = x^3 + 2x + 2 \textit{ (mod 17)}$$</p>
 <p>From this curve's structure, a cyclic group will need to be generated. Therefore, a generator (<b>G</b>) is required. For the curve, <b>y2 = x3 +2x + 2 (mod 17)</b>, the point (5, 1) is a generator. Therefore, <b>G</b> = (5, 1).</p>
 <p>$$\color{#20c20e}\textit{Given }y^2=x^3+2x+2\textit{ mod }17 \textit{ and point }G=(5,1) \textit{ compute }2G=G+G=(5,1)+(5,1)=(x_3,y_3)$$</p>
-<p><h3><font color="#56BEDE">>_Generating the Cyclic Group</h3></font></p>
+<p><h3><font color="white">>_Generating the Cyclic Group</h3></font></p>
 <p>The cyclic group is generated via computing multiples of the generator point (<b>G</b>). Therefore, the first step would be to compute <b>2G</b>. However, in order to do this the slope of the tangent line through <b>G</b> must be computed. This is achieved via the following formula: </p>
 	<p>$$\color{#20c20e}s  = \frac {3x2G + a} {2yG} \textit{ mod p} $$</p>
 	<p>$$\color{#20c20e}s=\frac{{3x_{1}}^{2}+a}{2y_{1}}\textit{mod p}$$</p>
 <p>$$\color{#20c20e}\therefore s=\frac{{3x_{1}}^{2}+a}{2y_{1}}\textit{mod p} = (2\cdot 1)^{-1}(3\cdot 5^2+2)=2^{-1}\cdot 9=9 \cdot 9=13 \textit{ mod 17}$$</p>
 
-<p><h3><font color="#56BEDE">>_The x co-ordinate can now be computed for 2G via the following formulae:</h3></font></p>
+<p><h3><font color="white">>_The x co-ordinate can now be computed for 2G via the following formulae:</h3></font></p>
 	
 	<p>$$\color{#20c20e}x_{3}=s^2-x_{1}-x_{2}=13^2-5-5=159\equiv 6 \textit{ mod }17$$</p>
 	<p><center>or;</center></p>
@@ -169,7 +169,7 @@ x2G = 6
 </i>
 </pre>
 
-<p><h3><font color="#56BEDE">>_The y co-ordinate can now be computed for <b>2G</b> via the following formulae.</h3></font></p>
+<p><h3><font color="white">>_The y co-ordinate can now be computed for <b>2G</b> via the following formulae.</h3></font></p>
 	<p>$$\color{#20c20e}y_{3}=s(x_{1}-x_{3})-y_{1}=13(5-6)-1=-14 \equiv 3 \textit{ mod } 17 $$</p>
 	<p><center>or;</center></p>
 <pre class="hack dark"><i>
@@ -195,14 +195,14 @@ y2G = 3
 14G = (9, 1), 15G = (3, 16), 16G = (10, 11), 17G = (6, 14), 18G = (5, 16), 19G = θ
 </pre>
 
-<p><h3><font color="#56BEDE">>_Finding the order of G (n):</h3></font></p>
+<p><h3><font color="white">>_Finding the order of G (n):</h3></font></p>
 <p>Count the number of points in the cyclic group; in this case the order of <b>G</b> is 19. &there4; <b>n</b> = 19
 
-<p><h3><font color="#56BEDE">>_Finding the co-factor (h):</h3></font></p>
+<p><h3><font color="white">>_Finding the co-factor (h):</h3></font></p>
 	<p>The co-factor of the curve: y2 = x3 +2x + 2 (mod 17) with generator point <b>G</b> = (5, 1) is 1. </p>
 <p>&there4; <b>h</b> = 1. This co-factor of 1 is ideal as a smaller number represents better point distribution across the curve. It is stated that any co-factor greater then 4 promotes an increase of being more susceptible to attacks.</p>
 
-<p><h3><font color="#56BEDE">>_The key exchange can now commence:</h3></font></p>
+<p><h3><font color="white">>_The key exchange can now commence:</h3></font></p>
 <p>Bob randomly devises his private value (<b>&beta;</b>). In this case, <b>&beta;</b> = 9. Bob then computes his public value (</b>B</b> = <b>&beta;G</b>), via <b>B</b> = <b>9&bull;G</b> = <b>9G</b>, which is equivalent to point (7, 6) in the above devised cyclic group of the curve.</p>
 
 <p>Simultaneously, Alice randomly selects her private value via (<b>&#x0251;</b>). In this case, <b>&#x0251;</b> = 3. Alice then computes her public value (<b>A</b> = <b>&#x0251;G</b>), via <b>A</b> = <b>3&bull;G</b> = <b>3G</b>, which is equivalent to point (10,6).</p>
@@ -220,7 +220,7 @@ y2G = 3
 
 <p>The shared secret point is (13, 7). Therefore, it remains only to convert this point to a bit string suitable for use as a secret key.</p>
 
-<p><h2><font color="#56BEDE">[ EVE'S OBSERVATION : INTERCEPTING THE PUBLIC CHANNEL DURING THE EXCHANGE ]</h2></font></p>
+<p><h2><font color="white">[ EVE'S OBSERVATION : INTERCEPTING THE PUBLIC CHANNEL DURING THE EXCHANGE ]</h2></font></p>
 <p>Eve would see the public domain parameters, including Alice and Bob's public values:</p>
 
 <pre class="hack dark">
@@ -232,7 +232,7 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 <p>Therefore, for Eve to obtain the shared secret <b>P</b>, she would need either <b>&beta;</b> (Bob's private value) or <b>&#x0251;</b> (Alice's private value), or alternatively, Eve would need to solve the elliptic curve discrete logarithm problem. For small-scaled numeric variables this wouldn't be mathematically overwhelming. However, for large-scaled numeral values... Good luck to Eve.</p>
 
 
-<p><h2><font color="#56BEDE">[ THE ELLIPTIC CURVE DISCRETE LOGARITHM PROBLEM (ECDLP) ]</h2></font></p>
+<p><h2><font color="white">[ THE ELLIPTIC CURVE DISCRETE LOGARITHM PROBLEM (ECDLP) ]</h2></font></p>
 <p>Revising back to the conventional D-H protocol, of which, being in the multiplicative group <b>&Zeta;p*</b>, where <b>p</b> is a prime. The discrete logarithm problem is:</p>
 	
 <p>$$\color{#20c20e}\textit{"Given elements y and g of the group, and a prime p, find k such that y = gk mod p"}$$</p>	
@@ -251,7 +251,7 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 <p>This very principle defines the security of this protocol (and the conventional D-H protocol) as its security is measured by the time it takes to reverse the computations achieved via the algorithm's trap-door functions.</p>
 <p></p>
 
-<p><h2><font color="#56BEDE">[ SAMPLE PYTHON IMPLEMENTATION FOR DEMONSTRATION ]</h2></font></p>
+<p><h2><font color="white">[ SAMPLE PYTHON IMPLEMENTATION FOR DEMONSTRATION ]</h2></font></p>
 
 <pre style="background-color: #100E15; border: none !important;">
 <code class="language-python">
@@ -302,7 +302,7 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 </code>
 </pre>
 </p>
-<p><h2><font color="#56BEDE">[ BREAKING DOWN THE SOURCE ]</h2></font></p>
+<p><h2><font color="white">[ BREAKING DOWN THE SOURCE ]</h2></font></p>
 <p>The above is a Python implementation representing the ECDH key exchange protocol. This implementation presented is a segment of source-code that calculates the shared-secret in accordance to the multiplex of sub-scripts that perform and compute the group operations. Again, this source-code is incorporated for demonstration purposes using insecure values, including the curve that can easily be broken.</p>
 <p>In short, as opposed to outlining the obvious and self-explanatory semantics of code line by line, a general overview of what is happening within this implementation is as follows:</p>
 <p>The program initially imports subscripts and modules, including computations resulting from the sub-script elliptic.py, as well as Python's os module, which allows access to the operating system's Random Number Generator (RND) via the 'urandom' function that is used to generate both Alice and Bob's private keys.</p>
@@ -357,7 +357,7 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 <p><b>alicePublicKey</b> is computed with variables: <b>aliceSecretKey</b> and <b>basePoint</b> where the result is transmitted to Bob to compute <b>sharedSecret1</b> with his private value (<b>bobSecretKey</b>). Likewise, <b>bobPublicKey</b> is computed with variables: <b>bobSecretKey</b> and <b>basePoint</b> where it is then transmitted to Alice to compute <b>sharedSecret2</b> with her private value (<b>aliceSecretKey</b>). A shared secret point (x and y co-ordinate) on the curve has now been devised between Alice and Bob.</p>
 <p>The x co-ordinate is extracted, and the corresponding integer is now the shared secret between Bob and Alice.</p>
 
-<p><h2><font color="#56BEDE">[ FINAL COMMENTS ON IMPLEMENTATION ]</h2></font></p>
+<p><h2><font color="white">[ FINAL COMMENTS ON IMPLEMENTATION ]</h2></font></p>
 <p>The above implementation is successful with its accuracy in demonstrating a representation that portrays how the Elliptic Curve D-H key exchange mechanism works. Though it is not an applicable implementation that should be implemented.</p>
 <p>The implementation offers insight as to how the protocol works. It's similar to the <a href="../dh.html">conventional D-H protocol</a>, though the mathematical functions differ. These functions have been clearly showcased within the vast implementation scripts of the ECDH implementation.
 <p>Similarly to the <a href="../dh.html">conventional D-H</a>, for this implementation to contain a higher level of security, the following must be considered:</p>
