@@ -253,7 +253,7 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 
 <p><h2><font color="#56BEDE">[ SAMPLE PYTHON IMPLEMENTATION FOR DEMONSTRATION ]</h2></font></p>
 
-<pre class="hack dark"><code class="language-python">
+<code class="language-python">
 1	  from elliptic import *
 2	  from finitefield.finitefield import FiniteField
 3	  import os
@@ -299,7 +299,6 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 43	    print('Shared secret is %s == %s' % (sharedSecret1, sharedSecret2))
 44	    print('extracting x coordinate to get an integer shared secret: %d' % (sharedSecret1.x.n))
 </code>
-</pre>
 </p>
 <p><h2><font color="#56BEDE">[ BREAKING DOWN THE SOURCE ]</h2></font></p>
 <p>The above is a Python implementation representing the ECDH key exchange protocol. This implementation presented is a segment of source-code that calculates the shared-secret in accordance to the multiplex of sub-scripts that perform and compute the group operations. Again, this source-code is incorporated for demonstration purposes using insecure values, including the curve that can easily be broken.</p>
