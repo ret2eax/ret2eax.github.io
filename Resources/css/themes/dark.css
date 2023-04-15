@@ -1,4 +1,4 @@
-@import "color-preset.html";@import "../vars.css";@import "../mixins.css";.dark{background-color:black;color:#ccc;& pre { background-color: black;padding:0;border:none;& code { color: $cyan;} }
+@import "color-preset.html";@import "../vars.css";@import "../mixins.css";.dark{background-color:#100E16;color:#ccc;& pre { background-color: #100E16;padding:0;border:none;& code { color: $cyan;} }
 
   & h1 a,
   & h2 a,
@@ -41,7 +41,7 @@
       border-color: $light-grey;
     }
     &.form-textarea label:after {
-      background-color: black;
+      background-color: #100E16;
     }
   }
 
