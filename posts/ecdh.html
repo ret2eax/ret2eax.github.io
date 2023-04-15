@@ -326,7 +326,7 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 38	bobSecretKey = generateSecretKey(8)
 </code>
 </pre>
-<p>The '8' is accepted as input to instruct the function to generate 8 random bytes (via os.urandom) to output a byte string object that is then converted to an integer value. Thus, a random value is generated for Alice and Bob's secret key.</p>
+<p>The '8' is accepted as input to instruct the function to generate 8 random bytes (via <b>os.urandom</b>) to output a byte string object that is then converted to an integer value. Thus, a random value is generated for Alice and Bob's secret key.</p>
 <p>The simple and therefore non-secure elliptic curve being used in the protocol's implementation is defined by:
 <p>$$\color{#20c20e}y^2 = x^3 +324x + 1287 \textit{ over the prime field }\mathbb{Z}_{3851}$$</p>
 <pre class="hack dark"><code class="language-python">
@@ -342,7 +342,7 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 31	    basePoint = Point(curve, F(920), F(303))
 </code>
 </pre>
-<p>These values are then called within the relevant functions with placeholders for actual network transmission functions. These functions are SendDH, and RecieveDH. These two functions mimic 'SendData' and have been derived for the purpose of simulating such network transmission. Both Alice and Bob call these functions as seen below:</p>
+<p>These values are then called within the relevant functions with placeholders for actual network transmission functions. These functions are <b>SendDH</b>, and <b>RecieveDH</b>. These two functions mimic '<b>SendData</b>' and have been derived for the purpose of simulating such network transmission. Both Alice and Bob call these functions as seen below:</p>
 <pre class="hack dark"><code class="language-python">
 37	 alicePublicKey = sendDH(aliceSecretKey, basePoint, lambda x:x)
 38	 bobPublicKey = sendDH(bobSecretKey, basePoint, lambda x:x)
@@ -351,13 +351,13 @@ y2 = x3 +2x + 2 mod 17 (p), G = (5, 1), n = 19, h = 1, A = (10, 6) and B = (7, 6
 41	 sharedSecret2 = receiveDH(aliceSecretKey, lambda: bobPublicKey)
 </code>
 </pre>
-<p>alicePublicKey is computed with variables: aliceSecretKey and basePoint where the result is transmitted to Bob to compute sharedSecret1 with his private value (bobSecretKey). Likewise, bobPublicKey is computed with variables: bobSecretKey and basePoint where it is then transmitted to Alice to compute sharedSecret2 with her private value (aliceSecretKey). A shared secret point (x and y co-ordinate) on the curve has now been devised between Alice and Bob.</p>
+<p><b>alicePublicKey</b> is computed with variables: <b>aliceSecretKey</b> and <b>basePoint</b> where the result is transmitted to Bob to compute <b>sharedSecret1</b> with his private value (<b>bobSecretKey</b>). Likewise, <b>bobPublicKey</b> is computed with variables: <b>bobSecretKey</b> and <b>basePoint</b> where it is then transmitted to Alice to compute <b>sharedSecret2</b> with her private value (<b>aliceSecretKey</b>). A shared secret point (x and y co-ordinate) on the curve has now been devised between Alice and Bob.</p>
 <p>The x co-ordinate is extracted, and the corresponding integer is now the shared secret between Bob and Alice.</p>
 
 <p><h2><font color="#56BEDE">[ FINAL COMMENTS ON IMPLEMENTATION ]</h2></font></p>
 <p>The above implementation is successful with its accuracy in demonstrating a representation that portrays how the Elliptic Curve D-H key exchange mechanism works. Though it is not an applicable implementation that should be implemented.</p>
-<p>The implementation offers insight as to how the protocol works. It's similar to the conventional D-H protocol, though the mathematical functions differ. These functions have been clearly showcased within the vast implementation scripts of the ECDH implementation.
-<p>Similarly to the conventional D-H, for this implementation to contain a higher level of accuracy, the following must be considered:</p>
+<p>The implementation offers insight as to how the protocol works. It's similar to the <a href="posts/dh.html">conventional D-H protocol</a>, though the mathematical functions differ. These functions have been clearly showcased within the vast implementation scripts of the ECDH implementation.
+<p>Similarly to the <a href="posts/dh.html">conventional D-H</a>, for this implementation to contain a higher level of security, the following must be considered:</p>
 <pre class="hack dark"><i>
 1.	The use of insecure curves are not be used. Instead, Curves that have been assessed and tested
 	by mathematical professionals should be incorporated for security.
