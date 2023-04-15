@@ -148,7 +148,7 @@ ___________________________________________________________________</pre>
 <p>This generates the same point (<b>P</b> on the curve. Alice and Bob now have a mutually agreed shared secret, a point of a curve. This point consists of an ordered pair, the <b>x</b> and <b>y</b> co-ordinate (<b>x</b>, <b>y</b>).</p>
 
 <p><h2><font color="#56BEDE">[ DEMONSTRATING GROUP OPERATIONS AND MECHANICS OF THE CURVE y2 = x3 +2x + 2 (mod 17) ]</h2></font></p>
-<p>For the purpose of demonstrating the Elliptic Curve Diffie-Hellman protocol's mechanism, the incorporated parameters contain small numerical values (similar to the conventional D-H protocol). Initially, a multiplex of group operations needs to occur prior to establishing the key exchange with ECDH. </p>
+<p>For the purpose of demonstrating the Elliptic Curve Diffie-Hellman protocol's mechanism, the incorporated parameters contain small numerical values (similar to the example I demonstrated for the <a href="../dh.html">conventional D-H protocol</a>). Initially, a multiplex of group operations needs to occur prior to establishing the key exchange with ECDH. </p>
 	<p>The curve:</p>
 	<p>$$\color{#20c20e}y^2 = x^3 + 2x + 2 \textit{ (mod 17)}$$</p>
 <p>From this curve's structure, a cyclic group will need to be generated. Therefore, a generator (G) is required. For the curve, y2 = x3 +2x + 2 (mod 17), the point (5, 1) is a generator. Therefore, G = (5, 1).</p>
