@@ -10,7 +10,7 @@
 
   & strong,
   & code {
-    color: #100E16;
+    color: white;
   }
 
   & code {
@@ -29,7 +29,7 @@
   }
 
   & table tbody td:first-child {
-    color: white;
+    color: #100E16;
   }
 
   /**
