@@ -107,8 +107,7 @@ listing content..
 
 ___________________________________________________________________</pre>
 
-<p><b>[ DESCRIPTIVE REFERENCE ]</b></p>
-	  <h2><font color="#5CBE3B">[ DESCRIPTIVE REFERENCE ]</h2></font>
+<h2><font color="#5CBE3B">[ DESCRIPTIVE REFERENCE ]</h2></font>
 
 <p>Elliptic curve Diffie-Hellman (ECDH) is an anonymous key agreement protocol based on the conventional Diffie-Hellman key exchange protocol, but with the use of elliptic curves. This allows two parties, each having an elliptic curve public-private key pair, to establish a shared secret over an insecure channel. This shared secret may be directly used as a key, or to derive another key which can then be used to encrypt subsequent communications using a symmetric key cipher. It is a variant of the Diffie-Hellman protocol using elliptic curve cryptography.</p>
 
@@ -116,7 +115,7 @@ ___________________________________________________________________</pre>
 <p>Where <b>m</b> is Alice's private key, and <b>mG</b> is her public key. And where <b>n</b> is Bob's private key, and <b>nG</b> is his public key.</p>
   <center><img src="/images/ecdh.png" width="750"></center>
 
-<p><b>[ANALYSIS]</b></p>
+	  <h2><font color="#56BEDE">[ ANALYSIS ]</h2></font>
 <p>The Elliptic Curve Diffie-Hellman (ECDH) key exchange protocol offers the same secret key establishment as proposed by the mechanisms of the conventional Diffie-Hellman key exchange protocol (D-H) that was discussed initially. However, the difference is that the former incorporates Elliptic Curve Cryptography (ECC), as opposed to integers, over Galois fields (finite fields).</p>
 <p>Therefore, in complete analogy to the conventional D-H key exchange protocol, it is feasible to realize a key exchange incorporating elliptic curves.  Hence the derived name, Elliptic Curve Diffie-Hellman (ECDH) key exchange protocol.</p>
 
@@ -131,7 +130,7 @@ ___________________________________________________________________</pre>
 <p> 	- The base point (generator): <b>G</b>.</p>
 	<p> 	- The prime order of <b>G</b>: <b>n</b>. (The smallest prime number such that <b>n</b> multiplied by <b>G</b> via scalar multiplication will equal the elliptic identity)</p>
 
-<p><b>[ UNDERSTANDING THE MECHANICS ]</b></p>
+	<h2>[ UNDERSTANDING THE MECHANICS ]</h2>
 <p>All parties Alice, Bob and Eve (an eavesdropper) are aware of the domain parameters <b>p</b>, <b>a</b>, <b>b</b>, <b>G</b>, <b>n</b>, <b>h</b> as these are the public values.</p>
 <p>Alice randomly selects a secret integer (<b>&#x0251;</b>), where <b>&#x0251;</b> is between 1 and <b>n</b> - 1. No one else but Alice knows this value. Likewise, Bob also randomly selects a secret integer (<b>&beta;</b>), where <b>&beta;</b> is between 1 and <b>n</b> - 1, which is strictly known to Bob only. Both Alice and Bob now have their own private key values.</p>
 <p>Following the above, through the means of the domain parameters:</p>
