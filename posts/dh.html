@@ -106,7 +106,7 @@ p><h2><font color="white">[ DESCRIPTIVE REFERENCE ]</h2></font></p>
 
 <p>Diffie–Hellman key exchange was one of the first public-key protocols as originally conceptualized by Ralph Merkle and named after Whitfield Diffie and Martin Hellman. Traditionally, secure encrypted communication between two parties required that they first exchange keys by some secure physical channel, such as paper key lists transported by a trusted courier. The D-H protocol therefore provides a secure alternative to jointly establish a shared secret key over an insecure channel.</p>
 
-<p>#[ PICTORIAL REPRESENTATION ] :</p>
+<p><h2><font color="white">[ PICTORIAL REPRESENTATION ]<h2><font></p>
 <p>Where <b>m</b> is Alice's private key, and <b>mG</b> is her public key. And where <b>n</b> is Bob's private key, and <b>nG</b> is his public key.</p>
 <pre class="hack dark">
   <center><img src="/images/dh.jpg"></center>
@@ -139,7 +139,7 @@ Bob’s private value (<b>b</b>) = 13
 Alice’s Public Value (<b>A</b>) is computed via:
 <p>$$\color{#20c20e}3^{15}\textit{ mod 17} = 6 \textit{ }(A = g^a \textit{ mod p})$$</p>
 
-Bob’s Public Value (B) is computed via:
+Bob’s Public Value (<b>B</b>) is computed via:
 <p>$$\color{#20c20e}3^{13}\textit{ mod 17} = 12 \textit{ }(B = g^b \textit{ mod p})$$</p>
 
 <p>… And now the exchange:</p>
@@ -167,7 +167,7 @@ Which means, these two equations are congruent to each other:
 <p><b>Eve’s Observations if Intercepting the Public Channel’s Data Traffic During the Exchange</b></p>
 <p>The values transmitted publicly via an insecure channel are: 6 (<b>A</b>), 12 (<b>B</b>), 3 (<b>g</b>), and 17(<b>p</b>). Depending on the size of the values, particularly the prime modulus (<b>p</b>), without one of the private/secret values, 15 (<b>a</b>) or 13 (<b>b</b>), Eve will be unable to solve the resulting shared secret solution (<b>S</b>). However, as stated above, small number values have been incorporated for demonstration purposes. These values are much larger in a real world-simulating environment which in turn enhances the impracticality to solve <b>S</b> without <b>a</b>, or, <b>b</b> via reverse mathematics. This leads to the <b>discrete logarithm problem</b>.</p>
 
-<p><h2><font color="white">[ THE DISCRETE LOGARITHM PROBLEM (DLP) ]</h2></font></p>
+<p><h2><font color="white">[ THE DISCRETE LOGARITHM PROBLEM ]</h2></font></p>
 <p>The discrete logarithm problem associated with the Diffie-Hellman key exchange is as follows: </p>
 <p>$$\color{#20c20e}\textit{"Given y, find x so that g x mod p = y"}$$</p>
 
@@ -177,12 +177,11 @@ Which means, these two equations are congruent to each other:
 3<sup>x</sup> mod 17 = 12 (harder to reverse but not difficult. It’s just a matter of trial and error)
 </pre>
 <p><i>With large values, it becomes computationally intractable:</i></p>
-<p>Suppose the prime modulus <b>p</b> has a length of 1024-bits (~ 308 base10/decimal digits), with <b>x</b> being known this is a simple trap-door function. However, without knowing <b>x</b>, <b>p</b>, being 1024-bits in length, is a value so large that it means there are <b>2<sup>1024</sup></b> possible combinations for <b>x</b>.</p>
+<p>Suppose the prime modulus <b>p</b> has a length of 1024-bits (~ 308 base10 digits), with <b>x</b> being known this is a simple trap-door function. However, without knowing <b>x</b>, <b>p</b>, being 1024-bits in length, is a value so large that it means there are <b>2<sup>1024</sup></b> possible combinations for <b>x</b>.</p>
 <p>While such a discrete logarithm problem is traditionally used (<b>g<sup>x</sup></b> mod <b>p</b>), the general process of the D-H key exchange can be modified to use elliptic curve cryptography (ECC) to form the Elliptic Curve Diffie-Hellman key exchange protocol (ECDH). A similar analysis on the ECDH protocol can be observed <a href="ecdh.html">here</a>.</p>
-<p>#[ PYTHON IMPLEMENTATION FOR DEMONSTRATION ] :</p>
+<p><h2><font color="white">[ PYTHON IMPLEMENTATION FOR DEMONSTRATION ]<h2></font></p>
 <pre style="background-color: #100E15; border: none !important;">
 <code class="language-python">
-  
 1	# Variable Declaration
 2	sharedPrime = 23    # p  
 3	sharedBase = 5      # g  
@@ -216,14 +215,9 @@ Which means, these two equations are congruent to each other:
 
 </code></pre>
 
-<p>Try it yourself below:</p>
-<pre class="hack dark">
-<iframe src="https://trinket.io/embed/python/597483ff11?runOption=run&start=result" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-</pre>
-
 <p><h2><font color="white">[ BREAKING DOWN THE SOURCE ]</h2></font></p>
 
-<p>Initially, a sum of four variables is defined, each containing unique data (in this case, integers). These variables are named sharedPrime, sharedBase, aliceSecret and bobSecret.
+<p>Initially, a sum of four variables is defined, each containing unique data (in this case, integers). These variables are named <b>sharedPrime</b>, <b>sharedBase</b>, <b>aliceSecret</b> and <b>bobSecret</b>.
 </p>
 <p>Each of these variables have been co-signed with single letters to later demonstrate the D-H mathematical functions for better understanding.</p>
 <pre style="background-color: #100E15; border: none !important;">
@@ -234,10 +228,10 @@ Which means, these two equations are congruent to each other:
 4	bobSecret = 15  	# b 
 </code></pre>
 <p>
-First Alice and Bob agree on a Prime number, sharedPrime (p) that must be a prime number. Likewise a base, sharedBase (g), is also agreed upon where g must be a primitive root modulo. These above mentioned values of 23 (p) and 5 (g) are public, not secret and can therefore be known to anyone, such as Eve. Following these public values, Alice and Bob each randomly select their own private/secret integer that they keep to themselves. Alice’s value: a is 6, Bob’s value: b is 15.
+  First Alice and Bob agree on a Prime number, <b>sharedPrime</b> (<b>p</b>) that must be a prime number. Likewise a base, <b>sharedBase</b> (<b>g</b>), is also agreed upon where <b>g</b> must be a primitive root modulo. These above mentioned values of 23 (<b>p</b>) and 5 (<b>g</b>) are public, and can therefore be known to anyone, such as Eve. Following these public values, Alice and Bob each randomly select their own unique private integer that they keep secret to themselves. Alice’s value: <b>a</b> is 6, Bob’s value: <b>b</b> is 15.
 </p>
 <p>
-Alice’s public value (A) is computed via modular arithmetic: 
+  Alice’s public value (<b>A</b>) is computed via modular arithmetic: 
 </p>
 <pre style="background-color: #100E15; border: none !important;">
 <code class="language-python">
@@ -272,9 +266,8 @@ Which is the equivalent of <b>B</b> = 5<sup>15</sup> mod 23, which = 19</p>
 31	bobSharedSecret = (A**bobSecret) % sharedPrime 			#(S = A^b mod p) 
 </code></pre>
 <p>Which is the equivalent of <b>S</b> = 8<sup>15</sup> mod 23, which = 2</p>
-<p>Therefore, the shared secret / secret key value, being 2, is now known to both Alice and Bob. Eve has no way of knowing it even though Eve knows values <b>p</b>, <b>g</b>, <b>A</b> and <b>B</b> (as displayed under the ‘Publicly Shared Variables’ output). 
+<p>Therefore, the shared secret, being 2, is now known to both Alice and Bob. Eve has no way of knowing it even though Eve knows values <b>p</b>, <b>g</b>, <b>A</b> and <b>B</b> (as displayed under the ‘Publicly Shared Variables’ output). 
 </p>
-<p>[ -- Implementation concludes -- ]</p>
 
 <p><h2><font color="white">[ FINAL COMMENTS ]</h2></font></p>
 <p>The above implementation successfully demonstrates an accurate representation that exhibits how the D-H key exchange mechanism works by the properties of its mathematical functions.
@@ -283,31 +276,31 @@ Which is the equivalent of <b>B</b> = 5<sup>15</sup> mod 23, which = 19</p>
 <pre style="background-color: #100E15; border: none !important;">
 <code class="language-plaintext">
 
-Instead of the public values being printed to mimic/simulate public transmission, 
-the values would actually be transmitted across a public channel. The implementation 
-would therefore be required to function on the Network Layer.
+1.  Instead of the public values being printed to mimic/simulate public transmission, 
+    the values would actually be transmitted across a public channel. The implementation 
+    would therefore be required to function on the Network Layer.
 
-Instead of using small numerical values, the use of extremely large numerals would 
-be incorporated. This would enhance the shared secret key’s integrity due to 
-Diffie-Hellman’s Key Exchange trap-door function. 
+2.  Instead of using small numerical values, the use of extremely large numerals would 
+    be incorporated. This would enhance the shared secret key’s integrity due to 
+    Diffie-Hellman’s Key Exchange trap-door function. 
 
-The shared secret key should never be printed, saved or transmitted, and would 
-remain as a non-public secret. 
+3.  The shared secret key should never be printed, saved or transmitted, and would 
+    remain as a non-public secret. 
 
-Likewise, the same rule above applies for both Alice and Bob’s randomly devised 
-secret value.
+4.  Likewise, the same rule above applies for both Alice and Bob’s randomly devised 
+    secret value.
 
-The secret should also never be derived directly. Typically, in a real-world 
-simulation the secret result is parsed through hash functions to produce a 
-corresponding hashed key. 
+5.  The secret should also never be derived directly. Typically, in a real-world 
+    simulation the secret result is parsed through hash functions to produce a 
+    corresponding hashed key. 
 
-Instead of the implementation selecting the private values statically via the 
-program’s source-code, it would instead generate these private values (each of Alice and Bob) 
-via a generator function that can either be devised, or imported.
+6.  Instead of the implementation selecting the private values statically via the 
+    program’s source-code, it would instead generate these private values (each of Alice and Bob) 
+    via a generator function that can either be devised, or imported.
 
-Additionally, during the random value generation, the implementation would incorporate 
-the use of a true-random number generator to enhance entropy (a measure of uncertainty) of
-the random values. 
+7.  Additionally, during the random value generation, the implementation would incorporate 
+    the use of a true-random number generator to enhance entropy (a measure of uncertainty) of
+    the random values. 
 
 </pre>
 
