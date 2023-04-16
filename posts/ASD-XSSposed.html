@@ -110,7 +110,7 @@ In addition to the ASD, I have discovered similar vulnerabilities within other h
 The vulnerability itself was quite simple, again, not very sophisticated. However, the nature of this particular vulnerability requires a white-box analysis approach. Therefore, it is essential to have a generic understanding of ActionScript (similar to JavaScript; both being ECMA-based in terms of syntax) in order to identify a vulnerability as well as grasp an idea of the generic code flow. Like other languages that can be vulnerable to XSS, failure to properly sanitize user input within ActionScript can allow these vulnerabilities to take place. Additionally, there exists a few vulnerabilities that are specific to ActionScript itself.
 
   <p><h2><font color="white">[ LOCATING THE SWF ]</h2></font></p>
-After placing the ASD in my LoS, I began looking for vulnerabilities. Generally, with any target in the wild, I begin with manually auditing their HTTP content for OWASP's top 10. I immediately identified one of the most basic vulnerabilities there is, XSS. After spending a few minutes trying to bypass their WAF, I decided that I'm likely not going to bypass the filters incorporated by ASD. Instead, I decided to look for an alternative route to pop the alert(). This led to the search of seeking SWF files within the ASD's domain space (*.asd.gov.au). After submitting a few queries via an indexed search, I managed to locate several SWFs which all pertained to the main domain.
+After placing the ASD in my LoS, I began looking for vulnerabilities. Generally, with any target in the wild, I begin with manually auditing their HTTP content for OWASP's top 10. I immediately identified one of the most basic vulnerabilities there is, XSS. After spending a few minutes trying to bypass their WAF, I decided that I'm likely not going to bypass the filters incorporated by ASD. Instead, I decided to look for an alternative route to pop the alert(). This led to the search of seeking SWF files within the ASD's domain space (<b>*.asd.gov.au</b>). After submitting a few queries via an indexed search, I managed to locate several SWFs which all pertained to the main domain.
 
 <p><h2><font color="white">[ CONDUCTING A WHITE-BOX ANALYSIS ]</h2></font></p>
 After pulling the SWFs via wget, the local files were decompiled into .flr via the use of <a href="http://www.nowrap.de/flare.html" target="_blank">flare</a> (SWF Decompiler). This allowed the decompiled source code to be opened with any text editor, and thus a vulnerability audit via code analysis was initiated.
@@ -118,13 +118,19 @@ After pulling the SWFs via wget, the local files were decompiled into .flr via t
 <p>It was through this process, that one of the several SWFs were identified of containing a vulnerability that allowed an external user to alter a variable’s input. Thus, breaching the integrity of the file's behaviour. Below you'll find an extract containing the vulnerable segment of the source.</p>
 
 <pre style="background-color: #100E15; border: none !important;">
-<code>button 48 {
+<code>
+[...]
+
+button 48 {
 
     on (release) {
       var str = (_level0.clickTag != undefined) ? _level0.clickTag
       getURL(str, '');
     }
-  }</code>
+  }
+  
+[...]  
+  </code>
 </pre>
 <p> The above illustrates a vulnerability within the clickTag flashvar. During the analysis, it was discovered that the clickTag flashvar is associated with the release of button 48. This ‘button’ was mapped to the entire flash movie. Meaning, that the value stored within this flashvar is called strictly upon the condition of the victim/user clicking anywhere on the movie itself. Therefore, this vulnerability does require a form of social interaction for successful exploitation, as the user is required to click on the flash movie to trigger the malicious client-side script. However, since the flash movie prompts the user to click via <i>'Start Here'</i> it's likely that the end-user will commit this interaction.
 
