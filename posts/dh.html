@@ -222,9 +222,9 @@ Which means, these two equations are congruent to each other:
 <pre style="background-color: #100E15; border: none !important;">
 <code class="language-python">
 1	sharedPrime = 23    # p  
-2	sharedBase = 5 	# g  
-3	aliceSecret = 6 	# a  
-4	bobSecret = 15  	# b 
+2	sharedBase = 5 	    # g  
+3	aliceSecret = 6 	  # a  
+4	bobSecret = 15  	  # b 
 </code></pre>
 <p>
   First Alice and Bob agree on a Prime number, <b>sharedPrime</b> (<b>p</b>) that must be a prime number. Likewise a base, <b>sharedBase</b> (<b>g</b>), is also agreed upon where <b>g</b> must be a primitive root modulo. These above mentioned values of 23 (<b>p</b>) and 5 (<b>g</b>) are public, and can therefore be known to anyone, such as Eve. Following these public values, Alice and Bob each randomly select their own unique private integer that they keep secret to themselves. Alice’s value: <b>a</b> is 6, Bob’s value: <b>b</b> is 15.
