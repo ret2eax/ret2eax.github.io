@@ -115,7 +115,7 @@ ___________________________________________________________________</pre>
   <p><h2><font color="white">[ ANALYSIS ]</h2></font></p>
 <p>As described above, the Diffie-Hellman key exchange is a means of generating a shared secret between two individuals (i.e. Alice and Bob) without it being known to external ‘observers’/‘listeners’ on the communication channel (i.e. Eve) even though a large portion of exchanged data that generated the shared secret is known. The D-H key exchange is not encryption, but a foundation to public key/asymmetric cryptography.</p>
 <p>The resulting shared secret devised via D-H key exchange is never saved, nor is it transmitted or made visible by any means. The descriptive term of this is known as Forward Secrecy (FS), which usually exists as a successor product derived from the use of non-deterministic algorithms. The non-deterministic algorithm incorporated within the D-H protocols generates trap-door functions, which in return facilitates what is known as the discrete logarithm problem. This means, that it’s easy to mathematically compute the shared secret one-way, but incredibly difficult to reverse the computation to determine the initial secret values, especially if the shared numerical secret is a large number (as later demonstrated).</p>
-  <p<h2><font color="white">[ THE MECHANICS ]</h2></font></p>
+  <p><h2><font color="white">[ THE MECHANICS ]</h2></font></p>
 <p><b>0x01:</b><br> A prime value (<b>p</b>) and a primitive root modulo generator (<b>g</b>) are devised, and shared publicly between Alice and Bob.</p>
 <p><b>0x02:</b><br> Alice and Bob then both randomly select their private/secret value, <b>a</b> (Alice’s), and <b>b</b> (Bob’s) of which is only known to themselves.
 <p><b>0x03:</b><br> Alice computes <b>A</b> = <b>ga</b> mod <b>p</b> and sends the result of <b>A</b> publicly to Bob<p>
@@ -127,7 +127,7 @@ ___________________________________________________________________</pre>
 <p>We can understand, with further mathematical analysis, as to how Alice and Bob both received the same value, being S, via different variable computations. This is achievable via the existing properties of modular arithmetic exponents. Of which is that, the resulting computed values are identical to each other despite the order of the calculated exponentiation:</p>
 <p>$$\color{#20c20e}(g^a\textit{ mod p)}^b\textit{ mod p} \cong g^{ab}\textit{ mod p} \cong (g^b\textit{ mod p})^a\textit{ mod p} = g^{ba}\textit{ mod p}$$</p> 
 
-<p><h2><font color="white">[ DEMONSTRATION WITH SMALL NUMERICAL VALUES ]</h2></font>/p>	  
+<p><h2><font color="white">[ DEMONSTRATION WITH SMALL NUMERICAL VALUES ]</h2></font></p>	  
 For demonstration purposes, small numerical values have been used. These given values are as follows:
 
 <pre class="hack dark">
