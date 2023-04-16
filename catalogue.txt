@@ -16,8 +16,8 @@
     \_ 0x02c: <a href="#"> Analysing the FBI's TOR Browser Exploit</a> [SOON]<br>
 0x03: PUBLIC DISCLOSURES &amp; ADVISORIES
     \_ 0x03a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed</a>
-        \_ 0x03a: <a href="posts/cve-2017-12439.html" target="_blank">CVE-2017-12439 Advisory</a>
-    \_ 0x03b: <a href="posts/swf.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a> [LEGACY/DEPRECATED]<br>
+    \_ 0x03b: <a href="posts/cve-2017-12439.html" target="_blank">CVE-2017-12439 Advisory</a>
+    \_ 0x03c: <a href="posts/swf.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a> [LEGACY/DEPRECATED]<br>
     
 <center><footer><< <a href="https://github.com/ret2eax">github</a> : <a href=mailto:homecrew@riseup.net>homecrew@riseup.net</a> : <a href="https://keys.openpgp.org/search?q=D3E19869F7AF832F">pgp</a> >></footer></center>
 <p>[1] + 5175 done ./zine.sh</p>
