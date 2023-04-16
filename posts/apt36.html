@@ -62,7 +62,7 @@
 -->
 <html>
 <head>
-<meta name="Description" content="Publications by ret2eax, a security researcher, consultant and enthusiast.">
+<meta name="Description" content="Reverse engineering APT36 Malware targeting military & diplomatic resources.">
 <link rel="stylesheet" href="../Resources/css/hack.css">
 <link rel="stylesheet" href="../Resources/css/themes/dark.css">
 <link rel="stylesheet" href="../Resources/highlight/styles/custom.min.css">
@@ -77,7 +77,7 @@
 <center><< <a href="../index.html">home</a> >></center>
 <body class="hack dark">
   <div class="main container">
-<h1>0x01c: Reversing APT36 Malware Targeting Military & Diplomatic Resources</h1>
+<h1><font color="white">0x01c: Reversing APT36 Malware Targeting Military & Diplomatic Resources</h1></font>
 <pre class="hack dark">  _   _     ____
  |'| |'| U /"___|
 /| |_| |\\| | u
@@ -102,7 +102,7 @@ listing content..
 
 ___________________________________________________________________</pre>
 
-    <p><b>#[INTRODUCTION] :</b></p>
+    <p><h2><font color="white">[ INTRODUCTION ]</font></h2></p>
 
 <p><a href="https://malpedia.caad.fkie.fraunhofer.de/actor/operation_c-major">APT36</a>, also referred to as Operation C-Major, PROJECTM, Mythic Leopard, and Transparent Tribe, is a Pakistani government-aligned actor that is a politically motivated <a href="https://www.kaspersky.com/resource-center/definitions/advanced-persistent-threats">Advanced Persistent Threat</a> (APT) group. This APT group has been linked to Pakistan and mainly focuses its resources on targeting Indian Government entities and personnel. The motivation behind these attacks is information theft and espionage to gather intelligence from the Indian government, military, and diplomatic resources.</p>
     
@@ -112,15 +112,15 @@ ___________________________________________________________________</pre>
     
 <p>The two malware strains that will be focused on below are backdoors developed by APT36 identified within the wild. These backdoors launched by APT36 permit the ability for the group to execute remote commands from their C2 (command and control) server, allowing; dynamic interception of target phone calls and SMS messages, tracking victim/target GPS location co-ordinates, as well as read, extract and exfiltrate personal identifiable information (PII) from the device, amongst other capabilities.</p>
 
-  <p><b>#[SIGNALS & IOCs] :</b></p>
+  <p><h2><font color="white">[ SIGNALS & INDICATORS OF COMPROMISE (IOCs) ]</h2></font></p>
 
 <p>After reverse engineering the malware cluster, many active samples related to common signals and IoCs (Indicators of Compromise). These signals and IoCs include, but are not limited to; programmtic style, programmtic code flow, remote C2 identification and interaction (and other secrets I won't share here).</p>
       <p>Out of the cluster analysed, it was discovered that samples were non-sophisticated, no packing, cloaking, obfuscation, cryptographic routines or sophisticated detection and avoidance TTPs were in place. Further, malware samples did not contain native ELF binaries, meaning analysis of ARM ASM bins was not necessary across this cluster. A common practice by malware families is to use a brute-force automated approach in generation and dissemination of malware as opposed to stealth trade-craft seen amongst other apex threat actors.</p> 
 
-  <p><b>#[ANALYSIS OF SAMPLE X] :</b></p>
+<p><h2><font color="white">[ ANALYSIS OF SAMPLE X ]</h2></font></p>
 
     <p>The following analysis is based on an APK malware sample originating from APT36. This sample has been defined here as sample X, and will be referred to as sample X from this point onwards. During the initial analysis it was identified that this sample had excessive android.permission.* constants defined within the application's manifest. This permitted the application to leverage access to the relevant Android device functions associated with such constants. In addition to the aforementioned, the manifest details the sample's entry point alongside registered broadcast receivers. These definitions have been outlined within the sample's manifest below:</p>
-<pre class="hack dark"><i><code>
+<pre style="background-color: #100E15; border: none !important;"><i><code>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot; package=&quot;com.example.redacted.redacted&quot; platformBuildVersionCode=&quot;23&quot; platformBuildVersionName=&quot;6.0-2438415&quot;&gt;
   &lt;uses-sdk android:minSdkVersion=&quot;13&quot; android:targetSdkVersion=&quot;21&quot;/&gt;
@@ -178,7 +178,8 @@ ___________________________________________________________________</pre>
 
     <p>The above defines the following Android device permission constants (android.permission.*):</p>
     
-       <pre class="hack dark"><code>
+       <pre style="background-color: #100E15; border: none !important;">
+       <code>
 .ACCESS_NETWORK_STATE                // ACCESS NETWORK INFORMATION, Wi-Fi, GSM, GPRS, UMTS ETC
 .WRITE_EXTERNAL_STORAGE              // WRITE TO DEVICE EXTERNAL STORAGE
 .ACCESS_WIFI_STATE                   // ACCESS WIFI NETWORK INFORMATION
@@ -204,14 +205,16 @@ ___________________________________________________________________</pre>
     
     <p>The sample's entry point is defined within the manifest via the `android.intent.action.MAIN` Intent:</p>
     
-           <pre class="hack dark"><code>
+           <pre style="background-color: #100E15; border: none !important;">
+           <code>
 android.intent.action.MAIN -> com.example.redcated.redacted.MainActivity
 </code>
 </pre>
     
     <p>The sample's manifest defines the registered device broadcast receivers to be used for malicious intent:</p>
     
-           <pre class="hack dark"><code>
+           <pre style="background-color: #100E15; border: none !important;">
+           <code>
 android.intent.action.BOOT_COMPLETED         // ON BOOT COMPLETE EVENT USED FOR MALWARE PERSISTENCE
 android.provider.Telephony.SMS_RECEIVED      // RECEIVER FOR DEVICE SMS MONITORING
 android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL MONITORING
@@ -220,7 +223,8 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
   
   <p>MainActivity SMALi:</p>
  
-<pre class="hack dark"><code class="language-smali">
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-smali">
 .class public Lcom/example/redacted/redacted/MainActivity;
 .super Landroid/app/Activity;
 .source "MainActivity.java"
@@ -404,7 +408,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
       
       Following the callback to the `CMDService` class defined within the above `onCreate()` method, we can see the sample defines Command and Control (C2) capabilities as well as instantiates programmatic `IF/ELSE`, `CASE/SWITCH` conditional statement for C2 flow. These C2 clauses execute depending on the input received by the remote C2 server that is in the control of APT36. Note; the below class has been truncated for brevity, while still highlighting a portion of the sample's backdoor capabilities:</p>
 
-    <pre class="hack dark"><code class="language-kotlin">
+    <pre style="background-color: #100E15; border: none !important;"><code class="language-kotlin">
   public constructor com.example.redacted.redacted.CMDService() {
     Maybe([ARRAY, OBJECT]) v5_0 = new com.example.redacted.redacted.fileUpload(v2_0);
     Maybe([ARRAY, OBJECT]) v2_1 = v5_0;
@@ -1028,7 +1032,8 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
     
     <p>In addition to the above, the sample contains a `CallMonitor` class and a `SMSMonitor` class, these classes are associated with registered broadcast receivers permitting real-time monitoring of inbound phone calls and SMS messages. Both of these receivers define a HTTP asynchronous task containing callbacks to another class titled `setting`. This `setting` class defines the adversary's remote C2 within the `webUrl` parameter and is leveraged for C2 input alongside data exfiltration mechanics from data extracted from the device. The nested CallMonitor$HttpAsyncTask class illustrates this below:</p>
     
-    <pre class="hack dark"><code>
+    <pre style="background-color: #100E15; border: none !important;">
+    <code>
 public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends android.os.AsyncTask {
   final synthetic com.example.redacted.redacted.CallMonitor this$0;
 
@@ -1052,7 +1057,8 @@ public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends and
 </pre>
          <p>The above contains a callback to `httpCall`, of which, references `v14_2.<init>(com.example.redacted.redacted.setting.weburl);`, a callback to the `setting` class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device (command execution), as well as, exfiltrate device data over an outbound HTTP socket:</p>
      
-     <pre class="hack dark"><code class="language-kotlin">
+     <pre style="background-color: #100E15; border: none !important;">
+     <code class="language-kotlin">
 static {
     com.example.redacted.redacted.setting.webUrl = "http[:]//android[.]viral91[.]xyz/admin/webservices";   
 </code>
@@ -1069,7 +1075,8 @@ static {
 
 <p>The malware author's C2 is associated with a German host provider, Contabo GmbH (<a href="https://ipinfo.io/AS51167">AS51167</a>. A common connection amongst various APT36 campaigns. All malware used in Operation Sidecopy (active from 2019) have been directed through Contabo GmbH. This appears to be a signature practice in the case of APT36. Recently it has been observed that this threat actor is misleading the security community by <a href="https://www.seqrite.com/documents/en/white-papers/Seqrite-WhitePaper-Operation-SideCopy.pdf">copying tactics, techniques and procedures (TTPs) that point at another group</a>, Sidewinder <a href="https://attack.mitre.org/groups/G0121/">(T-APT-04)</a>. Sidewinder is a suspected Indian threat actor group that has been active since at least 2012. They have been observed targeting government, military, and business entities throughout Asia, primarily focusing on Pakistan, China, Nepal, and Afghanistan (just to put in context the political cyber warfare that continues to occur):</p>
 
-<pre class="hack dark"><code class="language-http">
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-http">
 
 ret2eax@h0m3cr3w~$: whois 5.189.177.175
 
@@ -1136,11 +1143,10 @@ last-modified:  2014-04-27T12:57:54Z
 source:         RIPE
 </code>
 </pre>
-    
-<p> ~ ret2eax</p>
+   
 </div>
 <center>
-<footer><< <a href=mailto:homecrew@riseup.net>homecrew@riseup.net</a> >></footer></center>
+<center><footer><< <a href="https://github.com/ret2eax">github</a> : <a href=mailto:homecrew@riseup.net>homecrew@riseup.net</a> : <a href="https://keys.openpgp.org/search?q=D3E19869F7AF832F">pgp</a> >></footer></center>
 <p>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "de308c7bac84443286fa4c969da28bb7"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
