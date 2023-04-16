@@ -1,7 +1,5 @@
 <!doctype html>
 <!--
-'ello;
-
 ````````````````````````````````````````````````````````````````
 ````````````````````````````:'+##+',````````````````````````````
 ````````````````````````:##############.````````````````####````
@@ -62,14 +60,14 @@
 -->
 <html>
 <head>
-<meta name="Description" content="Publications by ret2eax, a security researcher, consultant and enthusiast.">
+<meta name="Description" content="Analysing the cryptographic Diffie-Hellman (DH) key exchange protocol and its mathematical discrete logarithm (DLP), with examples.">
 <link rel="stylesheet" href="../Resources/css/hack.css">
 <link rel="stylesheet" href="../Resources/css/themes/dark.css">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="../Resources/highlight/styles/custom.min.css">
 <script src="../Resources/highlight/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
-<title>0x01a: D-H Key Exchange 101</title>
+<title>Diffie-Hellman Protocol Analysis</title>
 </head>
 <p>
 <center><img src="../images/ret_logo.png" width="80"></center><br>
@@ -78,18 +76,15 @@
 <center><< <a href="../index.html">home</a> >></center>
 <body class="hack dark">
   <div class="main container">
-<h1>0x01a: Diffie-Hellman Protocol</h1>
-<pre class="hack dark">  _   _     ____
- |'| |'| U /"___|
-/| |_| |\\| | u
-U|  _  |u | |/__
- |_| |_|   \____|
- //   \\  _// \\
-(_") ("_)(__)(__)
+<h1><font color="white">0x01a: The Diffie-Hellman Protocol & Its Mathematical DLP Analysis</h1></font>
+<pre class="hack dark">
+ _      ___            _____          _____
+| |__  / _ \ _ __ ___ |___ /  ___ _ _|___ /_      __
+|  _ \| | | |  _   _ \  |_ \ / __|  __||_ \ \ /\ / /
+| | | | |_| | | | | | |___) | (__| |  ___) \ V  V /
+|_| |_|\___/|_| |_| |_|____/ \___|_| |____/ \_/\_/
 
-
-#homecrew
-@ret2eax
++-----[ fourteen karat gold slum computer wizard ]-----+
 
 ret2eax@h0m3cr3w:~$ ./content.sh
 
@@ -107,7 +102,7 @@ listing content..
 
 ___________________________________________________________________</pre>
 
-<p>#[ DESCRIPTIVE REFERENCE ] :</p>
+p><h2><font color="white">[ DESCRIPTIVE REFERENCE ]</h2></font></p>
 
 <p>Diffie–Hellman key exchange was one of the first public-key protocols as originally conceptualized by Ralph Merkle and named after Whitfield Diffie and Martin Hellman. Traditionally, secure encrypted communication between two parties required that they first exchange keys by some secure physical channel, such as paper key lists transported by a trusted courier. The D-H protocol therefore provides a secure alternative to jointly establish a shared secret key over an insecure channel.</p>
 
@@ -117,10 +112,10 @@ ___________________________________________________________________</pre>
   <center><img src="/images/dh.jpg"></center>
 </pre>
 
-<p>#[ ANALYSIS ] :</p>
+  <p><h2><font color="white">#[ ANALYSIS ]<h2></font></p>
 <p>As described above, the Diffie-Hellman key exchange is a means of generating a shared secret between two individuals (i.e. Alice and Bob) without it being known to external ‘observers’/‘listeners’ on the communication channel (i.e. Eve) even though a large portion of exchanged data that generated the shared secret is known. The D-H key exchange is not encryption, but a foundation to public key/asymmetric cryptography.</p>
 <p>The resulting shared secret devised via D-H key exchange is never saved, nor is it transmitted or made visible by any means. The descriptive term of this is known as Forward Secrecy (FS), which usually exists as a successor product derived from the use of non-deterministic algorithms. The non-deterministic algorithm incorporated within the D-H protocols generates trap-door functions, which in return facilitates what is known as the discrete logarithm problem. This means, that it’s easy to mathematically compute the shared secret one-way, but incredibly difficult to reverse the computation to determine the initial secret values, especially if the shared numerical secret is a large number (as later demonstrated).</p>
-<p>#[ THE MECHANICS ] :</p>
+  <p<h2><font color="white">[ THE MECHANICS ]</h2></font></p>
 <p><b>0x01:</b><br> A prime value (<b>p</b>) and a primitive root modulo generator (<b>g</b>) are devised, and shared publicly between Alice and Bob.</p>
 <p><b>0x02:</b><br> Alice and Bob then both randomly select their private/secret value, <b>a</b> (Alice’s), and <b>b</b> (Bob’s) of which is only known to themselves.
 <p><b>0x03:</b><br> Alice computes <b>A</b> = <b>ga</b> mod <b>p</b> and sends the result of <b>A</b> publicly to Bob<p>
@@ -132,7 +127,7 @@ ___________________________________________________________________</pre>
 <p>We can understand, with further mathematical analysis, as to how Alice and Bob both received the same value, being S, via different variable computations. This is achievable via the existing properties of modular arithmetic exponents. Of which is that, the resulting computed values are identical to each other despite the order of the calculated exponentiation:</p>
 <p>$$\color{#20c20e}(g^a\textit{ mod p)}^b\textit{ mod p} \cong g^{ab}\textit{ mod p} \cong (g^b\textit{ mod p})^a\textit{ mod p} = g^{ba}\textit{ mod p}$$</p> 
 
-<p>#[ DEMONSTRATION WITH SMALL NUMERICAL VALUES ] :</p>	  
+<p><h2><font color="white">[ DEMONSTRATION WITH SMALL NUMERICAL VALUES ]</h2></font>/p>	  
 For demonstration purposes, small numerical values have been used. These given values are as follows:
 
 <pre class="hack dark">
@@ -172,7 +167,7 @@ Which means, these two equations are congruent to each other:
 <p><b>Eve’s Observations if Intercepting the Public Channel’s Data Traffic During the Exchange</b></p>
 <p>The values transmitted publicly via an insecure channel are: 6 (<b>A</b>), 12 (<b>B</b>), 3 (<b>g</b>), and 17(<b>p</b>). Depending on the size of the values, particularly the prime modulus (<b>p</b>), without one of the private/secret values, 15 (<b>a</b>) or 13 (<b>b</b>), Eve will be unable to solve the resulting shared secret solution (<b>S</b>). However, as stated above, small number values have been incorporated for demonstration purposes. These values are much larger in a real world-simulating environment which in turn enhances the impracticality to solve <b>S</b> without <b>a</b>, or, <b>b</b> via reverse mathematics. This leads to the <b>discrete logarithm problem</b>.</p>
 
-<p>#[ THE DISCRETE LOGARITHM PROBLEM ] :</p>
+<p><h2><font color="white">[ THE DISCRETE LOGARITHM PROBLEM (DLP) ]</h2></font></p>
 <p>The discrete logarithm problem associated with the Diffie-Hellman key exchange is as follows: </p>
 <p>$$\color{#20c20e}\textit{"Given y, find x so that g x mod p = y"}$$</p>
 
@@ -185,7 +180,8 @@ Which means, these two equations are congruent to each other:
 <p>Suppose the prime modulus <b>p</b> has a length of 1024-bits (~ 308 base10/decimal digits), with <b>x</b> being known this is a simple trap-door function. However, without knowing <b>x</b>, <b>p</b>, being 1024-bits in length, is a value so large that it means there are <b>2<sup>1024</sup></b> possible combinations for <b>x</b>.</p>
 <p>While such a discrete logarithm problem is traditionally used (<b>g<sup>x</sup></b> mod <b>p</b>), the general process of the D-H key exchange can be modified to use elliptic curve cryptography (ECC) to form the Elliptic Curve Diffie-Hellman key exchange protocol (ECDH). A similar analysis on the ECDH protocol can be observed <a href="ecdh.html">here</a>.</p>
 <p>#[ PYTHON IMPLEMENTATION FOR DEMONSTRATION ] :</p>
-<pre class="hack dark"><code>
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-python">
   
 1	# Variable Declaration
 2	sharedPrime = 23    # p  
@@ -225,12 +221,13 @@ Which means, these two equations are congruent to each other:
 <iframe src="https://trinket.io/embed/python/597483ff11?runOption=run&start=result" width="100%" height="600" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
 </pre>
 
-<p>#[BREAKING DOWN THE SOURCE] :</p>
+<p><h2><font color="white">[ BREAKING DOWN THE SOURCE ]</h2></font></p>
 
 <p>Initially, a sum of four variables is defined, each containing unique data (in this case, integers). These variables are named sharedPrime, sharedBase, aliceSecret and bobSecret.
 </p>
 <p>Each of these variables have been co-signed with single letters to later demonstrate the D-H mathematical functions for better understanding.</p>
-<pre class="hack dark"><code>
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-python">
 1	sharedPrime = 23    # p  
 2	sharedBase = 5 	# g  
 3	aliceSecret = 6 	# a  
@@ -242,7 +239,8 @@ First Alice and Bob agree on a Prime number, sharedPrime (p) that must be a prim
 <p>
 Alice’s public value (A) is computed via modular arithmetic: 
 </p>
-<pre class="hack dark"><code>
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-python">
 16	A = (sharedBase**aliceSecret) % sharedPrime   #(A = g^a mod p) 
 </code></pre>
 <p>
@@ -252,7 +250,8 @@ Which is the equivalent to <b>A</b> = 5<sup>6</sup> mod 23, which = 8
 This computed value is then printed to mimic it being transmitted over a public/insecure channel medium to Bob. 
 </p>
 <p>Likewise, Bob’s public value (B) is computed via modular arithmetic: </p>
-<pre class="hack dark"><code>
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-python">
 20	B = (sharedBase**bobSecret) % sharedPrime    #(B = g^b mod p) 
 </code></pre>
 <p>
@@ -261,13 +260,15 @@ Which is the equivalent of <b>B</b> = 5<sup>15</sup> mod 23, which = 19</p>
 <p>This computed value is then also printed to mimic it being transmitted over a public channel medium to Alice.</p>
 
 <p>Alice then computes the received value via:</p>
-<pre class="hack dark"><code>
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-python">
 27	aliceSharedSecret = (B**aliceSecret) % sharedPrime           #(S = B^a mod p) 
 </code></pre>
 <p>Which is the equivalent of <b>S</b> = 19<sup>6</sup> mod 23, which = 2</p>
 
 <p>Likewise, Bob does the same for the received value from Alice:</p>
-<pre class="hack dark"><code>
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-python">
 31	bobSharedSecret = (A**bobSecret) % sharedPrime 			#(S = A^b mod p) 
 </code></pre>
 <p>Which is the equivalent of <b>S</b> = 8<sup>15</sup> mod 23, which = 2</p>
@@ -275,11 +276,12 @@ Which is the equivalent of <b>B</b> = 5<sup>15</sup> mod 23, which = 19</p>
 </p>
 <p>[ -- Implementation concludes -- ]</p>
 
-<p>#[FINAL COMMENTS] :</p>
+<p><h2><font color="white">[ FINAL COMMENTS ]</h2></font></p>
 <p>The above implementation successfully demonstrates an accurate representation that exhibits how the D-H key exchange mechanism works by the properties of its mathematical functions.
 </p>
 <p>For this implementation to contain a higher level of accuracy, the following must be considered:</p>
-<pre class="hack dark">
+<pre style="background-color: #100E15; border: none !important;">
+<code class="language-plaintext">
 
 Instead of the public values being printed to mimic/simulate public transmission, 
 the values would actually be transmitted across a public channel. The implementation 
@@ -308,10 +310,10 @@ the use of a true-random number generator to enhance entropy (a measure of uncer
 the random values. 
 
 </pre>
-<p> ~ ret2eax</p>
+
 </div>
 <center>
-<footer><< <a href=mailto:homecrew@riseup.net>homecrew@riseup.net</a> >></footer></center>
+<footer><< <a href="https://github.com/ret2eax">github</a> : <a href=mailto:homecrew@riseup.net>homecrew@riseup.net</a> : <a href="https://keys.openpgp.org/search?q=D3E19869F7AF832F">pgp</a> >></footer></center>
 <p>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "de308c7bac84443286fa4c969da28bb7"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
