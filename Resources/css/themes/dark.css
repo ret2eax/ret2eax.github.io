@@ -93,7 +93,7 @@
   /**
    * `text that goes inbetween these chars`, code quotes.
    */
-  & .marked-text {
+  .marked-text {
   background-color: #141821; /* Specify the background color you want */
   color: #52B4D2; /* Specify the text color you want "`hello` */
   padding: 2px 4px;
