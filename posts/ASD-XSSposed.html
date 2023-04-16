@@ -1,5 +1,4 @@
 <!doctype html>
-<!--
 ````````````````````````````````````````````````````````````````
 ````````````````````````````:'+##+',````````````````````````````
 ````````````````````````:##############.````````````````####````
@@ -75,54 +74,49 @@
 <center><< <a href="../index.html">home</a> >></center>
 <body class="hack dark">
   <div class="main container">
-<h1>0x02a: ASD - Australian Signals Intelligence Agency XSSposed (PATCHED)</h1>
+<h1>0x03a: ASD - Australian Signals Intelligence Agency XSSposed (PATCHED)</h1>
 <pre class="hack dark">
-  _   _     ____
- |'| |'| U /"___|
-/| |_| |\\| | u
-U|  _  |u | |/__
- |_| |_|   \____|
- //   \\  _// \\
-(_") ("_)(__)(__)
+ _      ___            _____          _____
+| |__  / _ \ _ __ ___ |___ /  ___ _ _|___ /_      __
+|  _ \| | | |  _   _ \  |_ \ / __|  __||_ \ \ /\ / /
+| | | | |_| | | | | | |___) | (__| |  ___) \ V  V /
+|_| |_|\___/|_| |_| |_|____/ \___|_| |____/ \_/\_/
 
-
-#homecrew
-@ret2eax
++-----[ fourteen karat gold slum computer wizard ]-----+
 
 ret2eax@h0m3cr3w:~$ ./content.sh
 
 listing content..
 
-[1.] THE TARGET
+[1.] DETAILS
 [2.] INTRODUCTION
 [3.] LOCATING THE SWF
 [4.] CONDUCTING A WHITE-BOX ANALYSIS
-[5.] PoC: EXPLOITING THE VULNERABILITY
+[5.] PROOF OF CONCEPT
 [6.] NOTIFICATION & DISCLOSURE TIMELINE
 
 ___________________________________________________________________</pre>
 
-<p>#[THE TARGET] :</p>
+    <p><h2><font color="white">[ DETAILS ]</h2></font></p>
 
-Australian Signals Directorate (ASD): Australian Government Signals Intelligence and Information Security Agency. The Australian Signals Directorate (ASD) is an intelligence agency in the Australian Government Department of Defence. Our mission, 'Reveal their secrets, protect our own', accurately.
-<p>This particle vulnerability was identified on the ASD's non-classified internet facing web service.</p>    
+<p>This particular vulnerability was identified on the ASD's non-classified internet facing web service.</p>    
 
-<p>#[INTRODUCTION] :</p>
+  <p><h2><font color="white">[ INTRODUCTION ]</h2></font></p>
 This vulnerability was responsibly disclosed to the vendor and CERT (Computer Emergency Response Team) upon identification and has since been patched. Vulnerability confirmation and minor technical details can be verified on <a href="https://www.openbugbounty.org/incidents/183988/" target="_blank">openbugbounty</a>.
 
 In addition to the ASD, I have discovered similar vulnerabilities within other high profile corporate and government agencies. Within a few days to a week of performing SWF analysis, I managed to identify vulnerabilities in Amazon AWS, Cisco, Vodafone, Juniper Networks, Fedex, NASA, US Army, NATO and more.
 
 The vulnerability itself was quite simple, again, not very sophisticated. However, the nature of this particular vulnerability requires a white-box analysis approach. Therefore, it is essential to have a generic understanding of ActionScript (similar to JavaScript; both being ECMA-based in terms of syntax) in order to identify a vulnerability as well as grasp an idea of the generic code flow. Like other languages that can be vulnerable to XSS, failure to properly sanitize user input within ActionScript can allow these vulnerabilities to take place. Additionally, there exists a few vulnerabilities that are specific to ActionScript itself.
 
-<p>#[LOCATING THE SWF] :</p>
-After placing the ASD in my LoS, I began looking for vulnerabilities. Generally, with any target in the wild, I begin with manually auditing their HTTP content for OWASP's top 10. I immediately started looking for one of the most basic yet effective vulnerability there is, XSS. After spending a few minutes trying to bypass their WAF, I decided that I'm likely not going to bypass the filters incorporated by ASD. Instead, I decided to look for an alternative route to pop the alert(). This led to the search of seeking SWF files within the ASD's domain space (scope: *.asd.gov.au). After submitting a few queries via an indexed search, I managed to locate several SWFs which all pertained to the main domain.
+  <p><h2><font color="white">[ LOCATING THE SWF ]</h2></font></p>
+After placing the ASD in my LoS, I began looking for vulnerabilities. Generally, with any target in the wild, I begin with manually auditing their HTTP content for OWASP's top 10. I immediately identified one of the most basic vulnerabilities there is, XSS. After spending a few minutes trying to bypass their WAF, I decided that I'm likely not going to bypass the filters incorporated by ASD. Instead, I decided to look for an alternative route to pop the alert(). This led to the search of seeking SWF files within the ASD's domain space (*.asd.gov.au). After submitting a few queries via an indexed search, I managed to locate several SWFs which all pertained to the main domain.
 
-<p>#[CONDUCTING A WHITE-BOX ANALYSIS] :</p>
+<p><h2><font color="white">[ CONDUCTING A WHITE-BOX ANALYSIS ]</h2></font></p>
 After pulling the SWFs via wget, the local files were decompiled into .flr via the use of <a href="http://www.nowrap.de/flare.html" target="_blank">flare</a> (SWF Decompiler). This allowed the decompiled source code to be opened with any text editor, and thus a vulnerability audit via code analysis was initiated.
 
 <p>It was through this process, that one of the several SWFs were identified of containing a vulnerability that allowed an external user to alter a variable’s input. Thus, breaching the integrity of the file's behaviour. Below you'll find an extract containing the vulnerable segment of the source.</p>
 
-<pre class="hack dark">
+<pre style="background-color: #100E15; border: none !important;">
 <code>button 48 {
 
     on (release) {
@@ -135,7 +129,7 @@ After pulling the SWFs via wget, the local files were decompiled into .flr via t
 
 <p>The clickTag flashvar was initially declared to serve a purpose of re-directing a user to an informative page segment within the ASD's HTTP content. However, due to the lack of variable/parameter definition, as well as, lack of input sanitization, use of unsafe GetURL() method, and incorporation of insecure global variables (i.e. _level0, _root, _global etc). An attacker is able to control the behaviour of the vulnerable flashvar in question. This is achieved by assigning malicious values to that flashvar and calling it via GET. In this particular scenario, this allowed malicious unvalidated/open redirects, as well as, allowing an attacker to execute malicious client-side scripts via the following XSS vector;'<i>javascript:MaliciousScriptHere</i>'.</p>
 
-<p>#[PoC: EXPLOITING THE VULNERABILITY] :</p>
+<p><h2><font color="white">[ PROOF OF CONCEPT ]</h2></font></p>
 <p><video width="800" height="430" controls>
   <source src="../videos/ASD-PoC.mp4" type="video/mp4">
 Your browser does not support the video tag.
@@ -146,9 +140,9 @@ Your browser does not support the video tag.
 <a href="http://asd.gov.au/videos/cyber-main-small.swf?clickTag=javascript:confirm(document.cookie)" target="_blank">http://asd.gov.au/videos/cyber-main-small.swf?clickTag=javascript:confirm(document.cookie)</a>
 </p>
 
-<p>It should be noted that cookies cannot be stolen due to the <i>HttpOnly<i> flag being set.</p>
+<p>It should be noted that cookies cannot be stolen due to the <b>HttpOnly</b> flag being set. Nevertheless, this vulnerability could have been leveraged for payload delivery for more sophisticated attacks on the grounds of ASD's reputability.</p>
 
-<pre class="hack dark"><code class="language-http">
+<pre style="background-color: #100E15; border: none !important;"><code class="language-http">
 ret2eax@h0m3cr3w:~$ <i>curl -I asd.gov.au</i>
 
 HTTP/1.1 200 OK
@@ -162,16 +156,17 @@ Server: REDACTED
 CF-RAY: REDACTED</code>
 </pre>
 
-<p>#[NOTIFICATION & DISCLOSURE TIMELINE] :</p>
-28 September 2016 at 08:28 GMT	Vulnerability reported via Open Bug Bounty<br>
-29 September 2016 at 07:31 GMT	Notification sent to generic security emails<br>
-29 September 2016 at 07:31 GMT	Vulnerability verified and confirmed<br>
-7 October 2016 at 09:44 GMT	Vulnerability patched and marked as fixed<br>
-9 October 2016 at 03:21 GMT	Vulnerability details publicly disclosed<br>
+  <p><h2><font color="white">[ NOTIFICATION & DISCLOSURE TIMELINE ]</h2></font></p>
+<pre style="background-color: #100E15; border: none !important;"><code>
+28 September 2016 at 08:28 GMT	Vulnerability reported via Open Bug Bounty
+29 September 2016 at 07:31 GMT	Notification sent to generic security emails
+29 September 2016 at 07:31 GMT	Vulnerability verified and confirmed
+7 October 2016 at 09:44 GMT	Vulnerability patched and marked as fixed
+9 October 2016 at 03:21 GMT	Vulnerability details publicly disclosed
+</code></pre>
 <p>
 </div>
-<center>
-<footer><< <a href="mailto:homecrew@riseup.net">homecrew@riseup.net</a> >></footer></center>
+<center><footer><< <a href="https://github.com/ret2eax">github</a> : <a href=mailto:homecrew@riseup.net>homecrew@riseup.net</a> : <a href="https://keys.openpgp.org/search?q=D3E19869F7AF832F">pgp</a> >></footer></center>
 <p>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "de308c7bac84443286fa4c969da28bb7"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
