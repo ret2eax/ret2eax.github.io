@@ -81,18 +81,16 @@ button 48 {
    }
 </code>
 </pre>
-<p>The above illustrates a vulnerability pertinent to the clickTag flashvar. An analysis on the above can be observed <a href="posts/ASD-XSSposed.html">here</a>.<p>
+The above illustrates a vulnerability pertinent to the clickTag flashvar. An analysis on the above can be observed <a href="posts/ASD-XSSposed.html">here</a>.
 <p>Vulnerabilities that could exist within Shockwave Flash files include; SOME attacks, Content Forgery, Unvalidated Redirects, as well as, XSS. While these typically do not pose a high risk, they are also ideal for use in leverage for payload delivery where the reputability of the FQDN could be utilised to deliver more sophisticated attacks (for example, the delivery of a browser exploit to gain RCE).</p>
 
-<p>In terms of exploiting such vulnerabilities through a cross-domain approach, some vendors incorporate an XML configuration to control the behaviour of the SWF. Therefore, these SWF files may have a dynamic flashvar pointing to a config file on the same server the SWF is hosted on. However, if this flashvar can be controlled by the attacker externally, with a correct cross-domain policy configured on the attacking server, all that is required is to remotely call a malicious XML variation (hosted on an attacker’s server), which in turn, will include the instructions to control the SWF, thus determining its behaviour. The attack vectors associated with this method of exploitation remains similar as to that of the above, however, the methods slightly vary. For example, an XSS payload is incorporated within an XML entity either as a variable’s value, or arbitrarily through the malicious XML via the use of CDATA:
-</p>
+In terms of exploiting such vulnerabilities through a cross-domain approach, some vendors incorporate an XML configuration to control the behaviour of the SWF. Therefore, these SWF files may have a dynamic flashvar pointing to a config file on the same server the SWF is hosted on. However, if this flashvar can be controlled by the attacker externally, with a correct cross-domain policy configured on the attacking server, all that is required is to remotely call a malicious XML variation (hosted on an attacker’s server), which in turn, will include the instructions to control the SWF, thus determining its behaviour. The attack vectors associated with this method of exploitation remains similar as to that of the above, however, the methods slightly vary. For example, an XSS payload is incorporated within an XML entity either as a variable’s value, or arbitrarily through the malicious XML via the use of CDATA:
 
 <p><h2><font color="white">[ EXPLOITING VULNERABLE XML CONFIGURATIONS THROUGH CDATA ] </h2></font></p>
 <pre style="background-color: #100E15; border: none !important;">
 <code>
 &lt;![CDATA[<]]>script&lt;![CDATA[>]]>alert('xss')&lt;![CDATA[<]]>/script&lt;![CDATA[>]]></code>
 </pre>
-
 This would then be called via GET in the manner of:
 <pre style="background-color: #100E15; border: none !important;">
 <code class="language-http">
