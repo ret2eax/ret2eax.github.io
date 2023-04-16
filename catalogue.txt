@@ -11,7 +11,7 @@
     \_ 0x01e: <a href="https://eprint.iacr.org/2018/485.pdf" target="_blank">Ordinary Isogeny D-H KE Theoretical Analysis</a> [SOON]
     \_ 0x01f: <a href="#" target="_blank">Curve25519 & The X25519 Function, A TOR Network Key Exchange</a> [SOON]<br>
 0x02: VULNERABILITY RESEARCH &amp; EXPLOIT DEVELOPMENT
-    \_ 0x02a: <a href="#" target="_blank">CVE-2020-16040 Analysis and Exploitation - Chrome's V8 Engine (Browser Exploitation)</a> [SOON]
+    \_ 0x02a: <a href="#" target="_blank">CVE-2020-16040 Analysis and Exploitation (Chrome's V8 Engine)</a> [SOON]
     \_ 0x02b: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]
     \_ 0x02c: <a href="#"> Analysing the FBI's TOR Browser Exploit</a> [SOON]<br>
 0x03: PUBLIC DISCLOSURES &amp; ADVISORIES
