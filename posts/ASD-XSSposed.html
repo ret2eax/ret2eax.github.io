@@ -122,7 +122,6 @@ After pulling the SWFs via wget, the local files were decompiled into .flr via t
 [...]
 
 button 48 {
-
     on (release) {
       var str = (_level0.clickTag != undefined) ? _level0.clickTag
       getURL(str, '');
@@ -132,7 +131,7 @@ button 48 {
 [...]  
   </code>
 </pre>
-<p> The above illustrates a vulnerability within the clickTag flashvar. During the analysis, it was discovered that the clickTag flashvar is associated with the release of button 48. This ‘button’ was mapped to the entire flash movie. Meaning, that the value stored within this flashvar is called strictly upon the condition of the victim/user clicking anywhere on the movie itself. Therefore, this vulnerability does require a form of social interaction for successful exploitation, as the user is required to click on the flash movie to trigger the malicious client-side script. However, since the flash movie prompts the user to click via <i>'Start Here'</i> it's likely that the end-user will commit this interaction.
+The above illustrates a vulnerability within the clickTag flashvar. During the analysis, it was discovered that the clickTag flashvar is associated with the release of button 48. This ‘button’ was mapped to the entire flash movie. Meaning, that the value stored within this flashvar is called strictly upon the condition of the victim/user clicking anywhere on the movie itself. Therefore, this vulnerability does require a form of social interaction for successful exploitation, as the user is required to click on the flash movie to trigger the malicious client-side script. However, since the flash movie prompts the user to click via <i>'Start Here'</i> it's likely that the end-user will commit this interaction.
 
 <p>The clickTag flashvar was initially declared to serve a purpose of re-directing a user to an informative page segment within the ASD's HTTP content. However, due to the lack of variable/parameter definition, as well as, lack of input sanitization, use of unsafe GetURL() method, and incorporation of insecure global variables (i.e. _level0, _root, _global etc). An attacker is able to control the behaviour of the vulnerable flashvar in question. This is achieved by assigning malicious values to that flashvar and calling it via GET. In this particular scenario, this allowed malicious unvalidated/open redirects, as well as, allowing an attacker to execute malicious client-side scripts via the following XSS vector;'<i>javascript:MaliciousScriptHere</i>'.</p>
 
@@ -147,7 +146,7 @@ Your browser does not support the video tag.
 <a href="http://asd.gov.au/videos/cyber-main-small.swf?clickTag=javascript:confirm(document.cookie)" target="_blank">http://asd.gov.au/videos/cyber-main-small.swf?clickTag=javascript:confirm(document.cookie)</a>
 </p>
 
-<p>It should be noted that cookies cannot be stolen due to the <b>HttpOnly</b> flag being set. Nevertheless, this vulnerability could have been leveraged for payload delivery for more sophisticated attacks on the grounds of ASD's reputability.</p>
+It should be noted that cookies cannot be stolen due to the <b>HttpOnly</b> flag being set. Nevertheless, this vulnerability could have been leveraged for payload delivery for more sophisticated attacks on the grounds of ASD's reputability.
 
 <pre style="background-color: #100E15; border: none !important;"><code class="language-http">
 ret2eax@h0m3cr3w:~$ <i>curl -I asd.gov.au</i>
@@ -163,7 +162,7 @@ Server: REDACTED
 CF-RAY: REDACTED</code>
 </pre>
 
-  <p><h2><font color="white">[ NOTIFICATION & DISCLOSURE TIMELINE ]</h2></font></p>
+  <h2><font color="white">[ NOTIFICATION & DISCLOSURE TIMELINE ]</h2></font>
 <pre style="background-color: #100E15; border: none !important;"><code>
 28 September 2016 at 08:28 GMT	Vulnerability reported via Open Bug Bounty
 29 September 2016 at 07:31 GMT	Notification sent to generic security emails
