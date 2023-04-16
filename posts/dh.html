@@ -112,7 +112,7 @@ ___________________________________________________________________</pre>
   <center><img src="/images/dh.jpg"></center>
 </pre>
 
-  <p><h2><font color="white">#[ ANALYSIS ]<h2></font></p>
+  <p><h2><font color="white">[ ANALYSIS ]</h2></font></p>
 <p>As described above, the Diffie-Hellman key exchange is a means of generating a shared secret between two individuals (i.e. Alice and Bob) without it being known to external ‘observers’/‘listeners’ on the communication channel (i.e. Eve) even though a large portion of exchanged data that generated the shared secret is known. The D-H key exchange is not encryption, but a foundation to public key/asymmetric cryptography.</p>
 <p>The resulting shared secret devised via D-H key exchange is never saved, nor is it transmitted or made visible by any means. The descriptive term of this is known as Forward Secrecy (FS), which usually exists as a successor product derived from the use of non-deterministic algorithms. The non-deterministic algorithm incorporated within the D-H protocols generates trap-door functions, which in return facilitates what is known as the discrete logarithm problem. This means, that it’s easy to mathematically compute the shared secret one-way, but incredibly difficult to reverse the computation to determine the initial secret values, especially if the shared numerical secret is a large number (as later demonstrated).</p>
   <p<h2><font color="white">[ THE MECHANICS ]</h2></font></p>
