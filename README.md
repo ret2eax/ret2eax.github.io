@@ -1,7 +1,5 @@
-# GitHub Pages - Publications
-
-https://ret2eax.github.io/
+# GitHub Pages - Publications [ E-ZINE ]
 
 https://homecrew.dev
 
-© ret2eax
+© ret2eax (JM5)
