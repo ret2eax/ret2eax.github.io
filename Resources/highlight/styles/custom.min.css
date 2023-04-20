@@ -1,4 +1,4 @@
-pre code.hljs{display:block;overflow-x:auto;padding:1em;border-radius: 10px;}code.hljs{padding:3px 5px}/*!
+pre code.hljs{display:block;overflow-x:auto;padding:1em;border-radius: 5px;}code.hljs{padding:3px 5px}/*!
   Theme: StackOverflow Dark
   Description: Dark theme as used on stackoverflow.com
   Author: stackoverflow.com
@@ -16,7 +16,7 @@ pre code.hljs{display:block;overflow-x:auto;padding:1em;border-radius: 10px;}cod
 :not(pre) > code {
   background-color: #141821;
   color: #52B4D2;
-  padding: 2px 4px;
+  padding: 2px 5px;
   border-radius: 4px;
   font-family: monospace;
 }
