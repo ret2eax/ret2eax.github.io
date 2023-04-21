@@ -6,7 +6,7 @@
 <p>0x01: REVERSE ENGINEERING, CRYPTOGRAPHY &amp; MALWARE
     \_ 0x01a: <a href="posts/dh.html" target="_blank">The Diffie-Hellman (D-H) KE Protocol & Its Mathematical DLP</a>
     \_ 0x01b: <a href="posts/ecdh.html" target="_blank">The Elliptic Curve Diffie-Helmman KE Protocol & Its Mathematical DLP</a>
-    \_ 0x01c: <a href="posts/APT36.html" target="_blank">Reversing APT36 Malware Targeting Military & Diplomatic Resources</a>
+    \_ 0x01c: <a href="posts/apt36.html" target="_blank">Reversing APT36 Malware Targeting Military & Diplomatic Resources</a>
     \_ 0x01d: <a href="#" target="_blank">Hyperelliptic curve Diffie-Hellman KE Theoretical Analysis</a> [SOON]
     \_ 0x01e: <a href="#" target="_blank">Curve25519 & The X25519 Function, A TOR Network Key Exchange</a> [SOON]<br>
 0x02: VULNERABILITY RESEARCH &amp; EXPLOIT DEVELOPMENT
@@ -14,7 +14,7 @@
     \_ 0x02b: <a href="#"> ITP1 Gateways and Signalling System No. 7 (SS7)</a> [SOON]<br>
 0x03: PUBLIC DISCLOSURES &amp; ADVISORIES
     \_ 0x03a: <a href="posts/ASD-XSSposed" target="_blank">Australian Signals Intelligence Agency XSSposed</a>
-    \_ 0x03b: <a href="posts/CVE-2017-12439.html" target="_blank">CVE-2017-12439 Advisory</a>
+    \_ 0x03b: <a href="posts/cve-2017-12439.html" target="_blank">CVE-2017-12439 Advisory</a>
     \_ 0x03c: <a href="posts/SWF.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a> [LEGACY/DEPRECATED]<br>
     
 <center><footer><< <a href="https://github.com/ret2eax">github</a> : <a href=mailto:homecrew@riseup.net>homecrew@riseup.net</a> : <a href="https://keys.openpgp.org/search?q=D3E19869F7AF832F">pgp</a> >></footer></center>
