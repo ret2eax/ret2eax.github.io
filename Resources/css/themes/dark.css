@@ -1,4 +1,20 @@
-@import "color-preset.html";@import "../vars.css";@import "../mixins.css";.dark{background-color:#100E16;color:#ccc;& pre { background-color:#100E16;padding:0;border:none;& code { color: $cyan;} }
+@import "color-preset.html";
+@import "../vars.css";
+@import "../mixins.css";
+
+.dark {
+  background-color: #100E16;
+  color: #ccc;
+
+  & pre {
+    background-color: #100E16;
+    padding: 0;
+    border: none;
+
+    & code {
+      color: $cyan;
+    }
+  }
 
   & h1 a,
   & h2 a,
@@ -13,7 +29,7 @@
     color: white;
   }
 
-  & code {
+  & code:not(pre code) {
     background-color: #111923;
     color: #10BAE0;
     font-weight: 100;
