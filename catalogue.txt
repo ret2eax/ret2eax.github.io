@@ -17,6 +17,6 @@
     \_ 0x03b: <a href="posts/CVE-2017-12439.html" target="_blank">CVE-2017-12439 Advisory</a>
     \_ 0x03c: <a href="posts/SWF.html" target="_blank">Hunting Bugs via Adobe Shockwave Analysis</a> [LEGACY/DEPRECATED]<br>
     
-<center><footer><< <a href="https://github.com/ret2eax">github</a> : <a href=mailto:homecrew@riseup.net>homecrew@riseup.net</a> : <a href="https://keys.openpgp.org/search?q=D3E19869F7AF832F">pgp</a> >></footer></center>
+<center><footer><< <a href="https://twitter.com/ret2eax">twitter</a> : <a href="https://github.com/ret2eax">github</a> : <a href=mailto:homecrew@riseup.net>homecrew@riseup.net</a> : <a href="https://keys.openpgp.org/search?q=D3E19869F7AF832F">pgp</a> >></footer></center>
 <p>[1] + 5175 done ./zine.sh</p>
 <span id="a">ret2eax@h0m3cr3w</span>:<span id="b">~</span><span id="c">$</span>
