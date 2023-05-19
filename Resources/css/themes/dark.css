@@ -8,8 +8,7 @@
 
   & pre {
     background-color: #100E16;
-    padding: 0;
-    border: none;
+    padding: 1;
 
     & code {
       color: $cyan;
