@@ -1,5 +1,5 @@
 <center>homecrew</center>
-<center><img src="https://i.ibb.co/YBcd1N8/enhanced-9.gif" width="120"></img></center>
+<center><img src="https://i.ibb.co/qWJK5qL/editor-1s-202px-1.gif" width="120"></img></center>
 <center>((((&lambda;f.(&lambda;x.(fx)))(&lambda;y.y))(&lambda;z.z)))</center>
 <span id="a">ret2eax@h0m3cr3w</span>:<span id="b">~</span><span id="c">$</span> ./zine.sh &amp;<br/>
 |-[ SELECT A POINTER ]----------------------------------------------------------------|
