@@ -216,7 +216,7 @@ listing content..
 .WRITE_EXTERNAL_STORAGE              // WRITE TO DEVICE EXTERNAL STORAGE
 .ACCESS_WIFI_STATE                   // ACCESS WIFI NETWORK INFORMATION
 .ACCESS_COARSE_LOCATION              // ACCESS APPROXIMATE LOCATION
-.RECEIVE_BOOT_COMPLETED              // RECEIVE THE `ACTION_BOOT_COMPLETED` INTENT
+.RECEIVE_BOOT_COMPLETED              // RECEIVE THE <code>ACTION_BOOT_COMPLETED</code> INTENT
 .CHANGE_WIFI_MULTICAST_STATE         // WIFI MULTICAST MODE
 .INTERNET                            // NETWORK OPERATIONS 
 .ACCESS_FINE_LOCATION.               // ACCESS PRECISE LOCATION, GETLAT/GETLONG X,Y CO-ORDINATES
@@ -235,7 +235,7 @@ listing content..
 </code>
 </pre>
     
-    <p>The sample's entry point is defined within the manifest via the `android.intent.action.MAIN` Intent:</p>
+    <p>The sample's entry point is defined within the manifest via the <code>android.intent.action.MAIN</code> Intent:</p>
     
            <pre style="background-color: #100E15; border: none !important;">
            <code>
@@ -427,7 +427,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
 
 </code></pre>
     
-    <p>After decompiling the sample's DEX (Dalvik bytecode), SMALi/baksmali to readable JAVA/Kotlin classes; the entry point, being, the `MainActivity` class defined by `android.intent.action.MAIN` is seen to contain an `onCreate()` method invoking another class, being `CMDService` class, of which, is also invoked via the `onResume()` and `onStart()` method within the same `MainActivity` class. The following represents the `onCreate()` method which is immediatley called by Android's javac/kotlinc compiler and executed on the JVM: 
+    <p>After decompiling the sample's DEX (Dalvik bytecode), SMALi/baksmali to readable JAVA/Kotlin classes; the entry point, being, the <code>MainActivity</code> class defined by <code>android.intent.action.MAIN</code> is seen to contain an <code>onCreate()</code> method invoking another class, being <code>CMDService</code> class, of which, is also invoked via the <code>onResume()</code> and <code>onStart()</code> method within the same <code>MainActivity</code> class. The following represents the <code>onCreate()</code> method which is immediatley called by Android's javac/kotlinc compiler and executed on the JVM: 
       
           <pre style="background-color: #100E15; border: none !important;">
           <code class="language-kotlin">
@@ -442,7 +442,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
 </code>
 </pre>
       
-      Following the callback to the `CMDService` class defined within the above `onCreate()` method, we can see the sample defines Command and Control (C2) capabilities as well as instantiates programmatic `IF/ELSE`, `CASE/SWITCH` conditional statement for C2 flow. These C2 clauses execute depending on the input received by the remote C2 server that is in the control of APT36. Note; the below class has been truncated for brevity, while still highlighting a portion of the sample's backdoor capabilities:</p>
+      Following the callback to the <code>CMDService</code> class defined within the above <code>onCreate()</code> method, we can see the sample defines Command and Control (C2) capabilities as well as instantiates programmatic <code>IF/ELSE</code>, <code>CASE/SWITCH</code> conditional statement for C2 flow. These C2 clauses execute depending on the input received by the remote C2 server that is in the control of APT36. Note; the below class has been truncated for brevity, while still highlighting a portion of the sample's backdoor capabilities:</p>
 
     <pre style="background-color: #100E15; border: none !important;"><code class="language-kotlin">
   public constructor com.example.redacted.redacted.CMDService() {
@@ -893,7 +893,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
 </code>
 </pre>
     
-    <p>In addition to the above, the sample contains a `CallMonitor` class and a `SMSMonitor` class, these classes are associated with registered broadcast receivers permitting real-time monitoring of inbound phone calls and SMS messages. Both of these receivers define a HTTP asynchronous task containing callbacks to another class titled `setting`. This `setting` class defines the adversary's remote C2 within the `webUrl` parameter and is leveraged for C2 input alongside data exfiltration mechanics from data extracted from the device. The nested CallMonitor$HttpAsyncTask class illustrates this below:</p>
+    <p>In addition to the above, the sample contains a <code>CallMonitor</code> class and a <code>SMSMonitor</code> class, these classes are associated with registered broadcast receivers permitting real-time monitoring of inbound phone calls and SMS messages. Both of these receivers define a HTTP asynchronous task containing callbacks to another class titled <code>setting</code>. This <code>setting</code> class defines the adversary's remote C2 within the <code>webUrl</code> parameter and is leveraged for C2 input alongside data exfiltration mechanics from data extracted from the device. The nested CallMonitor$HttpAsyncTask class illustrates this below:</p>
     
     <pre style="background-color: #100E15; border: none !important;">
     <code>
@@ -918,7 +918,7 @@ public class com.example.redacted.redacted.CallMonitor$HttpAsyncTask extends and
 }
 </code>
 </pre>
-         <p>The above contains a callback to `httpCall`, of which, references `v14_2.<init>(com.example.redacted.redacted.setting.weburl);`, a callback to the `setting` class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device (command execution), as well as, exfiltrate device data over an outbound HTTP socket:</p>
+         <p>The above contains a callback to <code>httpCall</code>, of which, references <code>v14_2.<init>(com.example.redacted.redacted.setting.weburl);</code>, a callback to the <code>setting</code> class where webUrl, a parameter assigned with a hard-coded value, is defined. This value is the malware sample's remote C2 server, of which, is used to transmit dynamic commands from APT36 to the compromised device (command execution), as well as, exfiltrate device data over an outbound HTTP socket:</p>
      
      <pre style="background-color: #100E15; border: none !important;">
      <code class="language-kotlin">
