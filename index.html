@@ -51,7 +51,7 @@
 	text: null,
 	accessCountimer:null,
 	index:200, // current cursor position
-	speed:50, // speed of the Typer
+	speed:10, // speed of the Typer
 	file:"", //file, must be setted
 	accessCount:0, //times alt is pressed for Access Granted
 	deniedCount:0, //times caps is pressed for Access Denied
@@ -152,7 +152,7 @@ function replaceUrls(text) {
 	return text
 }
 }
-Typer.speed=15;
+Typer.speed=9;
 Typer.file="catalogue.txt";
 Typer.init();
  
