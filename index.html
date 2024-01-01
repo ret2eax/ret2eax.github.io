@@ -51,10 +51,10 @@
 	text: null,
 	accessCountimer:null,
 	index:200, // current cursor position
-	speed:22, // speed of the Typer
+	speed:50, // speed of the Typer
 	file:"", //file, must be setted
-	accessCount:1, //times alt is pressed for Access Granted
-	deniedCount:1, //times caps is pressed for Access Denied
+	accessCount:0, //times alt is pressed for Access Granted
+	deniedCount:0, //times caps is pressed for Access Denied
 	init: function(){// inizialize Hacker Typer
 		accessCountimer=setInterval(function(){Typer.updLstChr();},500); // inizialize timer for blinking cursor
 		$.get(Typer.file,function(data){// get the text file
