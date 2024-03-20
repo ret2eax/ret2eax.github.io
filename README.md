@@ -1,4 +1,4 @@
-# GitHub Pages - Publications [ E-ZINE ]
+# GitHub Pages - Publications [Blog]
 
 https://homecrew.dev
 
